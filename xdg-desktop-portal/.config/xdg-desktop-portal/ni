@@ -1,0 +1,4 @@
+[preferred]
+default=gnome;lxqt;niri
+org.freedesktop.impl.portal.Screenshot=gnome
+org.freedesktop.impl.portal.ScreenCast=gnome

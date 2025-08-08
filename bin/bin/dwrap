@@ -1,0 +1,80 @@
+#!/bin/bash
+
+_bind() {
+	_bind_arg=$1
+	shift
+	for _path in "$@"; do
+		args+=("$_bind_arg" "$_path" "$_path")
+	done
+}
+
+bind() {
+	_bind --bind-try "$@"
+}
+
+robind() {
+	_bind --ro-bind-try "$@"
+}
+
+devbind() {
+	_bind --dev-bind-try "$@"
+}
+
+tmpfs() {
+	_bind_arg="--tmpfs"
+	for _path in "$@"; do
+		args+=("$_bind_arg" "$_path")
+	done
+}
+args=(
+    --dev /dev \
+    --proc /proc \
+    --symlink usr/lib /lib \
+    --symlink usr/lib64 /lib64 \
+    --symlink usr/bin /bin \
+    --symlink usr/sbin /sbin \
+    --unshare-user \
+    --unshare-all \
+    --share-net \
+    --die-with-parent \
+)
+
+tmpfs \
+    "$HOME" \
+    /sys \
+    /run \
+    /var \
+    /dev/shm \
+
+robind \
+    /usr \
+    /etc \
+    "$XDG_RUNTIME_DIR"/wayland* \
+    "$XDG_RUNTIME_DIR"/pipewire* \
+    "$XDG_RUNTIME_DIR"/pulse* \
+    "$XDG_RUNTIME_DIR"/bus \
+    "$XDG_RUNTIME_DIR"/dbus* \
+    "$HOME/.config/fontconfig" \
+    "$HOME/.config/gtk-3.0" \
+    "$HOME/.config/gtk-2.0" \
+    "$HOME/.config/dconf" \
+    "$HOME/.config/xsettingsd" \
+    "$HOME/.local/share/fcitx5" \
+    "$HOME/.gtkrc-2.0" \
+    "$HOME/.Xauthority" \
+    "$HOME/.icons" \
+    "$HOME/.themes" \
+
+devbind \
+    /run/dbus \
+    /sys/devices \
+    /sys/dev \
+    /dev/dri \
+
+
+bind /tmp 
+
+#systemd-run --user -t --quiet --property MemoryMax=2G --property CPUQuota=200% --wait -- \
+    bwrap "${args[@]}" $@
+
+    #--ro-bind "$XDG_RUNTIME_DIR" "$XDG_RUNTIME_DIR" \

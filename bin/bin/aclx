@@ -1,0 +1,2 @@
+#!/bin/sh
+activate-linux -t '已激活 Linux' -m '转到“设置”以取消激活 Linux。' -f 'Noto Sans CJK SC'

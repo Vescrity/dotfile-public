@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+WLIVT_FOLDER="${WLIVT_FOLDER:-/run/user/$UID}"
+SCRIPT_NAME="${SCRIPT_NAME:-wlivt}"
+_LOCK="${_LOCK:-"$WLIVT_FOLDER"/WLIVT_LOCK}"
+
+if [ -f "$_LOCK" ]; then
+    kill $(cat "$_LOCK")
+    rm "$_LOCK"
+    exit
+fi
+pkill wlsunset
+echo $$ > "$_LOCK"
+
+kill_wlivt() {
+    kill -TERM $wlivt_pid
+    rm $_LOCK
+}
+
+trap 'kill_wlivt $$' SIGINT SIGTERM 
+
+wl-gammactl -c -2 -b 2 &
+wlivt_pid=$!
+wait $wlivt_pid

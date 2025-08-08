@@ -1,0 +1,6 @@
+#!/bin/bash
+sed -i 's/^CPU_SCALING_MAX_FREQ_ON_AC=.*$/CPU_SCALING_MAX_FREQ_ON_AC=5000000/' /etc/tlp.conf
+sed -i 's/^CPU_ENERGY_PERF_POLICY_ON_AC=.*$/CPU_ENERGY_PERF_POLICY_ON_AC=performance/' /etc/tlp.conf
+sed -i 's/^PLATFORM_PROFILE_ON_AC=.*$/PLATFORM_PROFILE_ON_AC=performance/' /etc/tlp.conf
+systemctl restart tlp
+

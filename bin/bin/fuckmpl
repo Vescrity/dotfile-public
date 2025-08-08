@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# 定义字体源目录（根据你的需求修改）
+FONT_SOURCE_DIR="$HOME/.local/share/fonts/lxgw-wenkai"
+
+# 检查 VIRTUAL_ENV 是否设置
+if [ -z "$VIRTUAL_ENV" ]; then
+    echo "错误: VIRTUAL_ENV 环境变量未设置。请先激活虚拟环境。"
+    exit 1
+fi
+
+# 定位到 Matplotlib 的字体目录
+MATPLOTLIB_FONT_DIR="$VIRTUAL_ENV/lib/python3.*/site-packages/matplotlib/mpl-data/fonts/ttf"
+
+# 使用通配符匹配可能的 Python 版本
+MATPLOTLIB_FONT_DIR=$(echo $MATPLOTLIB_FONT_DIR)
+
+# 检查目标目录是否存在
+if [ ! -d "$MATPLOTLIB_FONT_DIR" ]; then
+    echo "错误: 找不到 Matplotlib 的字体目录: $MATPLOTLIB_FONT_DIR"
+    exit 1
+fi
+
+# 检查字体源目录是否存在
+if [ ! -d "$FONT_SOURCE_DIR" ]; then
+    echo "错误: 字体源目录不存在: $FONT_SOURCE_DIR"
+    exit 1
+fi
+
+
+# 创建符号链接
+echo "创建符号链接: $MATPLOTLIB_FONT_DIR -> $FONT_SOURCE_DIR"
+ln -sfn "$FONT_SOURCE_DIR" "$MATPLOTLIB_FONT_DIR"
+
+# 验证操作
+if [ -L "$MATPLOTLIB_FONT_DIR" ]; then
+    echo "操作成功完成!"
+    echo "符号链接指向: $(readlink -f "$MATPLOTLIB_FONT_DIR")"
+else
+    echo "错误: 符号链接创建失败"
+    exit 1
+fi

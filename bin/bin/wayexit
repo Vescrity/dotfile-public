@@ -1,0 +1,3 @@
+#!/bin/bash
+
+niri msg action quit -s || swaymsg exit || hyexit 

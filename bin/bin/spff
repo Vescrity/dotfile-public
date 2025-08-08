@@ -1,0 +1,2 @@
+#!/bin/sh
+RUNEWIDTH_EASTASIAN=0 spf "$@" 

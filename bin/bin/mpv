@@ -1,0 +1,3 @@
+#!/bin/bash
+export VK_LOADER_DRIVERS_SELECT=intel_hasvk_icd.x86_64.json,intel_icd.x86_64.json
+/usr/bin/mpv "$@"

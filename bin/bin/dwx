@@ -1,0 +1,18 @@
+#!/bin/bash
+export LANG=zh_CN.UTF-8
+export QT_QPA_PLATFORMTHEME=qt6ct:qt5ct
+#export GTK_MODULES=canberra-gtk-module
+#export XDG_CONFIG_DIRS=/home/vescrity/.config/kdedefaults:/etc/xdg
+#export GTK2_RC_FILES=/etc/gtk-2.0/gtkrc:/home/vescrity/.gtkrc-2.0:/home/vescrity/.config/gtkrc-2.0
+#export GTK_RC_FILES=/etc/gtk/gtkrc:/home/vescrity/.gtkrc:/home/vescrity/.config/gtkrc
+export GTK_THEME=Sweet-Dark-v40
+#xinit "$(which startlxqt)" -- $1
+#xinit lxqt -- $1
+export XDG_CURRENT_DESKTOP=dwl
+#export XDG_SESSION_DESKTOP=sway
+export _JAVA_AWT_WM_NONREPARENTING=1
+export SDL_VIDEODRIVER=wayland
+#export QT_PLATFORM_PLUGIN=lxqt
+export XDG_MENU_PREFIX=lxqt-
+export QT_QPA_PLATFORM=wayland
+dwl

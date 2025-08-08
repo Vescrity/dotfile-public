@@ -1,0 +1,40 @@
+#!/bin/bash
+_bind() {
+	_bind_arg=$1
+	shift
+	for _path in "$@"; do
+		args+=("$_bind_arg" "$_path" "$_path")
+	done
+}
+
+bind() {
+	_bind --bind-try "$@"
+}
+
+robind() {
+	_bind --ro-bind-try "$@"
+}
+
+devbind() {
+	_bind --dev-bind-try "$@"
+}
+args=()
+
+bind \
+    "$HOME"/.config/QQ \
+    "$HOME"/.cache/QQ 
+
+
+devbind \
+    /run/dbus \
+    /sys/devices \
+    /sys/dev \
+    /dev/dri \
+
+robind /run/systemd/userdb \
+    "$HOME"/Pictures/ACTD \
+    "$HOME"/Programs/QQ \
+    "$HOME"/Programs/llnt 
+
+
+gwrap "${args[@]}" "$@"

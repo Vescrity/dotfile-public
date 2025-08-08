@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+SSHFS_BIN="/usr/bin/sshfs"
+
+if [[ "$1" =~ ^kdeconnect ]]; then
+    "$SSHFS_BIN" "$@" -o PubkeyAcceptedKeyTypes=+ssh-rsa
+else
+    "$SSHFS_BIN" "$@"
+fi

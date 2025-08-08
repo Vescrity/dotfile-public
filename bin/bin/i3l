@@ -1,0 +1,10 @@
+#!/bin/bash
+img=/tmp/i3lock.png
+
+flameshot full -p $img
+#scrot -o $img
+#convert $img -blur 0x8 $img
+magick $img -blur 0x40 -brightness-contrast -20 $img
+i3lock -i $img
+
+rm $img

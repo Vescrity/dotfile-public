@@ -1,0 +1,2 @@
+#!/bin/sh
+activate-linux -t '激活 Windows' -m '转到“设置”以激活 Windows。' -f 'Noto Sans CJK SC' "$@"

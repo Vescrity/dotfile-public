@@ -1,0 +1,28 @@
+#!/bin/bash
+_bind() {
+	_bind_arg=$1
+	shift
+	for _path in "$@"; do
+		args+=("$_bind_arg" "$_path" "$_path")
+	done
+}
+
+bind() {
+	_bind --bind-try "$@"
+}
+
+robind() {
+	_bind --ro-bind-try "$@"
+}
+
+devbind() {
+	_bind --dev-bind-try "$@"
+}
+args=()
+
+
+
+gwrap \
+    --uid 0 --gid 0 \
+    --ro-bind /home/vescrity/Programs/Jiemeng/fakepasswd /etc/passwd \
+    "${args[@]}" "$@"

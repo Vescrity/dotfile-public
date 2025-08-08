@@ -1,0 +1,19 @@
+#!/bin/bash
+#source ~/Programs/wfplug/activate
+export LANG=zh_CN.UTF-8
+
+#export DESKTOP_SESSION=kde
+export QT_QPA_PLATFORMTHEME=qt6ct
+export XDG_MENU_PREFIX=lxqt-
+export XDG_SESSION_TYPE=wayland
+#export GTK3_MODULES=xapp-gtk3-module
+#export XDG_CURRENT_DESKTOP=hyprland
+#export XDG_CURRENT_DESKTOP=lxqt
+export XDG_CURRENT_DESKTOP=Wayfire
+#export XDG_CONFIG_DIRS=/home/vescrity/.config/kdedefaults:/etc/xdg
+#export GTK2_RC_FILES=/etc/gtk-2.0/gtkrc:/home/vescrity/.gtkrc-2.0:/home/vescrity/.config/gtkrc-2.0
+#export GTK_RC_FILES=/etc/gtk/gtkrc:/home/vescrity/.gtkrc:/home/vescrity/.config/gtkrc
+#export GTK_THEME=Kde-Story-Blue-Dark-GTK
+export GTK_THEME=Sweet-Dark-v40
+#wfplug-run_with_env wayfire -c .config/wayfire/wayfire.ini
+/usr/bin/wayfire -c ~/.config/wayfire/hyprfire.ini

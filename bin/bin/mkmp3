@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# 定义输入和输出目录
+INPUT_DIR="./"  # 当前目录
+OUTPUT_DIR="./mp3"
+
+# 创建输出目录
+mkdir -p "$OUTPUT_DIR"
+
+# 遍历输入目录中的所有音频文件
+for file in "$INPUT_DIR"*; do
+    # 检查文件是否为音频文件（可以根据需要修改扩展名）
+    if [[ $file == *.wav || $file == *.flac || $file == *.ogg || $file == *.aac || $file == *.m4a || $file == *.3gpp ]]; then
+        # 获取文件名（不带扩展名）
+        filename=$(basename "$file")
+        filename_no_ext="${filename%.*}"
+        
+        # 定义输出文件路径
+        output_file="$OUTPUT_DIR/${filename_no_ext}.mp3"
+        
+        # 使用 ffmpeg 转换文件
+        ffmpeg -i "$file" -q:a 0 "$output_file"
+        
+        echo "转换: $file -> $output_file"
+    fi
+done
+
+echo "所有文件已转换完成。"

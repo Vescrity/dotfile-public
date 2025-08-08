@@ -1,0 +1,5 @@
+#!/bin/bash
+#terminal=konsole
+terminal=alacritty
+#terminal=qterminal
+exec "$terminal" "$@"

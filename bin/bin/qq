@@ -1,0 +1,11 @@
+#!/bin/bash
+unset DISPLAY
+#env nice -n 19 ~/Programs/QQ/qq --enable-features=WaylandWindowDecorations --ozone-platform-hint=auto --enable-wayland-ime 
+#nice -n 19 ~/Programs/QQ/qq "$@"
+#flatpak run com.qq.QQ
+#bubblejail run QQ /home/vescrity/Programs/QQ/qq --enable-features=WaylandWindowDecorations --ozone-platform-hint=auto --enable-wayland-ime --wayland-text-input-version=3" $@"
+#bubblejail run QQ numlockx &
+qwrap -- /home/vescrity/Programs/QQ/qq --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime" $@" &
+#qwrap -- /home/vescrity/Programs/QQ/qq "$@" 
+#qwrap -- /home/vescrity/Programs/QQ/qq --enable-wayland-ime  --enable-features=UseOzonePlatform --ozone-platform=wayland --wayland-text-input-version=3 "$@" 
+#nice -n 19 qwrap -- /home/vescrity/Programs/QQ/qq --enable-wayland-ime  --enable-features=UseOzonePlatform --ozone-platform=wayland "$@" 

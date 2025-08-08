@@ -1,0 +1,6 @@
+#!/bin/bash
+
+TEMPPIC=$(mktemp --suffix '.png')
+grim -l 0 "$TEMPPIC"
+showimg.py "$TEMPPIC" 
+rm "$TEMPPIC"

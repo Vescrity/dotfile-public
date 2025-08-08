@@ -1,0 +1,11 @@
+#!/bin/bash
+DOCKPID=$(pgrep 'nwg-dock')
+if [ -n "$DOCKPID" ]; then
+    kill -SIGUSR1 "$DOCKPID"
+else
+    if [[ "$1" == sway ]]; then
+        nwg-dock -i 32 -lp start -r --nows & 
+    else
+        nwg-dock-hyprland -i 32 -lp start -r -ico archlinux & 
+    fi
+fi

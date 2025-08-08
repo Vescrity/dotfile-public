@@ -1,0 +1,41 @@
+#!/bin/sh
+
+sf2_file="/usr/share/soundfonts/FluidR3_GM.sf2"
+midi_file=""
+
+# 显示帮助信息
+show_help() {
+  echo "用法: midiplay [-f SoundFont.sf2] MidiFile.mid"
+  echo "选项:"
+  echo "  -f      指定sf2文件路径"
+  echo "  -h      显示帮助信息"
+  exit 1
+}
+
+# 解析命令行参数
+while getopts "f:h" opt; do
+  case $opt in
+    f)
+      sf2_file="$OPTARG"
+      ;;
+    h)
+      show_help
+      ;;
+    \?)
+      echo "Invalid Option: -$OPTARG"
+      exit 1
+      ;;
+  esac
+done
+
+# 获取 MIDI 文件参数
+shift "$((OPTIND - 1))"
+midi_file=$1
+
+# 检查 MIDI 文件是否被提供
+if [ -z "$midi_file" ]; then
+  echo "Which file would you like to play?"
+  exit 1
+fi
+
+fluidsynth -a pulseaudio -g 0.95 -l -i "$sf2_file" "$midi_file"

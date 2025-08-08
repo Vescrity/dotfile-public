@@ -1,0 +1,2 @@
+#!/bin/sh
+nohup clash -d ~/clash > /dev/null &

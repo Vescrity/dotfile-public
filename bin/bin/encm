@@ -1,0 +1,4 @@
+#!/bin/bash
+electron-netease-cloud-music --enable-features=WaylandWindowDecorations --ozone-platform-hint=auto --enable-features=AllowQt --enable-wayland-ime --wayland-text-input-version=3 "$@"
+#nice -n 19 electron-netease-cloud-music "$@"
+

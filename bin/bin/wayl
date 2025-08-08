@@ -1,0 +1,9 @@
+#!/bin/bash
+img=/run/user/$UID/lock.png
+grim -l 0 $img
+#scrot -o $img
+magick $img -blur 0x20 -brightness-contrast -5 $img
+#swaylock -i $img "$@"
+overlaytrans.py &
+gtklock
+pkill overlaytrans

@@ -1,0 +1,4 @@
+#!/bin/bash
+ppid=$(ps -o ppid= -p $(pgrep "$1")| tr -s '\n' ' ')
+ppid=$(echo -n $ppid)
+ps -p "$ppid" -o pid=PID -o comm=COMM

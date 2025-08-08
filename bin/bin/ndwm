@@ -1,0 +1,20 @@
+#!/bin/bash
+DISPLAY="${1:-:1}"
+Xwayland $DISPLAY > /dev/null 2>&1 &
+XDG_SESSION_TYPE=x11
+unset WAYLAND_DISPLAY
+wait_time=0.1
+
+while true; do
+    if xset q > /dev/null 2>&1; then
+        echo "X11 server is available."
+        break
+    else
+        echo "Trying to connect to X11 server... (waiting for $wait_time seconds)"
+        sleep $wait_time
+        wait_time=$(echo "$wait_time * 2" | bc)
+    fi
+done
+
+dwm
+#xfwm4

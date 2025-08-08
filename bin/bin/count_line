@@ -1,0 +1,10 @@
+#!/bin/bash
+echo "请输入需要统计的文件后缀，使用空格分隔(例如 .py .sh .js):"
+read -ra extensions  # 读入数组
+root_dir='.'         # 起始目录
+total_lines=0
+for ext in "${extensions[@]}"; do
+    lines=$(find $root_dir -name "*$ext" | xargs wc -l | tail -n1 | awk '{print $1}')
+    total_lines=$((total_lines + lines))
+done
+echo "指定后缀文件的总行数为: $total_lines"

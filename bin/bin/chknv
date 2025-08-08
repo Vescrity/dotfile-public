@@ -1,0 +1,3 @@
+#!/bin/bash
+unset VK_LOADER_DRIVERS_SELECT
+vulkaninfo --summary|grep GPU

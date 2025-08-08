@@ -1,0 +1,25 @@
+#!/bin/sh
+
+
+if [ $# -ne 1 ]; then
+  echo "请传入一个数字作为参数"
+  exit 1
+fi
+
+# 获取传入的数字
+number=$1
+
+# 判断数字并执行相应操作
+if [ $number -eq 0 ]; then
+  xrandr --output eDP-1 --mode 1920x1080
+elif [ $number -eq 1 ]; then
+  xrandr --output eDP-1 --mode 960x540
+elif [ $number -eq 2 ]; then
+  xrandr --output eDP-1 --mode 1400x900
+elif [ $number -eq 3 ]; then
+  xrandr --output eDP-1 --mode 800x600
+else
+  echo "无效的数字参数"
+  exit 1
+fi
+

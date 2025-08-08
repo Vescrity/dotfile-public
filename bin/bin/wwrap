@@ -1,0 +1,42 @@
+#!/bin/bash
+_bind() {
+	_bind_arg=$1
+	shift
+	for _path in "$@"; do
+		args+=("$_bind_arg" "$_path" "$_path")
+	done
+}
+
+bind() {
+	_bind --bind-try "$@"
+}
+
+robind() {
+	_bind --ro-bind-try "$@"
+}
+
+devbind() {
+	_bind --dev-bind-try "$@"
+}
+args=()
+
+bind \
+    "$HOME"/.wine \
+    "$HOME"/Music \
+    "$HOME"/Game \
+    /mountdata/vescrity/wine_drive_c \
+    /mountdata/vescrity/wine_files 
+    /mountdata/vescrity/Game 
+
+
+
+devbind \
+    /run/dbus \
+    /sys/devices \
+    /sys/dev \
+    /dev/dri \
+
+robind /run/systemd/userdb
+
+
+gwrap "${args[@]}" "$@"

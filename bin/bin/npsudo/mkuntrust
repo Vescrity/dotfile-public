@@ -1,0 +1,3 @@
+#!/bin/bash
+mkdir /tmp/untrust
+chown untrust:untrust /tmp/untrust

@@ -1,0 +1,7 @@
+#!/bin/bash
+journalctl -k -f _TRANSPORT=kernel | while read -r line; do
+  if [[ "$line" == *"Out of memory"* || "$line" == *"Killed process"* ]]; then
+    proc_info=$(echo "$line" | grep -oE "Killed process.*\(.*\)")
+    notify-send -u critical "OOM@Kernel" "$proc_info"
+  fi
+done

@@ -1,0 +1,25 @@
+#!/bin/lua
+-- script.lua
+local utf8 = require("utf8")
+
+local unicode_char = arg[1]
+local count = tonumber(arg[2])
+
+if not unicode_char or not count then
+    print("Usage: listchar <unicode_character> <number_of_characters>")
+    os.exit(1)
+end
+
+-- 获取 Unicode 字符的代码点
+local codepoint = utf8.codepoint(unicode_char)
+
+-- 列出前后字符
+local result = {}
+
+for i = (codepoint - count), (codepoint + count) do
+    local char = utf8.char(i)
+    table.insert(result, char)
+end
+
+-- 输出结果
+print(table.concat(result, "\n"))
