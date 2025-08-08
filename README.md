@@ -31,7 +31,7 @@ maybe not the full list.
 
 ## keybindings (niri session)
 
-- Mod + Return : terminal
+- Mod + Enter : terminal
 - Mod + HJKL : move focus
 - Mod + Number : Change workspace
 - Mod + Shift + ... : move window to ...
