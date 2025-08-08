@@ -38,3 +38,7 @@ maybe not the full list.
 - Mod + S : record screen (wfrc)
 - Mod + D : launcher
 - ....
+
+## About wfrc
+
+see https://github.com/Vescrity/wfrc
