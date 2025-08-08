@@ -29,6 +29,7 @@ maybe not the full list.
 - nwg-drawer (optional)
 - nwg-bar (for exit)
 - nwg-clipman (for clipboard)
+- swaync (notification)
 - lxqt-policykit
 
 ## keybindings (niri session)
