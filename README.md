@@ -11,6 +11,8 @@ For example, install the config of niri,
 stow niri
 ```
 
+it will create **symbolic link** to the target place.
+
 ## Dependency (niri session)
 
 maybe not the full list.
