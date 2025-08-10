@@ -1,0 +1,38 @@
+#!/bin/bash
+set -euo pipefail  # 启用严格模式：错误退出、未定义变量检测、管道错误检测
+
+readonly TMPDIR=$(mktemp -d)
+readonly DOTPATH="${HOME}/dotfile"
+readonly REPO_URL="git@github.com:Vescrity/dotfile-public.git"
+readonly REPO_DIR="${TMPDIR}/dotfile-public"
+
+cleanup() {
+    if [[ -d "${TMPDIR}" ]]; then
+        rm -rf "${TMPDIR}"
+    fi
+}
+
+trap cleanup EXIT
+
+(
+    cp -r ${DOTPATH} ${TMPDIR}
+)
+
+(
+    cd "${TMPDIR}" || exit 1
+    git clone "${REPO_URL}" "${REPO_DIR}"
+    rm -rf dotfile-public/*
+    mv dotfile/* dotfile-public
+    mv dotfile/.gitignore2 dotfile-public/.gitignore
+    
+    cd "${REPO_DIR}" || exit 1
+    git add -A
+    if git diff-index --quiet HEAD --; then
+        echo "没有变化需要提交"
+    else
+        git commit -m "自动更新: $(date +'%Y-%m-%d %H:%M:%S')"
+        git push
+    fi
+)
+
+echo "操作完成"

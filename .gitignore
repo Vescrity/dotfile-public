@@ -17,6 +17,7 @@
 !/bin/bin/ch*bg
 !/bin/bin/clash_start
 !/bin/bin/ndwm
+!/bin/bin/updot
 
 /superfile
 /dolphin-emu
@@ -28,3 +29,4 @@
 /wayfire
 /kate
 /hypr
+
