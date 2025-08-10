@@ -1,0 +1,17 @@
+*.png
+*.exe
+/fcitx5/.local/share/fcitx5/data
+/fcitx5/.local/share/fcitx5/rime
+/bin/bin/.*
+/bin/bin/*
+!/bin/bin/{gwrap,cwrap,xqq,cpt,cpc,niri-session,shadow*,dxterm,unlock,wfrc,wmenu*,chwbg,chknv,clash_start,ndwm}
+/superfile
+/dolphin-emu
+/kitty
+/polybar
+/i3
+/sway
+/openbox
+/wayfire
+/kate
+/hypr

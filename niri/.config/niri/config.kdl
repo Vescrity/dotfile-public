@@ -1,0 +1,763 @@
+// Default niri config (v0.1.9) with some additions and modifications
+// for LXQt. You may find a more recent version in
+// /usr/share/doc/niri/default-config.kdl.
+// This config is in the KDL format: https://kdl.dev
+// "/-" comments out the following node.
+// Check the wiki for a full description of the configuration:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Overview
+
+// Uncomment this line to ask the clients to omit their client-side decorations if possible.
+// If the client will specifically ask for CSD, the request will be honored.
+// Additionally, clients will be informed that they are tiled, removing some rounded corners.
+prefer-no-csd
+environment {
+    LANG "zh_CN.UTF-8"
+    XDG_MENU_PREFIX "lxqt-"
+    GTK_THEME "Sweet-Dark-v40"
+    QT_QPA_PLATFORMTHEME "qt6ct"
+    VK_LOADER_DRIVERS_SELECT "intel_hasvk_icd.x86_64.json,intel_icd.x86_64.json,intel_hasvk_icd.1686.json,intel_icd.i686.json"
+    DISPLAY ":12"
+    XDG_CURRENT_DESKTOP "niri"
+    XDG_SESSION_DESKTOP "niri"
+    XDG_SESSION_TYPE "wayland"
+}
+gestures {
+    dnd-edge-view-scroll {
+        trigger-width 30
+        delay-ms 100
+        max-speed 1500
+    }
+
+    dnd-edge-workspace-switch {
+        trigger-height 50
+        delay-ms 100
+        max-speed 1500
+    }
+
+    hot-corners {
+        off
+    }
+}
+hotkey-overlay {
+    skip-at-startup
+    //hide-not-bound
+}
+overview {
+    zoom 0.5
+    //backdrop-color "#000000"
+}
+layer-rule {
+    // This is for swaybg; change for other wallpaper tools.
+    // Find the right namespace by running niri msg layers.
+    match namespace="^wallpaper$"
+    place-within-backdrop true
+}
+// Make fuzzel FLOAT.
+/-layer-rule {
+    match namespace="^launcher$"
+    baba-is-float true
+}
+// Settings that influence how windows are positioned and sized.
+// Find more information on the wiki:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
+layout {
+    tab-indicator {
+        // off
+        //hide-when-single-tab
+        place-within-column
+        gap 2
+        width 20
+        length total-proportion=0.8
+        position "left"
+        gaps-between-tabs 20
+        corner-radius 8
+        //active-color "red"
+        //inactive-color "gray"
+        //urgent-color "blue"
+        active-gradient from="#ee7c78" to="#ea76cb" angle=5 in="oklch longer hue"
+        //active-gradient from="#a0f80f" to="#ff0daf" angle=0
+        inactive-gradient from="#50505080" to="#80808080" angle=0 
+        urgent-gradient from="#800" to="#a33" angle=45
+    }
+    background-color "transparent"
+    shadow {
+         on 
+         softness 3
+         spread 3
+         offset x=4 y=4
+         draw-behind-window false
+         color "#000000a0"
+     }
+    gaps 12 
+    default-column-width { proportion 0.4; }
+    // Struts shrink the area occupied by windows, similarly to layer-shell panels.
+    // You can think of them as a kind of outer gaps. They are set in logical pixels.
+    // Left and right struts will cause the next window to the side to always be visible.
+    // Top and bottom struts will simply add outer gaps in addition to the area occupied by
+    // layer-shell panels and regular gaps.
+    struts {
+         left 4
+         right 4
+         top -9
+         bottom -9
+    }
+
+    // When to center a column when changing focus, options are:
+    // - "never", default behavior, focusing an off-screen column will keep at the left
+    //   or right edge of the screen.
+    // - "always", the focused column will always be centered.
+    // - "on-overflow", focusing a column will center it if it doesn't fit
+    //   together with the previously focused column.
+    center-focused-column "never"
+
+    // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
+    preset-column-widths {
+        proportion 0.2
+        proportion 0.333333333
+        proportion 0.5
+        proportion 0.666666667
+        proportion 0.8
+
+        // Fixed sets the width in logical pixels exactly.
+        // fixed 1920
+    }
+    // preset-window-heights { }
+
+
+
+    // By default focus ring and border are rendered as a solid background rectangle
+    // behind windows. That is, they will show up through semitransparent windows.
+    // This is because windows using client-side decorations can have an arbitrary shape.
+    //
+    // If you don't like that, you should uncomment `prefer-no-csd` below.
+    // Niri will draw focus ring and border *around* windows that agree to omit their
+    // client-side decorations.
+    //
+    // Alternatively, you can override it with a window rule called
+    // `draw-border-with-background`.
+
+    // You can change how the focus ring looks.
+    border {
+        // Uncomment this line to disable the focus ring.
+        // off
+
+        // How many logical pixels the ring extends out from the windows.
+        width 2
+
+        // Colors can be set in a variety of ways:
+        // - CSS named colors: "red"
+        // - RGB hex: "#rgb", "#rgba", "#rrggbb", "#rrggbbaa"
+        // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
+
+        // Color of the ring on the active monitor.
+        //active-color "#7fc8ff"
+        active-gradient from="#ee7c78" to="#ea76cb" angle=45 in="oklch longer hue"
+        //active-gradient from="#fc5acf" to="#74f8ff" angle=130 in="srgb-linear" //relative-to="workspace-view"
+        //inactive-gradient from="#fc5acf50" to="#74f8ff50" angle=130 in="srgb-linear" //relative-to="workspace-view"
+        // Color of the ring on inactive monitors.
+        inactive-color "#00000080"
+
+        //active-gradient from="#80c8ff" to="#bbddff" angle=45
+        // To do that, set relative-to="workspace-view".
+        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+    }
+    focus-ring {
+        off
+        width 3
+        active-color "#ffc87f"
+        inactive-color "#505050"
+
+        // active-gradient from="#ffbb66" to="#ffc880" angle=45 relative-to="workspace-view"
+        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+    }
+    insert-hint {
+        // off
+        //color "#ffc87f80"
+        //gradient from="#aa66ffff" to="#ff66aaff" angle=45 in="srgb-linear" relative-to="workspace-view"
+        gradient from="#ffbb6680" to="#ffc88080" angle=45 relative-to="workspace-view"
+    }
+
+}
+
+
+// Window rules let you adjust behavior for individual windows.
+// Find more information on the wiki:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
+
+// Work around WezTerm's initial configure bug
+// by setting an empty default-column-width.
+window-rule {
+    // This regular expression is intentionally made as specific as possible,
+    // since this is the default config, and we want no false positives.
+    // You can get away with just app-id="wezterm" if you want.
+    geometry-corner-radius 6
+    clip-to-geometry true
+    //match app-id=r#"^org\.wezfurlong\.wezterm$"#
+}
+window-rule {
+    match title="^(图片查看器|.*记录)$"
+    match app-id="^(lxqt-.*|pavu.*|.*portal-lxqt|.*gwenview|mpv)$"
+    open-floating true
+}
+// Example: block out two password managers from screen capture.
+// (This example rule is commented out with a "/-" in front.)
+window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+    match app-id=r#"^QQ$"#
+
+    block-out-from "screen-capture"
+
+    // Use this instead if you want them visible on third-party screenshot tools.
+    // block-out-from "screencast"
+}
+/-window-rule {
+    match is-focused=false
+    opacity 0.95
+
+    //baba-is-float true
+}
+window-rule {
+    match is-floating=true
+    match is-floating=false
+    draw-border-with-background false
+
+}
+// Input device configuration.
+// Find the full list of options on the wiki:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Input
+input {
+    mod-key "Super"
+    mod-key-nested "Alt"
+    keyboard {
+        xkb {
+            // You can set rules, model, layout, variant and options.
+            // For more information, see xkeyboard-config(7).
+
+            // For example:
+            layout "us"
+            // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
+        }
+        numlock
+        repeat-rate 40
+        repeat-delay 400
+    }
+
+    // Next sections include libinput settings.
+    // Omitting settings disables them, or leaves them at their default values.
+    touchpad {
+        // off
+        tap
+        //dwt
+        //dwtp
+        natural-scroll
+        accel-speed 0.1
+        // accel-profile "flat"
+        // scroll-method "two-finger"
+        // disabled-on-external-mouse
+    }
+
+    mouse {
+        // off
+        // natural-scroll
+        // accel-speed 0.2
+        // accel-profile "flat"
+        // scroll-method "no-scroll"
+    }
+
+    touch { 
+        map-to-output "DP-1" 
+    }
+    // Uncomment this to make the mouse warp to the center of newly focused windows.
+    // warp-mouse-to-focus
+
+    // Focus windows and outputs automatically when moving the mouse into them.
+    // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
+    // focus-follows-mouse max-scroll-amount="0%"
+     focus-follows-mouse max-scroll-amount="80%"
+}
+
+
+// You can configure outputs by their name, which you can find
+// by running `niri msg outputs` while inside a niri instance.
+// The built-in laptop monitor is usually called "eDP-1".
+// Find more information on the wiki:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
+// Remember to uncomment the node by removing "/-"!
+output "eDP-1" {
+    //background-color "#000"
+    // Uncomment this line to disable this output.
+    // off
+
+    // Resolution and, optionally, refresh rate of the output.
+    // The format is "<width>x<height>" or "<width>x<height>@<refresh rate>".
+    // If the refresh rate is omitted, niri will pick the highest refresh rate
+    // for the resolution.
+    // If the mode is omitted altogether or is invalid, niri will pick one automatically.
+    // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
+    //mode "1920x1080@60.096"
+    mode "1920x1080@165.014"
+
+    // You can use integer or fractional scale, for example use 1.5 for 150% scale.
+    scale 1.0
+
+    // Transform allows to rotate the output counter-clockwise, valid values are:
+    // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
+    transform "normal"
+
+    // Position of the output in the global coordinate space.
+    // This affects directional monitor actions like "focus-monitor-left", and cursor movement.
+    // The cursor can only move between directly adjacent outputs.
+    // Output scale and rotation has to be taken into account for positioning:
+    // outputs are sized in logical, or scaled, pixels.
+    // For example, a 3840×2160 output with scale 2.0 will have a logical size of 1920×1080,
+    // so to put another output directly adjacent to it on the right, set its x to 1920.
+    // If the position is unset or results in an overlap, the output is instead placed
+    // automatically.
+    //position x=1920 y=0
+}
+/-output "HDMI-A-1" {
+    //mode "1680x1080@75.000"
+    mode "1920x1080@60.000"
+
+    scale 1
+
+    // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
+    transform "normal"
+
+    //position x=0 y=0
+}
+output "DP-1" {
+    background-color "#000"
+    // Uncomment this line to disable this output.
+    // off
+
+    // Resolution and, optionally, refresh rate of the output.
+    // The format is "<width>x<height>" or "<width>x<height>@<refresh rate>".
+    // If the refresh rate is omitted, niri will pick the highest refresh rate
+    // for the resolution.
+    // If the mode is omitted altogether or is invalid, niri will pick one automatically.
+    // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
+    //mode "1680x1080@75.000"
+
+    // You can use integer or fractional scale, for example use 1.5 for 150% scale.
+    scale 1
+
+    // Transform allows to rotate the output counter-clockwise, valid values are:
+    // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
+    transform "normal"
+
+    // Position of the output in the global coordinate space.
+    // This affects directional monitor actions like "focus-monitor-left", and cursor movement.
+    // The cursor can only move between directly adjacent outputs.
+    // Output scale and rotation has to be taken into account for positioning:
+    // outputs are sized in logical, or scaled, pixels.
+    // For example, a 3840×2160 output with scale 2.0 will have a logical size of 1920×1080,
+    // so to put another output directly adjacent to it on the right, set its x to 1920.
+    // If the position is unset or results in an overlap, the output is instead placed
+    // automatically.
+    position x=-1980 y=0
+}
+
+// Add lines like this to spawn processes at startup.
+// Note that running niri as a session supports xdg-desktop-autostart,
+// which may be more convenient to use.
+// See the binds section below for more spawn examples.
+// spawn-at-startup "alacritty" "-e" "fish"
+spawn-at-startup "sh" "-c" "systemctl --user restart xdg-desktop-portal"
+spawn-at-startup "sh" "-c" "swaybg -m fill -i ~/Pictures/Wallpaper/blur/sunset.jpg"
+spawn-at-startup "sh" "-c" "xwayland-satellite :12"
+spawn-at-startup "nwg-panel"
+spawn-at-startup "wsst"
+spawn-at-startup "chwbg"
+spawn-at-startup "lxqt-policykit-agent"
+spawn-at-startup "avizo-service"
+spawn-at-startup "oomnotid"
+
+//spawn-at-startup "xwayland-satellite" ":12"
+//spawn-at-startup "sh" "-c" "lxqt-session && niri msg action quit -s"
+spawn-at-startup "swaync"
+//spawn-at-startup "sh" "-c" "XDG_CURRENT_DESKTOP=wlroots lxqt-panel"
+//spawn-at-startup "sh" "-c" "XDG_CURRENT_DESKTOP=wlroots pcmanfm-qt --desktop"
+spawn-at-startup "sh" "-c" "waybar -c ~/.config/waybar/niri.jsonc"
+//spawn-at-startup "sh" "-c" "wl-paste --type text --watch cliphist store"
+//spawn-at-startup "sh" "-c" "wl-paste --type image --watch cliphist store"
+spawn-at-startup "sh" "-c" "wl-paste --watch cliphist store"
+//spawn-at-startup "sh" "-c" "wl-clip-persist -c regular"
+
+// You can change the path where screenshots are saved.
+// A ~ at the front will be expanded to the home directory.
+// The path is formatted with strftime(3) to give you the screenshot date and time.
+screenshot-path "~/tmp/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+// You can also set this to null to disable saving screenshots to disk.
+// screenshot-path null
+
+// Animation settings.
+// The wiki explains how to configure individual animations:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
+animations {
+    // Uncomment to turn off all animations.
+    // off
+    window-open {
+        //duration-ms 150
+        //curve "linear"
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+        custom-shader r"
+        float map(float value, float min1, float max1, float min2, float max2) {
+            return min2 + (value - min1) * (max2 - min2) / (max1 - min1);
+        }
+        vec4 fold(vec3 coords_geo, vec3 size_geo) {
+            float cur = niri_clamped_progress;
+            if (coords_geo.x > cur) { return vec4(0.0); }
+            vec3 coord = vec3(map(coords_geo.x,0.0, cur, 0.0, 1.0), coords_geo.y, coords_geo.z);
+            //vec3 coord = vec3(map(coords_geo.x,0.0, cur, 0.0, 1.0), map(coords_geo.y,0.0,cur,0.0,1.0), coords_geo.z);
+            return texture2D(niri_tex, (niri_geo_to_tex * coord).st);
+        }
+        vec4 open_color(vec3 coords_geo, vec3 size_geo) {
+            // You can pick one of the example functions or write your own.
+            //return fall_and_rotate(coords_geo, size_geo);
+            return fold(coords_geo, size_geo);
+            //return split_and_fade(coords_geo, size_geo);
+            //return invert(coords_geo, size_geo);
+        }
+        "
+    }
+    window-close {
+        //duration-ms 150
+        //curve "linear"
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+        custom-shader r"
+        float map(float value, float min1, float max1, float min2, float max2) {
+            return min2 + (value - min1) * (max2 - min2) / (max1 - min1);
+        }
+        vec4 fold(vec3 coords_geo, vec3 size_geo) {
+            float cur = 1.0-niri_clamped_progress;
+            if (coords_geo.x > cur) { return vec4(0.0); }
+            vec3 coord = vec3(map(coords_geo.x,0.0, cur, 0.0, 1.0), coords_geo.y, coords_geo.z);
+            //vec3 coord = vec3(map(coords_geo.x,0.0, cur, 0.0, 1.0), map(coords_geo.y,0.0,cur,0.0,1.0), coords_geo.z);
+            return texture2D(niri_tex, (niri_geo_to_tex * coord).st);
+        }
+        int mod(int x, int y) {
+            return x - (y * (x / y)); // 手动计算取模
+        }
+        vec4 invert(vec3 coords_geo, vec3 size_geo) {
+
+            // 获取当前颜色（根据实际情况获取纹理颜色）
+            vec4 color = texture2D(niri_tex, coords_geo.xy); // 包含 RGBA
+
+            // 计算反转的亮度
+            float progress = float(mod(int(niri_clamped_progress*10.0),2) );
+
+            // 反转颜色的亮度
+            vec3 inverted_color = mix(color.rgb, vec3(1.0) - color.rgb, 1.0);
+            float invr = inverted_color.g+inverted_color.b;
+            float invg = inverted_color.r+inverted_color.b;
+            float invb = inverted_color.r+inverted_color.g;
+
+            // 返回新的颜色，保持原有的 alpha 值
+            vec4 invt = vec4(invr,invg,invb, color.a)*color.a*0.5; // 保持原有的 alpha
+            progress = 1.0-niri_clamped_progress;
+            return mix(invt, color, progress);
+        }
+        vec4 fall_and_rotate(vec3 coords_geo, vec3 size_geo) {
+            // For this shader, set animation curve to linear for best results.
+            vec2 pivot_point_factor = vec2(0.5, 1.0);
+
+            // Simulate an accelerated fall: square the (linear) progress.
+            float progress = niri_clamped_progress * niri_clamped_progress;
+            float lprogress = niri_clamped_progress;
+            float scale = 1.0 + lprogress * 0.2;
+
+            // Get our rotation pivot point coordinates at the bottom center of the window.
+            vec2 coords = (coords_geo.xy - pivot_point_factor) * size_geo.xy;
+
+            // Move the window down to simulate a fall.
+            coords.y -= progress * 1200.0;
+            
+            // Randomize rotation direction and maximum angle.
+            float random = (niri_random_seed - 0.5) / 2.0;
+            random = sign(random) - random;
+            float max_angle = 1.3 * random;
+
+            // Rotate the window around our pivot point.
+            float angle = progress * max_angle;
+            mat2 rotate = mat2(cos(angle), -sin(angle), sin(angle), cos(angle));
+            coords = rotate * coords;
+
+            // Transform the coordinates back.
+            coords_geo = vec3(coords / size_geo.xy + pivot_point_factor, 1.0);
+            coords_geo = vec3((coords_geo.xy - vec2(0.5)) / scale + vec2(0.5), 1.0);
+
+            // Sample the window texture.
+            vec3 coords_tex = niri_geo_to_tex * coords_geo;
+            vec4 color = texture2D(niri_tex, coords_tex.st);
+
+            // Multiply by alpha to fade out.
+            return color * (1.0 - niri_clamped_progress*0.2);
+        }
+        vec4 close_color(vec3 coords_geo, vec3 size_geo) {
+            // You can pick one of the example functions or write your own.
+            //return fall_and_rotate(coords_geo, size_geo);
+            return fold(coords_geo, size_geo);
+            //return split_and_fade(coords_geo, size_geo);
+            //return invert(coords_geo, size_geo);
+        }
+
+        "
+    }
+
+    // Slow down all animations by this factor. Values below 1 speed them up instead.
+    //slowdown 3.0
+}
+
+binds {
+    Mod+Escape { toggle-keyboard-shortcuts-inhibit; }
+    // Keys consist of modifiers separated by + signs, followed by an XKB key name
+    // in the end. To find an XKB name for a particular key, you may use a program
+    // like wev.
+    //
+    // "Mod" is a special modifier equal to Super when running on a TTY, and to Alt
+    // when running as a winit window.
+    //
+    // Most actions that you can bind here can also be invoked programmatically with
+    // `niri msg action do-something`.
+
+    // Mod-Shift-/, which is usually the same as Mod-?,
+    // shows a list of important hotkeys.
+    Mod+Shift+Slash { show-hotkey-overlay; }
+    
+    // Suggested binds for running programs: terminal, app launcher, screen locker.
+    Mod+Return { spawn "dxterm"; }
+    Mod+U { spawn "dropterm"; }
+    Mod+D { spawn "wmenurun"; }
+    Mod+Shift+D { spawn "fuzzel"; }
+    Mod+Ctrl+D { spawn "nwg-drawer"; }
+    Mod+C { spawn "nwg-clipman"; }
+    //Mod+Ctrl+C { spawn "sh" "-c" "env DISPLAY=:0 xsel -ob | wl-copy"; }
+    //Mod+Ctrl+V { spawn "sh" "-c" "wl-paste -n | env DISPLAY=:0 xsel -ib"; }
+    Ctrl+Alt+H { spawn "playerctl" "previous"; }
+    Ctrl+Alt+L { spawn "playerctl" "next"; }
+    Ctrl+Alt+Space { spawn "playerctl" "play-pause"; }
+    //Ctrl+Alt+K { spawn "sh" "-c" "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+" ; }
+    //Ctrl+Alt+J { spawn "sh" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-" ; }
+    Ctrl+Alt+K { spawn "sh" "-c" "volumectl -d + 1" ; }
+    Ctrl+Alt+J { spawn "sh" "-c" "volumectl -d - 1" ; }
+    //Mod+Alt+K { spawn "sh" "-c" "brightnessctl s +1%" ; }
+    //Mod+Alt+J { spawn "sh" "-c" "brightnessctl s 1%-" ; }
+    Mod+Alt+K { spawn "sh" "-c" "lightctl -d + 1" ; }
+    Mod+Alt+J { spawn "sh" "-c" "lightctl -d - 1" ; }
+    Mod+Alt+L { spawn "sh" "-c" "brightnessctl s 0" ; }
+    Mod+N { spawn "chwbg" ; }
+    Mod+M { spawn "pcmanfm-qt" "--desktop" ; }
+    //Mod+Shift+M { spawn "pkill" "pcmanfm-qt" ; }
+    Mod+Shift+N { spawn "chwbg" "-"; }
+    Mod+I { spawn "frzscr" "-i" ; }
+    Mod+Shift+I { spawn "pkill" "frzscr" ; }
+    Mod+G { spawn "sh" "-c" "pkill -SIGUSR1 waybar" ; }
+    Mod+P { spawn "sh" "-c" "notify-send -i notifyconf Niri \"$(niri msg focused-window)\"" ; }
+    Mod+Ctrl+P { spawn "sh" "-c" "wl-paste | swappy -f -" ; }
+    Mod+Alt+P { spawn "hyprpicker" "-a" ; }
+    Mod+Shift+semicolon { spawn "wayl" ; }
+    Mod+S { spawn "wfrc" ; }
+    
+
+    // You can also use a shell. Do this if you need pipes, multiple commands, etc.
+    // Note: the entire command goes as a single argument in the end.
+    // Mod+T { spawn "bash" "-c" "notify-send hello && exec alacritty"; }
+
+    // Example volume keys mappings for PipeWire & WirePlumber.
+    // The allow-when-locked=true property makes them work even when the session is locked.
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.01+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.01-"; }
+    XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    Ctrl+Alt+M     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+
+    //Brightness
+    XF86MonBrightnessUp { spawn "lxqt-config-brightness" "-i"; }
+    XF86MonBrightnessDown { spawn "lxqt-config-brightness" "-d"; }
+    XF86PowerOff { spawn "wlivt" ; }
+
+    Mod+Shift+Ctrl+Q { close-window; }
+    Mod+Shift+Q { spawn "niri-close-wrap"; }
+    
+    //Mod+Left  { focus-column-left; }
+    //Mod+Down  { focus-window-down; }
+    //Mod+Up    { focus-window-up; }
+    //Mod+Right { focus-column-right; }
+    Mod+H     { focus-column-left; }
+    Mod+J     { focus-window-down; }
+    Mod+K     { focus-window-up; }
+    Mod+L     { focus-column-right; }
+    
+    //Mod+Shift+Left  { move-column-left; }
+    //Mod+Shift+Down  { move-window-down; }
+    //Mod+Shift+Up    { move-window-up; }
+    //Mod+Shift+Right { move-column-right; }
+    Mod+Shift+H     { move-column-left; }
+    Mod+Shift+J     { move-window-down; }
+    Mod+Shift+K     { move-window-up; }
+    Mod+Shift+L     { move-column-right; }
+    
+    Mod+Home { focus-column-first; }
+    Mod+End  { focus-column-last; }
+    Mod+Ctrl+Home { move-column-to-first; }
+    Mod+Ctrl+End  { move-column-to-last; }
+    
+    //Mod+Ctrl+Left  { focus-monitor-left; }
+    //Mod+Ctrl+Down  { focus-monitor-down; }
+    //Mod+Ctrl+Up    { focus-monitor-up; }
+    //Mod+Ctrl+Right { focus-monitor-right; }
+    Mod+Ctrl+H     { focus-monitor-left; }
+    Mod+Ctrl+J     { focus-monitor-down; }
+    Mod+Ctrl+K     { focus-monitor-up; }
+    Mod+Ctrl+L     { focus-monitor-right; }
+    
+    //Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
+    //Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
+    //Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
+    //Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
+    Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
+    Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
+    Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
+    // Alternatively, there are commands to move just a single window:
+    // Mod+Shift+Ctrl+Left  { move-window-to-monitor-left; }
+    // ...
+
+    // And you can also move a whole workspace to another monitor:
+    // Mod+Shift+Ctrl+Left  { move-workspace-to-monitor-left; }
+    // ...
+
+    Mod+Page_Down      { focus-workspace-down; }
+    Mod+Page_Up        { focus-workspace-up; }
+    Mod+Shift+Page_Down { move-column-to-workspace-down; }
+    Mod+Shift+Page_Up   { move-column-to-workspace-up; }
+    Mod+Shift+M         { move-column-to-workspace-down; }
+    Mod+Shift+U         { move-column-to-workspace-up; }
+    
+    // Alternatively, there are commands to move just a single window:
+    // Mod+Ctrl+Page_Down { move-window-to-workspace-down; }
+    // ...
+    
+    Mod+Ctrl+Page_Down { move-workspace-down; }
+    Mod+Ctrl+Page_Up   { move-workspace-up; }
+    Mod+Ctrl+U         { move-workspace-down; }
+    Mod+Ctrl+I         { move-workspace-up; }
+    
+    // You can bind mouse wheel scroll ticks using the following syntax.
+    // These binds will change direction based on the natural-scroll setting.
+    //
+    // To avoid scrolling through workspaces really fast, you can use
+    // the cooldown-ms property. The bind will be rate-limited to this value.
+    // You can set a cooldown on any bind, but it's most useful for the wheel.
+    Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+    Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+    Mod+Shift+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+    Mod+Shift+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+    
+    Mod+WheelScrollRight      { focus-column-right; }
+    Mod+WheelScrollLeft       { focus-column-left; }
+    Mod+Shift+WheelScrollRight { move-column-right; }
+    Mod+Shift+WheelScrollLeft  { move-column-left; }
+    
+
+    // Similarly, you can bind touchpad scroll "ticks".
+    // Touchpad scrolling is continuous, so for these binds it is split into
+    // discrete intervals.
+    // These binds are also affected by touchpad's natural-scroll, so these
+    // example binds are "inverted", since we have natural-scroll enabled for
+    // touchpads by default.
+    // Mod+TouchpadScrollDown { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02+"; }
+    // Mod+TouchpadScrollUp   { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02-"; }
+
+    // You can refer to workspaces by index. However, keep in mind that
+    // niri is a dynamic workspace system, so these commands are kind of
+    // "best effort". Trying to refer to a workspace index bigger than
+    // the current workspace count will instead refer to the bottommost
+    // (empty) workspace.
+    //
+    // For example, with 2 workspaces + 1 empty, indices 3, 4, 5 and so on
+    // will all refer to the 3rd workspace.
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+
+    Mod+Shift+1 { move-column-to-workspace focus=false 1 ; }
+    Mod+Shift+2 { move-column-to-workspace focus=false 2 ; }
+    Mod+Shift+3 { move-column-to-workspace focus=false 3 ; }
+    Mod+Shift+4 { move-column-to-workspace focus=false 4 ; }
+    Mod+Shift+5 { move-column-to-workspace focus=false 5 ; }
+    Mod+Shift+6 { move-column-to-workspace focus=false 6 ; }
+    Mod+Shift+7 { move-column-to-workspace focus=false 7 ; }
+    Mod+Shift+8 { move-column-to-workspace focus=false 8 ; }
+    Mod+Shift+9 { move-column-to-workspace focus=false 9 ; }
+
+    // Alternatively, there are commands to move just a single window:
+    // Mod+Ctrl+1 { move-window-to-workspace 1; }
+
+    // Switches focus between the current and the previous workspace.
+    // Mod+Tab { focus-workspace-previous; }
+
+    Mod+Comma  { consume-window-into-column; }
+    Mod+Period { expel-window-from-column; }
+
+    Mod+Shift+Space { toggle-window-floating; }
+    Mod+Space { switch-focus-between-floating-and-tiling; }
+
+    // There are also commands that consume or expel a single window to the side.
+    Mod+BracketLeft  { consume-or-expel-window-left; }
+    Mod+BracketRight { consume-or-expel-window-right; }
+
+    Mod+R { switch-preset-column-width; }
+    Mod+Shift+R { switch-preset-window-height; }
+    Mod+Ctrl+R { reset-window-height; }
+    Mod+Shift+F { maximize-column; }
+    Mod+Ctrl+F { toggle-windowed-fullscreen; }
+    Mod+F { fullscreen-window; }
+    Mod+W { center-column; }
+    Mod+E { toggle-column-tabbed-display; }
+    Mod+T { expand-column-to-available-width; }
+
+    // Finer width adjustments.
+    // This command can also:
+    // * set width in pixels: "1000"
+    // * adjust width in pixels: "-5" or "+5"
+    // * set width as a percentage of screen width: "25%"
+    // * adjust width as a percentage of screen width: "-10%" or "+10%"
+    // Pixel sizes use logical, or scaled, pixels. I.e. on an output with scale 2.0,r
+    // set-column-width "100" will make the column occupy 200 physical screen pixels.
+    Mod+Minus { set-column-width "-5%"; }
+    Mod+Equal { set-column-width "+5%"; }
+
+    // Finer height adjustments when in column with other windows.
+    Mod+Shift+Minus { set-window-height "-5%"; }
+    Mod+Shift+Equal { set-window-height "+5%"; }
+
+    // Actions to switch layouts.
+    // Note: if you uncomment these, make sure you do NOT have
+    // a matching layout switch hotkey configured in xkb options above.
+    // Having both at once on the same hotkey will break the switching,
+    // since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
+    // Mod+Space       { switch-layout "next"; }
+    // Mod+Shift+Space { switch-layout "prev"; }
+
+    Mod+Ctrl+A { screenshot; }
+    Mod+A { spawn "shadowclip"; }
+    //Mod+Shift+W { spawn "shadowwin_niri"; }
+    Shift+Mod+A { screenshot-screen; }
+    Alt+Mod+A { screenshot-window; }
+    Mod+Shift+W { screenshot-window; }
+    
+    Mod+Shift+E { spawn "nwg-bar"; }
+    
+    // Powers off the monitors. To turn them back on, do any input like
+    // moving the mouse or pressing any other key.
+    Mod+Shift+P { power-off-monitors; }
+}

@@ -1,0 +1,158 @@
+/***** SUGGESTED TO CHANGE CAREFULLY *****/
+* {
+    font-family: "Sans";
+    font-size: 13px;
+}
+
+/* Top panel in sample config uses this name */
+#panel-top {
+    background: #101010;
+    color: #eeeeee
+}
+
+/* Bottom panel in sample config uses this name */
+#panel-bottom {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.3) 100%);
+    box-shadow: inset 0 2px #ff66cc77 ; 
+    color: #eeeeee
+}
+#panel-left {
+    background: linear-gradient(to top, rgba(50, 10, 100, 0.8) 0%, rgba(30, 10, 100, 0.3) 100%);
+
+    color: #eeeeee
+}
+/* Recommended if panel "height" unset or smaller then your theme default button height */
+button {
+}
+
+/* SwayTaskBar and SwayWorkspaces use custom widgets, that need this and the next name
+   to highlight currently focused task / workspace. */
+#task-box-focused, 
+#task-box {
+    background: rgba (0, 0, 0, 0.0);
+    transition: 100ms linear;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+#task-box-focused {
+    box-shadow: inset 0 2px rgba(205,55,230,1);
+    background-color: rgba (255, 255, 255, 0.12);
+}
+#task-box-focused image {
+    transition: 500ms linear;
+    background-color: rgba (255, 255, 255, 0);
+}
+
+
+/***** MODIFY TO YOUR TASTE *****/
+
+/* Sample button in sample config w/ no background nor border */
+#button-custom {
+    background: rgba (0, 0, 0, 0.0);
+    border: 0
+}
+
+/* Controls window in sample config uses this name */
+#controls-window {
+    border-radius: 15px;
+    background: #36364f;
+    color: #eeeeee
+}
+#controls-window scale value {
+    color: #eeeeee
+}
+
+
+
+#weather-forecast {
+    /*-gtk-icon-source: -gtk-icontheme('breeze-dark');
+    -gtk-icon-theme: "breeze-dark";*/
+    background: linear-gradient(180deg,rgba(20, 81, 181, 0.8), rgba(20, 1, 21, 0.7));
+}
+#clock,
+#pinned-button,
+#root-pinned,
+#lbl-playerctl,
+#weather {
+    background: transparent;
+    border: transparent;
+}
+#calendar-window,
+#brightness-popup {
+    border-radius: 10px;
+    color: #eeeeee;
+    font-family: monospace;
+}
+#brightness-popup box {
+    padding: 15px;
+}
+
+/* Executors usually behave better in monospace fonts */
+#executor-label {
+    font-family: monospace
+}
+
+#swaync {
+    font-size: 0px;
+    -gtk-icon-transform: scale(0.0);
+    border-image-width: 1;
+    opacity: 0;
+    
+}
+#controls-overview ,
+#controls-overview *{
+    font-size: 0px;
+    outline-offset: -10px;
+    border-image-slice: 10%;
+    -gtk-icon-transform: scale(1.0);
+    -gtk-outline-bottom-left-radius: 0px;
+    -gtk-outline-bottom-right-radius: 0px;
+    -gtk-outline-top-left-radius: 0px;
+    -gtk-outline-top-right-radius: 0px;
+}
+
+#btn-playerctl {
+   background: rgba (0, 0, 0, 0.0);
+   border: transparent;
+}
+#left-box {
+    
+}
+#left-box button {
+    background: rgba(0, 0, 0, 0);
+}
+/* dwl-tags module */
+#dwl-tag-box {
+	padding-top: 4px;
+	padding-bottom: 4px
+}
+
+#dwl-tag-occupied {
+	font-family: monospace;
+	color: #eee;
+    background-color: #006699;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+#dwl-tag-free {
+	font-family: monospace;
+	color: #eee;
+    background-color: rgba (32, 50, 90, 1.0);
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+#dwl-tag-urgent {
+	font-family: monospace;
+	color: #eee;
+    background-color: #ee6600;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+#dwl-tag-selected {
+	border: solid 2px;
+	border-color: #81a1c1
+}

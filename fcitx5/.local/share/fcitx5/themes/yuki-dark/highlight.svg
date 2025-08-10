@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="39" height="39">
+    <g id="Layer_1">
+    <defs>
+        <linearGradient id="gradient1" x1="00%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%"   style="stop-color:#512097; stop-opacity:1" />
+            <stop offset="50%"  style="stop-color:#000000; stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#512097; stop-opacity:1" />
+        </linearGradient>
+    </defs>
+        <title>Layer 1</title>
+        <rect id="svg_1" width="39" height="39" x="0" y="0" fill="url(#gradient1)" stroke="#000" stroke-width="0" rx="12"/>
+    </g>
+</svg>
