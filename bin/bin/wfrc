@@ -1,0 +1,19 @@
+# By default it can control where the file will be stored
+#WFRC_FOLDER="/tmp"
+# By default it can control the title of the notification and the file's name
+#SCRIPT_NAME="wfrc"
+# Where the lock file
+#WFRC_LOCK="/tmp/WFRCLOCK"
+# Set the icon of notification
+#WFRC_ICON="record"
+# 1 to enable full screen
+#WFRC_FULL_SCREEN=1
+# 0 to disable notification
+#WFRC_NOTIFY=0
+# Your audio device
+#WFRC_AUDIO_DEV="$(LANG=C pactl get-default-sink).monitor"
+#WFRC_FILE_NAME="$WFRC_FOLDER/$SCRIPT_NAME-$(date -u +%Y-%m-%dT%H-%M-%S).mp4"
+# If no wayland, the error msg
+#WFRC_NOWAYLAND="No WAYLAND_DISPLAY found. Did you run me on a wayland compositor?"
+
+. /bin/wfrc -C libopus "$@"

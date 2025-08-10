@@ -1,0 +1,32 @@
+#!/bin/bash
+# 壁纸文件夹路径
+WALLPAPER_DIR=~/Pictures/Wallpaper
+# 壁纸索引文件路径
+WALLPAPER_INDEX=~/Pictures/Wallpaper/.wallpaper_index
+# 读取当前索引
+if [ -f "$WALLPAPER_INDEX" ]; then
+    index=$(cat "$WALLPAPER_INDEX")
+else
+    index=0
+fi
+# 获取文件夹中所有图片文件的列表，假设所有壁纸文件都是.png或.jpg
+FILES=($WALLPAPER_DIR/*.{png,jpg})
+# 获取文件总数
+TOTAL=${#FILES[@]}
+# 确保索引不会超出范围
+if [ -z "$1" ]; then
+    ((index++))
+else
+    ((index--))
+fi
+if [[ "$index" -ge "$TOTAL" ]]; then
+    index=0
+elif [[ "$index" -lt 0 ]]; then
+    index=$((TOTAL-1))
+fi
+# 设置壁纸
+feh --bg-fill "${FILES[$index]}"
+# 保存更新后的索引
+echo "$index" > "$WALLPAPER_INDEX"
+# 退出脚本
+exit 0
