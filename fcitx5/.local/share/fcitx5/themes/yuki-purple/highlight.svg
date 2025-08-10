@@ -76,7 +76,7 @@
        <path
     id="svg_1"
     d="m25,10 h10 a15,15 45 0 1 15,15 v10 a15,15 135 0 1 -15,15 h-10 a15,15 45 0 1 -15,-15 v-10 a15,15 135 0 1 15,-15 z"
-    fill="#670175"
+    fill="#4a0155"
     filter="url(#glow)"
     stroke="#ef0fff"
     stroke-width="1"/>

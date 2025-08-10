@@ -1,6 +1,8 @@
 dotfiles managed by stow.  
 Not actively maintained.
 
+**Frequently Force Push!!**
+
 ## Usage
 
 For example, install the config of niri,
