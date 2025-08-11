@@ -94,6 +94,8 @@ alias view="vim -R"
 alias yay="yay --editmenu"
 alias ac311venv="source ~/.venv311/bin/activate"
 alias pacf="pacfiles -F"
+alias rm="echo Try /bin/rm; false" 
+alias uget="you-get" 
 
 http_proxy="http://127.0.0.1:7890/"
 https_proxy="http://127.0.0.1:7890/"

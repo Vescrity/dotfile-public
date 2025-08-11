@@ -1,5 +1,5 @@
 -- lua/plugins/tab-autocomplete.lua
-return {
+--[[return {
   {
     "saghen/blink.cmp",
     opts = function(_, opts)
@@ -11,4 +11,5 @@ return {
     end,
   },
 }
-
+]]
+return {}
