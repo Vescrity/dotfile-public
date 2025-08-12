@@ -1,0 +1,55 @@
+#!/bin/bash
+
+# 默认参数
+TARGET="-16"
+INPUT=""
+OUTPUT=""
+SHOW_HELP=false
+
+# 解析命令行参数
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+        -t|--target) TARGET="$2"; shift ;;
+        -o|--output) OUTPUT="$2"; shift ;;
+        -h|--help) SHOW_HELP=true ;;
+        *) INPUT="$1" ;;
+    esac
+    shift
+done
+
+# 显示帮助
+if [ "$SHOW_HELP" = true ] || [ -z "$INPUT" ]; then
+    echo "Usage: $0 [OPTIONS] INPUT_FILE"
+    echo "Normalize audio loudness of a video file using FFmpeg."
+    echo ""
+    echo "Options:"
+    echo "  -t, --target LUFS    Target loudness (default: -16)"
+    echo "  -o, --output FILE    Output filename (default: loud_INPUT)"
+    echo "  -h, --help           Show this help message"
+    exit 0
+fi
+
+# 检查输入文件是否存在
+if [ ! -f "$INPUT" ]; then
+    echo "Error: Input file '$INPUT' not found!"
+    exit 1
+fi
+
+# 设置默认输出文件名（如未指定）
+if [ -z "$OUTPUT" ]; then
+    OUTPUT="loud_${INPUT}"
+fi
+
+# 获取原音频比特率（如果存在）
+AUDIO_BITRATE=$(ffprobe -v error -select_streams a:0 -show_entries stream=bit_rate -of default=noprint_wrappers=1:nokey=1 "$INPUT")
+if [ -z "$AUDIO_BITRATE" ] || [ "$AUDIO_BITRATE" -eq 0 ]; then
+    AUDIO_BITRATE="192k"  # 回退默认值
+else
+    AUDIO_BITRATE="${AUDIO_BITRATE}"  # 直接使用原比特率（单位：bps）
+fi
+
+# 执行 FFmpeg 命令
+echo "Normalizing audio to $TARGET LUFS (bitrate: $AUDIO_BITRATE)..."
+ffmpeg -i "$INPUT" -af "loudnorm=I=$TARGET" -c:v copy -c:a aac -b:a "$AUDIO_BITRATE" "$OUTPUT"
+
+echo "Done! Output file: $OUTPUT"
