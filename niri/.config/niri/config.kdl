@@ -529,6 +529,8 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return { spawn "dxterm"; }
     Mod+U { spawn "dropterm"; }
+    Mod+Y { spawn "sh" "-c" "sdnt $(wl-paste)"; }
+    Mod+Q { spawn "sh" "-c" "sdnt $(wl-paste -p)"; }
     Mod+D { spawn "wmenurun"; }
     Mod+Shift+D { spawn "fuzzel"; }
     Mod+Ctrl+D { spawn "nwg-drawer"; }
