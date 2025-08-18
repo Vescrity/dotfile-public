@@ -30,3 +30,6 @@ vim.opt.autoindent = true
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 --vim.opt.pumheight = 6
 --vim.opt.pumwidth = 26
+--
+vim.cmd('source /usr/share/vim/vimfiles/plugin/fcitx.vim')
+vim.cmd('source /usr/share/vim/vimfiles/so/fcitx.vim')
