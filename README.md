@@ -15,6 +15,28 @@ stow niri
 
 it will create **symbolic link** to the target place.
 
+## CURRENTLY-USING
+
+The list of the folders I'm currently using.
+
+- alacritty
+- bin
+- fcitx5
+- fontconfig
+- gtklock
+- htop
+- lxqt
+- mpv
+- niri
+- nvim
+- nwg
+- swaync
+- themes
+- waybar
+- xdg-desktop-portal
+- zsh
+
+
 ## Dependency (niri session)
 
 maybe not the full list.
