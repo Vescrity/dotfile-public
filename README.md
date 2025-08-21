@@ -1,7 +1,6 @@
-dotfiles managed by stow.  
-Not actively maintained.
+My dotfiles managed by stow.  
 
-**Frequently Force Push!!**
+*Function over form.*
 
 ## Usage
 
@@ -14,6 +13,14 @@ stow niri
 ```
 
 it will create **symbolic link** to the target place.
+
+## IMG
+
+<img width="1920" height="1080" alt="图片" src="https://github.com/user-attachments/assets/eaac861f-529c-4672-b41f-ecc199332c7b" />
+<img width="1920" height="1080" alt="图片" src="https://github.com/user-attachments/assets/0414afc4-6b28-49ce-8981-bfefe644f294" />
+<img width="1920" height="1080" alt="图片" src="https://github.com/user-attachments/assets/5a3b3d38-7672-4546-a476-97213e0343d4" />
+<img width="1920" height="1080" alt="图片" src="https://github.com/user-attachments/assets/101d08ad-17eb-4f07-9a70-c785c7cd46fe" />
+
 
 ## CURRENTLY-USING
 

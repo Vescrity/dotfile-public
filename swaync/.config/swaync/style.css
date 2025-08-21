@@ -8,7 +8,7 @@
 @define-color noti-bg-focus rgba(27, 27, 27, 0.6);
 @define-color noti-close-bg rgba(255, 55, 55, 0.1);
 @define-color noti-close-bg-hover rgba(255, 55, 55, 0.15);
-@define-color text-color rgba(209, 107, 254, 1);
+@define-color text-color rgba(249, 207, 254, 1);
 @define-color text-color-disabled rgb(100, 60, 110);
 @define-color bg-selected rgb(128, 18, 255);
 @define-color bord #a703c5;
