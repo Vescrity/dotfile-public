@@ -7,6 +7,7 @@ export XMODIFIERS=@im=fcitx
 export QT_IM_MODULE=fcitx
 export SDL_IM_MODULE=fcitx
 export GLFW_IM_MODULE=fcitx
+export XDG_MENU_PREFIX=lxqt-
 export PATH="/home/vescrity/.local/bin:$PATH"
 export PATH="/home/vescrity/bin:$PATH"
 export PATH="/home/vescrity/bin/npsudo:$PATH"

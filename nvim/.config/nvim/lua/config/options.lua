@@ -64,6 +64,16 @@ opt.tabstop = 4 -- Number of spaces tabs count for
 opt.shiftwidth = 4 -- Size of an indent
 opt.undofile = false
 opt.wrap = true -- Enable line wrap
+opt.fileencodings = {
+  "ucs-bom",      -- Unicode 字节顺序标记
+  "utf-8",        -- UTF-8
+  "cp936",        -- 简体中文 GBK（提前）
+  "gb18030",      -- 中文国家标准
+  "default",      -- 系统默认
+  "big5",         -- 繁体中文
+  "latin1"        -- 西欧语言（放在最后）
+}
+--opt.fileencodings:append("cp936")
 --[==[
 opt.completeopt = "menu,menuone,noselect"
 opt.conceallevel = 2 -- Hide * markup for bold and italic, but not markers with substitutions
