@@ -11,18 +11,15 @@ proxyurl=http://127.0.0.1:9090/proxies
  echo "5:" "$(curl -s $proxyurl/h5/$testurl)"  &
  echo "6:" "$(curl -s $proxyurl/h6/$testurl)"  &
  echo "7:" "$(curl -s $proxyurl/h7/$testurl)"  &
- echo "11:" "$(curl -s $proxyurl/h11/$testurl)"  &
- echo "12:" "$(curl -s $proxyurl/h12/$testurl)"  &
- echo "13:" "$(curl -s $proxyurl/h13/$testurl)"  &
- echo "14:" "$(curl -s $proxyurl/h14/$testurl)"  &
- echo "15:" "$(curl -s $proxyurl/h15/$testurl)"  &
- echo "16:" "$(curl -s $proxyurl/h16/$testurl)"  &
- echo "17:" "$(curl -s $proxyurl/h17/$testurl)"  &
- echo "18:" "$(curl -s $proxyurl/h18/$testurl)"  &
- echo "19:" "$(curl -s $proxyurl/h19/$testurl)"  &
  echo "20:" "$(curl -s $proxyurl/h20/$testurl)"  &
  echo "21:" "$(curl -s $proxyurl/h21/$testurl)"  &
  echo "22:" "$(curl -s $proxyurl/h22/$testurl)"  &
  echo "23:" "$(curl -s $proxyurl/h23/$testurl)"  &
+ echo "24:" "$(curl -s $proxyurl/h24/$testurl)"  &
+ echo "25:" "$(curl -s $proxyurl/h25/$testurl)"  &
+ echo "26:" "$(curl -s $proxyurl/h26/$testurl)"  &
+ echo "27:" "$(curl -s $proxyurl/h27/$testurl)"  &
+ echo "28:" "$(curl -s $proxyurl/h28/$testurl)"  &
+ echo "29:" "$(curl -s $proxyurl/h29/$testurl)"  &
 
  wait

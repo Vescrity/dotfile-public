@@ -28,6 +28,11 @@ vim.g.lazyvim_cmp = "nvim-cmp"
 -- use that instead of inline suggestions
 vim.g.ai_cmp = false
 
+vim.api.nvim_set_hl(0, 'DiagnosticUnnecessary', {
+    fg = '#cfcBcB',  -- 亮红色
+    bold = true,     -- 加粗
+    italic = true    -- 斜体
+})
 -- LazyVim root dir detection
 -- Each entry can be:
 -- * the name of a detector function like `lsp` or `cwd`

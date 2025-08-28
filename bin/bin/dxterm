@@ -1,5 +1,4 @@
 #!/bin/bash
-#terminal=konsole
-terminal=alacritty
-#terminal=qterminal
-exec "$terminal" "$@"
+#terminal=alacritty
+#exec "$terminal" "$@"
+alacritty msg create-window || alacritty

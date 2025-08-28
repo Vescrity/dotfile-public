@@ -49,6 +49,9 @@ tmpfs \
 robind \
     /usr \
     /etc \
+    /sys/module \
+    /sys/dev/char \
+    /sys/devices \
     "$XDG_RUNTIME_DIR"/wayland* \
     "$XDG_RUNTIME_DIR"/pipewire* \
     "$XDG_RUNTIME_DIR"/pulse* \

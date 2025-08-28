@@ -381,14 +381,14 @@ binds {
     Ctrl+Alt+Space hotkey-overlay-title="Pause" { spawn "playerctl" "play-pause"; }
     //Ctrl+Alt+K { spawn "sh" "-c" "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+" ; }
     //Ctrl+Alt+J { spawn "sh" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-" ; }
-    Ctrl+Alt+K hotkey-overlay-title="Volumn + (avizo)"{ spawn "sh" "-c" "volumectl -d + 1" ; }
-    Ctrl+Alt+J hotkey-overlay-title="Volumn - (avizo)"{ spawn "sh" "-c" "volumectl -d - 1" ; }
+    Ctrl+Alt+K hotkey-overlay-title="Volumn + (avizo)"{ spawn "volumectl" "-d" "+" "1" ; }
+    Ctrl+Alt+J hotkey-overlay-title="Volumn - (avizo)"{ spawn "volumectl" "-d" "-" "1" ; }
     Ctrl+Alt+M hotkey-overlay-title="Toggle Mute" allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
     //Mod+Alt+K { spawn "sh" "-c" "brightnessctl s +1%" ; }
     //Mod+Alt+J { spawn "sh" "-c" "brightnessctl s 1%-" ; }
-    Mod+Alt+K   hotkey-overlay-title="Brightness + (avizo)" { spawn "sh" "-c" "lightctl -d + 1" ; }
-    Mod+Alt+J   hotkey-overlay-title="Brightness - (avizo)" { spawn "sh" "-c" "lightctl -d - 1" ; }
-    Mod+Alt+L   hotkey-overlay-title="Brightness 0" { spawn "sh" "-c" "brightnessctl s 0" ; }
+    Mod+Alt+K   hotkey-overlay-title="Brightness + (avizo)" { spawn "lightctl" "-d" "+" "1" ; }
+    Mod+Alt+J   hotkey-overlay-title="Brightness - (avizo)" { spawn "lightctl" "-d" "-" "1" ; }
+    Mod+Alt+L   hotkey-overlay-title="Brightness 0" { spawn "brightnessctl" "s" "0" ; }
     Mod+N       hotkey-overlay-title="Next Background (swww)"{ spawn "chwbg" ; }
     Mod+Shift+N hotkey-overlay-title="Prev Background (swww)"{ spawn "chwbg" "-"; }
     //Mod+M { spawn "pcmanfm-qt" "--desktop" ; }

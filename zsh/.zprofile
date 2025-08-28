@@ -13,8 +13,8 @@ export PATH="/home/vescrity/bin:$PATH"
 export PATH="/home/vescrity/bin/npsudo:$PATH"
 export http_proxy="http://127.0.0.1:7890/"
 export https_proxy="http://127.0.0.1:7890/"
-unset QT_QPA_PLATFORMTHEME
-#export QT_QPA_PLATFORMTHEME=qt6ct
+#unset QT_QPA_PLATFORMTHEME
+export QT_QPA_PLATFORMTHEME=qt6ct
 export EDITOR=vim
 #/home/vescrity/bin/start_profile
 #sudo win_automount > /dev/null 2>&1
