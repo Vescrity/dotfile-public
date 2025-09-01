@@ -14,9 +14,7 @@ environment {
     GTK_THEME "Sweet-Dark-v40"
     QT_QPA_PLATFORMTHEME "qt6ct"
     // Disable NVIDIA for vulkan by default
-    // Should 
     VK_LOADER_DRIVERS_SELECT "intel_hasvk_icd.x86_64.json,intel_icd.x86_64.json,intel_hasvk_icd.1686.json,intel_icd.i686.json"
-    DISPLAY ":12"
     XDG_CURRENT_DESKTOP "niri"
     XDG_SESSION_DESKTOP "niri"
     XDG_SESSION_TYPE "wayland"
@@ -40,7 +38,7 @@ gestures {
 }
 hotkey-overlay {
     skip-at-startup
-    //hide-not-bound
+    hide-not-bound
 }
 overview {
     zoom 0.5
@@ -330,9 +328,10 @@ output "DP-1" {
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
-spawn-at-startup "sh" "-c" "systemctl --user restart xdg-desktop-portal"                // I think it is needed
-spawn-at-startup "sh" "-c" "swaybg -m fill -i ~/Pictures/Wallpaper/blur/sunset.jpg"     // Set my background
-spawn-at-startup "sh" "-c" "xwayland-satellite :12"
+spawn-sh-at-startup  "systemctl --user restart xdg-desktop-portal"                // I think it is needed
+spawn-sh-at-startup  "alacritty --daemon"
+spawn-sh-at-startup  "swaybg -m fill -i ~/Pictures/Wallpaper/blur/sunset.jpg"     // Set my background
+//spawn-at-startup "sh" "-c" "xwayland-satellite :12"
 spawn-at-startup "nwg-panel"
 spawn-at-startup "wsst"                                                                 // script for wl-sunset, as it contains my position so ignored.
 spawn-at-startup "chwbg"                                                                // script to change background
@@ -340,11 +339,8 @@ spawn-at-startup "lxqt-policykit-agent"
 spawn-at-startup "avizo-service"                                                        // nice widget for volumn/brightness change
 spawn-at-startup "oomnotid"                                                             // script to send notification when OOM
 spawn-at-startup "swaync"
-spawn-at-startup "sh" "-c" "waybar -c ~/.config/waybar/niri.jsonc"
-spawn-at-startup "sh" "-c" "wl-paste --watch cliphist store"
-//spawn-at-startup "sh" "-c" "wl-clip-persist -c regular"
-//spawn-at-startup "sh" "-c" "wl-paste --type text --watch cliphist store"
-//spawn-at-startup "sh" "-c" "wl-paste --type image --watch cliphist store"
+spawn-sh-at-startup  "waybar -c ~/.config/waybar/niri.jsonc"
+spawn-sh-at-startup  "wl-paste --watch cliphist store"
 //spawn-at-startup "sh" "-c" "XDG_CURRENT_DESKTOP=wlroots lxqt-panel"                   // Start LXQt Panel
 //spawn-at-startup "sh" "-c" "XDG_CURRENT_DESKTOP=wlroots pcmanfm-qt --desktop"
 
@@ -399,17 +395,17 @@ binds {
     Mod+Shift+I hotkey-overlay-title="Stop Invert"{ spawn "pkill" "frzscr" ; }
 
     // Toggle waybar
-    Mod+G hotkey-overlay-title="Toggle waybar"{ spawn "sh" "-c" "pkill -SIGUSR1 waybar" ; } 
+    Mod+G hotkey-overlay-title="Toggle waybar"{ spawn-sh "pkill -SIGUSR1 waybar" ; } 
 
-    Mod+P hotkey-overlay-title="Show focused"{ spawn "sh" "-c" "notify-send -i notifyconf Niri \"$(niri msg focused-window)\"" ; }
+    Mod+P hotkey-overlay-title="Show focused"{ spawn-sh "notify-send -i notifyconf Niri \"$(niri msg focused-window)\"" ; }
     // Edit the picture in the clipboard
-    Mod+Ctrl+P hotkey-overlay-title="Edit copied picture (swappy)"{ spawn "sh" "-c" "wl-paste | swappy -f -" ; }
+    Mod+Ctrl+P hotkey-overlay-title="Edit copied picture (swappy)"{ spawn-sh "wl-paste | swappy -f -" ; }
     Mod+Alt+P hotkey-overlay-title="Pick color"{ spawn "hyprpicker" "-a" ; }
     Mod+Shift+semicolon hotkey-overlay-title="Lock"{ spawn "wayl" ; }
     // Script to recored screen, see github: vescrity/wfrc
     Mod+S hotkey-overlay-title="Start/Stop Screen Record (wfrc)"{ spawn "wfrc" ; }
     // Script to look up selected/copied word using sdcv
-    Mod+Q hotkey-overlay-title="Meaning of the selecting word"{ spawn "sh" "-c" "sdnt $(wl-paste -p)"; }
+    Mod+Q hotkey-overlay-title="Meaning of the selecting word"{ spawn-sh "sdnt $(wl-paste -p)"; }
     Mod+Y hotkey-overlay-title=null{ spawn "sh" "-c" "sdnt $(wl-paste)"; }
     
     // Example volume keys mappings for PipeWire & WirePlumber.
@@ -418,12 +414,12 @@ binds {
     XF86AudioLowerVolume hotkey-overlay-title=null allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.01-"; }
     XF86AudioMute        hotkey-overlay-title=null allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
     XF86AudioMicMute     hotkey-overlay-title=null allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
-
+    XF86Calculator {spawn "swaync-client" "-t";}
     //Brightness
     //XF86MonBrightnessUp { spawn "lxqt-config-brightness" "-i"; }
     //XF86MonBrightnessDown { spawn "lxqt-config-brightness" "-d"; }
-    XF86MonBrightnessUp   hotkey-overlay-title=null{ spawn "sh" "-c" "lightctl -d + 1" ; }
-    XF86MonBrightnessDown hotkey-overlay-title=null{ spawn "sh" "-c" "lightctl -d - 1" ; }
+    XF86MonBrightnessUp   hotkey-overlay-title=null{ spawn-sh "lightctl -d + 1" ; }
+    XF86MonBrightnessDown hotkey-overlay-title=null{ spawn-sh "lightctl -d - 1" ; }
     //XF86PowerOff          { spawn "wlivt" ; }
 
     // To avoid closing My rootful Xwayland by accident.
@@ -566,9 +562,10 @@ binds {
     Mod+BracketLeft  { consume-or-expel-window-left; }
     Mod+BracketRight { consume-or-expel-window-right; }
 
-    Mod+R { switch-preset-column-width; }
-    Mod+Shift+R { switch-preset-window-height; }
-    Mod+Ctrl+R { reset-window-height; }
+    Mod+R       { switch-preset-column-width; }
+    Mod+Shift+R { switch-preset-column-width-back; }
+    Mod+Ctrl+R       { switch-preset-window-height; }
+    Mod+Ctrl+Shift+R { reset-window-height; }
     Mod+Shift+F { maximize-column; }
     Mod+Ctrl+F { toggle-windowed-fullscreen; }
     Mod+F { fullscreen-window; }

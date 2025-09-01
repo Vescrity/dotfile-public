@@ -57,6 +57,8 @@ robind \
     "$XDG_RUNTIME_DIR"/pulse* \
     "$XDG_RUNTIME_DIR"/at-spi \
     "$XDG_RUNTIME_DIR"/wfrc \
+    "$HOME/Pictures/" \
+    "/home/public/" \
     "$HOME/.config/fontconfig" \
     "$HOME/.config/gtk-3.0" \
     "$HOME/.config/gtk-2.0" \
