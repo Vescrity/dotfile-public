@@ -2,8 +2,8 @@
 @define-color hover-bg rgba(90, 0, 99, 0.5);
 @define-color noti-border-color rgba(255, 255, 255, 0.15);
 @define-color noti-bg rgb(57, 7, 67);
-@define-color noti-bg-darker #3a2a3a;
-@define-color noti-bg-title #5a0a5a;
+@define-color noti-bg-darker #2a0a2a;
+@define-color noti-bg-title #401a40;
 @define-color noti-bg-hover rgb(27, 7, 43);
 @define-color noti-bg-focus rgba(27, 27, 27, 0.6);
 @define-color noti-close-bg rgba(255, 55, 55, 0.1);
@@ -11,7 +11,7 @@
 @define-color text-color rgba(249, 207, 254, 1);
 @define-color text-color-disabled rgb(100, 60, 110);
 @define-color bg-selected rgb(128, 18, 255);
-@define-color bord #a703c5;
+@define-color bord #a763a5;
 @define-color tit #FFAEE2;
 
 
@@ -72,7 +72,7 @@
 
 .notification {
     background: @noti-bg;
-    border: 2px solid @bord;
+    border: 1px solid @bord;
     border-radius: 12px;
     margin: 3px -2px 3px 0px;
 }
@@ -170,7 +170,7 @@
 
 .control-center {
     background: @cc-bg;
-    border: 2px solid @bord;
+    border: 0px solid @bord;
     border-radius: 12px;
 }
 
@@ -246,7 +246,10 @@
     font-size: 1rem;
     color: @text-color;
 }
-
+.mpris-overlay  {
+    background: rgba(30,20,30,0.8);
+    margin: -6px;
+}
 .widget-mpris {
     color: @text-color;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);

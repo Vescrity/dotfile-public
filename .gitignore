@@ -4,6 +4,7 @@
 /fcitx5/.local/share/fcitx5/rime
 /bin/bin/.*
 /bin/bin/*
+!/bin/bin/wmenurun
 !/bin/bin/gwrap
 !/bin/bin/cwrap
 !/bin/bin/xqq

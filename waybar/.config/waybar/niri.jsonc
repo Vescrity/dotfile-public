@@ -5,8 +5,8 @@
         "layer": "top",
         "height": 16, // Waybar height (to be removed for auto height)
         "spacing": 0, // Gaps between modules (4px)
-        "margin-left": 4,
-        "margin-right": 4,
+        "margin-left": 0,
+        "margin-right": 0,
         //"mode": "dock", 
         "modules-left": [
             "niri/workspaces",
@@ -62,26 +62,30 @@
             "on-scroll-down": "hyprctl dispatch workspace e+1"
         },	 
         "niri/workspaces": {
-            "format": "{}",
+            "format": "<span size='larger'>{}</span>",
+            "on-scroll-up":   "niri msg action focus-workspace-up",
+            "on-scroll-down": "niri msg action focus-workspace-down",
             "format-icons": {
                 "browser": "",
                 "discord": "",
                 "chat": "<b></b>",
-                "active": "",
-                "default": "·"
+                //"active": "",
+                "active": "\uf444",
+                //"default": "·"
+                "default": "\uf4c3"
             }
         },
         "niri/window": {
             "format": "{}",
             "icon": true,
             "max-length": 40,
-            "icon-size": 16
+            "icon-size": 14
         },
         "hyprland/window": {
             "format": "{}",
             "icon": true,
             "max-length": 80,
-            "icon-size": 16
+            "icon-size": 14
         },	 
         "keyboard-state": {
             "numlock": true,

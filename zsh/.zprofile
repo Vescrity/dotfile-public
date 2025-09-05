@@ -22,9 +22,11 @@ export EDITOR=vim
 USER_TEMP_DIR="/tmp/$USER"
 
 mkdir -p $USER_TEMP_DIR/cliphist
+mkdir -p $USER_TEMP_DIR/Trash
 mkdir -p $USER_TEMP_DIR/nt_data/nt_data
 mkdir -p $USER_TEMP_DIR/wechat/xwechat
 mkdir -p $USER_TEMP_DIR/mozilla
+mkdir -p $USER_TEMP_DIR/Jiemeng
 mkdir -p /run/user/1000/wfrc
 
 zrun_pid=$(pidof clash)

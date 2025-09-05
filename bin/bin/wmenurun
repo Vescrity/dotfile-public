@@ -1,0 +1,3 @@
+#!/bin/bash
+wmenu-run -i -N 000000ff -S 6f2f8fff -f 'Comic Mono 10'
+
