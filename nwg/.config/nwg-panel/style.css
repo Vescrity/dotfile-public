@@ -10,6 +10,7 @@
     font-size: 13px;
     transition: 100ms linear;
     min-height: 0px;
+    min-width: 0px;
 }
 #task-box-focused, 
 #task-box {
@@ -47,7 +48,7 @@ to highlight currently focused task / workspace. */
     background: @bg;
     border-radius: 90px;
     /*border: 1px solid @bord;*/
-    margin: 1px;
+    margin: 0 1px;
 }
 #left-box :selected,
 #left-box :hover,

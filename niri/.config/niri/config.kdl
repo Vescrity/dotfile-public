@@ -364,7 +364,7 @@ binds {
     Mod+Return hotkey-overlay-title="Terminal" {spawn "dxterm";}
     // script to launch a default dropdown-terminal
     Mod+U hotkey-overlay-title="Dropdown Terminal"{ spawn "dropterm"; }
-    Mod+D hotkey-overlay-title="wmenu"{ spawn "wmenurun"; }
+    Mod+D hotkey-overlay-title="wmenu"{ spawn-sh "systemd-run --user --scope wmenurun"; }
 
     Mod+Shift+D { spawn "fuzzel"; }
     Mod+Ctrl+D { spawn "nwg-drawer"; }
