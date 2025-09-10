@@ -82,7 +82,7 @@ alias ip='ip --color=auto'
 alias ls='ls --color=auto --hyperlink'
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
-alias u="upgrade"
+alias u="echo use user: pkgmake"
 alias f="fastfetch"
 alias c="clear"
 alias v="nvim"
