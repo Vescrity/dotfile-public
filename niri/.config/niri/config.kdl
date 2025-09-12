@@ -148,8 +148,8 @@ layout {
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "#cf58cf"
-        //active-gradient from="#ee7c78" to="#ea76cb" angle=45 in="oklch longer hue"
+        //active-color "#cf58cf"
+        active-gradient from="#cf7fcf" to="#cf7fcf" angle=35 in="oklch longer hue"
         //active-gradient from="#fc5acf" to="#74f8ff" angle=130 in="srgb-linear" //relative-to="workspace-view"
         //inactive-gradient from="#fc5acf50" to="#74f8ff50" angle=130 in="srgb-linear" //relative-to="workspace-view"
         // Color of the ring on inactive monitors.
@@ -320,7 +320,7 @@ output "eDP-1" {
 output "DP-1" {
     background-color "#000"
     scale 1
-    transform "normal"
+    transform "270"
     position x=-1980 y=0
 }
 

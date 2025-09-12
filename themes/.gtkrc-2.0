@@ -2,7 +2,7 @@
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
 include "/home/vescrity/.gtkrc-2.0.mine"
-gtk-theme-name="Material-Black-Plum-BE"
+gtk-theme-name="adw-gtk3-Dark"
 gtk-icon-theme-name="kora"
 gtk-font-name="System-ui 12"
 gtk-cursor-theme-name="Bibata-Modern-Classic"

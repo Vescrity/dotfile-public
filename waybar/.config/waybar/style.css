@@ -1,10 +1,12 @@
+@import 'colors.css';
+@define-color bg #000;
 * {
     font-family: "Noto Sans Mono CJK SC";
     font-weight: bold;
 	min-height: 0;
     font-size: 11px;
     font-feature-settings: "tnum";
-    color: #ffcfff;
+    color: @font_color;
     min-width: 0px;
 }
 
@@ -18,7 +20,7 @@ window#waybar {
 }
 
 .top-bar *{
-    background: rgba(0,0,0,1);
+    background: @bg;
 }
 window#waybar.hidden {
     opacity: 0.2;
@@ -134,7 +136,7 @@ button:hover {
 #custom-weather.sunnyDay {
     padding: 0 10px;
     /*background-color: rgba(40, 30, 46, 0.6);*/
-    background: rgba(0,0,0,0.6);
+    background: @bg;
     border-radius: 99px;
     margin: 0 2px;
 }
