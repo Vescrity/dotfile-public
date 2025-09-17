@@ -1,9 +1,6 @@
+@import 'colors.css';
 @define-color cc-bg rgba(0, 0, 0, 0.9);
-@define-color hover-bg rgba(90, 0, 99, 0.5);
-@define-color noti-border-color rgba(255, 255, 255, 0.15);
-@define-color noti-bg rgb(57, 7, 67);
-@define-color noti-bg-darker #2a0a2a;
-@define-color noti-bg-title #401a40;
+@define-color noti-bg-title @accent_bg_color;
 @define-color noti-bg-hover rgb(27, 7, 43);
 @define-color noti-bg-focus rgba(27, 27, 27, 0.6);
 @define-color noti-close-bg rgba(255, 55, 55, 0.1);
@@ -11,8 +8,8 @@
 @define-color text-color rgba(249, 207, 254, 1);
 @define-color text-color-disabled rgb(100, 60, 110);
 @define-color bg-selected rgb(128, 18, 255);
-@define-color bord #a763a5;
-@define-color tit #FFAEE2;
+@define-color bord @accent_color;
+@define-color tit @accent_fg_color;
 
 
 * {
@@ -106,9 +103,6 @@
 
 .notification-action {
     border: 0px solid @bord;
-}
-.notification-alt-actions {
-    min-width: 100%
 }
 .text-button:hover {
     background: @hover-bg;

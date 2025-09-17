@@ -4,8 +4,8 @@ output=$(niri msg focused-window)
 
 app_id_line=$(echo "$output" | grep "App ID:")
 
-if [[ "$app_id_line" == *"App ID: \"org.freedesktop.Xwayland\""* ]]; then
-    notify-send "Niri" "Use Ctrl+Shift+Super+Q to close this rootful Xwayland"
+if [[ "$app_id_line" == *"App ID: \"org.freedesktop.Xwayland\""* || "$app_id_line" == *"App ID: \"foot\""* ]]; then
+    notify-send --icon="dialog-warning" "Niri" "Use Ctrl+Shift+Super+Q if you really want to close it."
 else
     niri msg action close-window
 fi

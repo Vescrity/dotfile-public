@@ -14,7 +14,8 @@ environment {
     //GTK_THEME "Sweet-Dark-v40"
     QT_QPA_PLATFORMTHEME "qt6ct"
     // Disable NVIDIA for vulkan by default
-    VK_LOADER_DRIVERS_SELECT "intel_hasvk_icd.x86_64.json,intel_icd.x86_64.json,intel_hasvk_icd.1686.json,intel_icd.i686.json"
+    VK_LOADER_DRIVERS_SELECT "intel_hasvk_icd.x86_64.json,intel_icd.x86_64.json"
+    VK_LOADER_DRIVERS_DISABLE "nouveau_icd.x86_64.json,nouveau_icd.i686.json"
     XDG_CURRENT_DESKTOP "niri"
     XDG_SESSION_DESKTOP "niri"
     XDG_SESSION_TYPE "wayland"
@@ -59,6 +60,13 @@ layer-rule {
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
+    // Blur: can be used with a forked niri, current buggy.
+    //blur{
+    //    on
+    //    radius 3
+    //    passes 1
+    //    noise 0.1
+    //}
     tab-indicator {
         //off
         //hide-when-single-tab
@@ -148,12 +156,12 @@ layout {
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        //active-color "#cf58cf"
-        active-gradient from="#cf7fcf" to="#cf7fcf" angle=35 in="oklch longer hue"
+        active-color "#ccbbff"
+        //active-gradient from="#cf7fcf" to="#cf7fcf" angle=35 in="oklch longer hue"
         //active-gradient from="#fc5acf" to="#74f8ff" angle=130 in="srgb-linear" //relative-to="workspace-view"
         //inactive-gradient from="#fc5acf50" to="#74f8ff50" angle=130 in="srgb-linear" //relative-to="workspace-view"
         // Color of the ring on inactive monitors.
-        inactive-color "#00000080"
+        inactive-color "#00000000"
 
         //active-gradient from="#80c8ff" to="#bbddff" angle=45
         // To do that, set relative-to="workspace-view".
@@ -184,7 +192,7 @@ layout {
 
 // radius for windows
 window-rule {
-    geometry-corner-radius 5
+    geometry-corner-radius 3
     clip-to-geometry true
 }
 // Float something
@@ -199,7 +207,7 @@ window-rule {
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
     match app-id=r#"^QQ$"#
 
-    block-out-from "screen-capture"
+    //block-out-from "screen-capture"
 
     // Use this instead if you want them visible on third-party screenshot tools.
     // block-out-from "screencast"
@@ -329,7 +337,7 @@ output "DP-1" {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 spawn-sh-at-startup  "systemctl --user restart xdg-desktop-portal"                // I think it is needed
-spawn-sh-at-startup  "alacritty --daemon"
+spawn-sh-at-startup  "foot -s"
 spawn-sh-at-startup  "swaybg -m fill -i ~/Pictures/Wallpaper/blur/sunset.jpg"     // Set my background
 spawn-sh-at-startup  "wl-paste --watch cliphist store"
 spawn-at-startup "nwg-panel"
@@ -395,8 +403,9 @@ binds {
 
     // Toggle waybar
     Mod+G hotkey-overlay-title="Toggle waybar"{ spawn-sh "pkill -SIGUSR1 waybar" ; } 
+    Mod+Shift+G hotkey-overlay-title="Toggle nwg-panel"{ spawn-sh "pkill -64 nwg-panel" ; } 
 
-    Mod+P hotkey-overlay-title="Show focused"{ spawn-sh "notify-send -i notifyconf Niri \"$(niri msg focused-window)\"" ; }
+    Mod+P hotkey-overlay-title="Show focused"{ spawn-sh "notify-send -i hook-notifier Niri \"$(niri msg focused-window)\"" ; }
     // Edit the picture in the clipboard
     Mod+Ctrl+P hotkey-overlay-title="Edit copied picture (swappy)"{ spawn-sh "wl-paste | swappy -f -" ; }
     Mod+Alt+P hotkey-overlay-title="Pick color"{ spawn "hyprpicker" "-a" ; }
@@ -724,5 +733,5 @@ animations {
     }
 
     // Slow down all animations by this factor. Values below 1 speed them up instead.
-    //slowdown 3.0
+    //slowdown 1.0
 }

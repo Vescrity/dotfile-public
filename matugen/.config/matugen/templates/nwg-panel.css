@@ -1,0 +1,4 @@
+@define-color hover-bg {{colors.source_color.default.hex}};
+@define-color hover-bord {{colors.primary_container.default.hex}};
+@define-color fonts {{colors.primary.default.hex}};
+

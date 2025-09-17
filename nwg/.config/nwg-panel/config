@@ -6,7 +6,7 @@
     "position": "bottom",
     "controls": "off",
     "width": "auto",
-    "height": 20,
+    "height": 0,
     "margin-top": 0,
     "margin-bottom": 0,
     "padding-horizontal": 0,
@@ -20,8 +20,7 @@
       "playerctl"
     ],
     "modules-center": [
-      "niri-taskbar",
-      "sway-workspaces"
+      "niri-taskbar"
     ],
     "modules-right": [
       "scratchpad",

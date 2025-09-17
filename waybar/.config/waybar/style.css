@@ -6,7 +6,6 @@
 	min-height: 0;
     font-size: 11px;
     font-feature-settings: "tnum";
-    color: @font_color;
     min-width: 0px;
 }
 
@@ -21,6 +20,7 @@ window#waybar {
 
 .top-bar *{
     background: @bg;
+    color: @font_color;
 }
 window#waybar.hidden {
     opacity: 0.2;
@@ -61,29 +61,6 @@ button:hover {
     border: none;
     -gtk-icon-effect: none;
     -gtk-icon-shadow: none;
-}
-
-#workspaces button {
-    padding: 0 0px;
-    min-width: 15px;
-    background-color: transparent;
-}
-
-#workspaces button:hover {
-    background: rgba(255, 200, 255, 0.8);
-}
-
-#workspaces button.focused {
-    /*background-color: rgba(80, 30, 130, 0.7);*/
-}
-
-#workspaces button.urgent {
-    background-color: #eb4d4b;
-}
-
-#mode {
-    background-color: #64727D;
-    border-bottom: 3px solid #ffffff;
 }
 #backlight,
 #backlight-slider,
@@ -140,6 +117,28 @@ button:hover {
     border-radius: 99px;
     margin: 0 2px;
 }
+#workspaces button {
+    padding: 0 0px;
+    min-width: 15px;
+    background-color: transparent;
+}
+
+#workspaces button:hover {
+    background: rgba(255, 200, 255, 0.8);
+}
+
+#workspaces button.focused {
+    /*background-color: rgba(80, 30, 130, 0.7);*/
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+
+#mode {
+    background-color: #64727D;
+    border-bottom: 3px solid #ffffff;
+}
 /*Round*/
 #custom-app {
     padding: 0;
@@ -195,9 +194,9 @@ button:hover {
     animation-direction: alternate;
 }
 */
-
-label:focus {
-    background-color: #000000;
+box,
+label {
+    background-color: transparent;
 }
 
 /* Left Module */
@@ -375,5 +374,13 @@ label:focus {
 }
 .time #clock.m {
     margin-top: 0px;
+}
+
+menu,
+menuitem label{
+    background: transparent;
+}
+menuitem:hover {
+    background-color: @bg_color;
 }
 

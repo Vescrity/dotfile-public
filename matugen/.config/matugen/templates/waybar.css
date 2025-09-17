@@ -19,5 +19,5 @@
 @define-color fg_color {{colors.on_tertiary_container.default.hex}};
 @define-color bg_color {{colors.tertiary_container.default.hex}};
 
-@define-color font_color @fg_color;
+@define-color font_color {{colors.primary.default.hex}};
 

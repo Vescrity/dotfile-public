@@ -3,7 +3,7 @@
 [templates.gtk3]
 input_path = './templates/gtk-colors.css'
 output_path = '~/.config/gtk-3.0/colors.css'
-post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
+post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-dark'
 
 [templates.gtk4]
 input_path = './templates/gtk-colors.css'
@@ -14,12 +14,30 @@ input_path = './templates/waybar.css'
 output_path = '~/.config/waybar/colors.css'
 post_hook = 'pkill -SIGUSR2 waybar'
 
-[templates.kvantum]
-input_path = './templates/kvantum-colors.kvconfig'
-output_path = '~/.config/Kvantum/matugen/matugen.kvconfig'
+[templates.swaync]
+input_path = './templates/waybar.css'
+output_path = '~/.config/swaync/colors.css'
+post_hook = 'swaync-client -rs'
 
-[templates.kvantum_svg]
-input_path = './templates/kvantum-colors.svg'
-output_path = '~/.config/Kvantum/matugen/matugen.svg'
-post_hook = 'kvantummanager --set matugen'
+#[templates.kvantum]
+#input_path = './templates/kvantum-colors.kvconfig'
+#output_path = '~/.config/Kvantum/matugen/matugen.kvconfig'
 
+#[templates.kvantum_svg]
+#input_path = './templates/kvantum-colors.svg'
+#output_path = '~/.config/Kvantum/matugen/matugen.svg'
+#post_hook = 'kvantummanager --set matugen'
+
+[templates.qtct]
+input_path = './templates/qtct-colors.conf'
+output_path = '~/.config/qt6ct/colors/matugen.conf'
+
+[templates.qtcolor-scheme]
+input_path = '~/.config/matugen/templates/matugen-qt.colors'
+output_path = '~/.local/share/color-schemes/Matugen.colors'
+
+
+[templates.nwg-panel]
+input_path = './templates/nwg-panel.css'
+output_path = '~/.config/nwg-panel/colors.css'
+post_hook = 'nwg-panel &'

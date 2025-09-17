@@ -1,4 +1,5 @@
 #!/bin/bash
-#terminal=alacritty
+#terminal=foot
 #exec "$terminal" "$@"
-alacritty msg create-window || alacritty
+#alacritty msg create-window || alacritty
+footclient || foot
