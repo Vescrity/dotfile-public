@@ -2,4 +2,4 @@
 #terminal=foot
 #exec "$terminal" "$@"
 #alacritty msg create-window || alacritty
-footclient || foot
+yukirun footclient || yukirun "foot -s && footclient"

@@ -230,6 +230,7 @@ window-rule {
 input {
     mod-key "Super"
     mod-key-nested "Alt"
+    disable-power-key-handling
     keyboard {
         xkb {
             // You can set rules, model, layout, variant and options.
@@ -372,7 +373,7 @@ binds {
     Mod+Return hotkey-overlay-title="Terminal" {spawn "dxterm";}
     // script to launch a default dropdown-terminal
     Mod+U hotkey-overlay-title="Dropdown Terminal"{ spawn "dropterm"; }
-    Mod+D hotkey-overlay-title="wmenu"{ spawn-sh "systemd-run --user --scope wmenurun"; }
+    Mod+D hotkey-overlay-title="wmenu"{ spawn "wmenurun"; }
 
     Mod+Shift+D { spawn "fuzzel"; }
     Mod+Ctrl+D { spawn "nwg-drawer"; }
@@ -428,7 +429,6 @@ binds {
     //XF86MonBrightnessDown { spawn "lxqt-config-brightness" "-d"; }
     XF86MonBrightnessUp   hotkey-overlay-title=null{ spawn-sh "lightctl -d + 1" ; }
     XF86MonBrightnessDown hotkey-overlay-title=null{ spawn-sh "lightctl -d - 1" ; }
-    //XF86PowerOff          { spawn "wlivt" ; }
 
     // To avoid closing My rootful Xwayland by accident.
     Mod+Shift+Q hotkey-overlay-title="Close Window"{ spawn "niri-close-wrap"; }
@@ -616,6 +616,7 @@ binds {
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
+    XF86PowerOff { power-off-monitors; }
 }
 
 // Animation settings.

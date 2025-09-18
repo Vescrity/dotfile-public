@@ -9,24 +9,29 @@
 
 # 设置阴影效果参数
 #shadow_color="cyan"
-shadow_color="#111123"
-shadow_x="5"
-shadow_y="5"
-shadow_sigma="25"
-shadow_opacity="139"
-circle_size="12"
-
-wl-paste | magick - \
-  \( +clone -alpha extract \
-  -draw "fill black rectangle 0,0 $circle_size,$circle_size fill white circle $circle_size,$circle_size $circle_size,0" \
-     \( +clone -flip \) -compose multiply -composite \
-     \( +clone -flop \) -compose multiply -composite \
-  \) \
-  -alpha off -compose copyopacity -composite - | \
-  magick - \
-       \( +clone -background $shadow_color -shadow ${shadow_opacity}x${shadow_sigma}+${shadow_x}+${shadow_y} \) \
-            +swap -background none -layers merge +repage - | wl-copy
-
+#shadow_color="#111123"
+#shadow_x="5"
+#shadow_y="5"
+#shadow_radius="5"
+#shadow_opacity="139"
+#circle_size="12"
+#
+#wl-paste | magick PNG:- \
+#  -alpha set -background none \
+#  \( +clone -background black -shadow 60x6+5+5 \) \
+#  +swap -gravity Center -layers composite - | wl-copy
+#
+#wl-paste | magick - \
+#  \( +clone -alpha extract \
+#  -draw "fill black rectangle 0,0 $circle_size,$circle_size fill white circle $circle_size,$circle_size $circle_size,0" \
+#     \( +clone -flip \) -compose multiply -composite \
+#     \( +clone -flop \) -compose multiply -composite \
+#  \) \
+#  -alpha off -compose copyopacity -composite - | \
+#  magick - \
+#       \( +clone -background $shadow_color -shadow ${shadow_opacity}x${shadow_sigma}+${shadow_x}+${shadow_y} \) \
+#            +swap -background none -layers merge +repage - | wl-copy
+#
 #magick composite -gravity Center  $shadow_image $background_image $output_image
 #magick $shadow_image -gravity center $background_image $output_image
 
