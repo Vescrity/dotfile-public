@@ -98,6 +98,8 @@ alias rm="echo NOOOOOOOOOOOOOOOOOOOOOO; false"
 alias /bin/rm="echo Use trash; false" 
 alias uget="you-get" 
 alias fd="fd --no-ignore-vcs"
+alias susp="systemctl --user kill --signal=SIGSTOP"
+alias cont="systemctl --user kill --signal=SIGCONT"
 
 http_proxy="http://127.0.0.1:7890/"
 https_proxy="http://127.0.0.1:7890/"

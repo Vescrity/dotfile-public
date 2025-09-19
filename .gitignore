@@ -5,6 +5,8 @@
 /bin/bin/.*
 /bin/bin/*
 !/bin/bin/wmenurun
+!/bin/bin/ykrun
+!/bin/bin/ykls
 !/bin/bin/gwrap
 !/bin/bin/cwrap
 !/bin/bin/xqq

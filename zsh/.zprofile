@@ -1,12 +1,12 @@
 #export __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json
 #export VK_LOADER_DRIVERS_SELECT=intel_hasvk_icd.x86_64.json,intel_icd.x86_64.json
-systemctl --user unset-environment $(systemctl --user show-environment| cut -d '=' -f 1)
+#systemctl --user unset-environment $(systemctl --user show-environment| cut -d '=' -f 1)
 export GSK_RENDERER=ngl
-export GTK_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
-export QT_IM_MODULE=fcitx
-export SDL_IM_MODULE=fcitx
-export GLFW_IM_MODULE=fcitx
+#export GTK_IM_MODULE=fcitx
+#export XMODIFIERS=@im=fcitx
+#export QT_IM_MODULE=fcitx
+#export SDL_IM_MODULE=fcitx
+#export GLFW_IM_MODULE=fcitx
 export XDG_MENU_PREFIX=lxqt-
 export PATH="/home/vescrity/.local/bin:$PATH"
 export PATH="/home/vescrity/bin:$PATH"
