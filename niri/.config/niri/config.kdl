@@ -94,7 +94,7 @@ layout {
          draw-behind-window false
          color "#000000a0"
      }
-    gaps 4 
+    gaps 8 
     default-column-width { proportion 0.4; }
     // Struts shrink the area occupied by windows, similarly to layer-shell panels.
     // You can think of them as a kind of outer gaps. They are set in logical pixels.
@@ -102,10 +102,10 @@ layout {
     // Top and bottom struts will simply add outer gaps in addition to the area occupied by
     // layer-shell panels and regular gaps.
     struts {
-         left       1
-         right      1
-         top        -4
-         bottom     -4
+         left       -1 
+         right      -1 
+         top        -6
+         bottom     -1
     }
 
     // When to center a column when changing focus, options are:
@@ -161,7 +161,7 @@ layout {
         //active-gradient from="#fc5acf" to="#74f8ff" angle=130 in="srgb-linear" //relative-to="workspace-view"
         //inactive-gradient from="#fc5acf50" to="#74f8ff50" angle=130 in="srgb-linear" //relative-to="workspace-view"
         // Color of the ring on inactive monitors.
-        inactive-color "#00000000"
+        inactive-color "#606090a0"
 
         //active-gradient from="#80c8ff" to="#bbddff" angle=45
         // To do that, set relative-to="workspace-view".
@@ -169,9 +169,9 @@ layout {
     }
     focus-ring {
         off
-        width 3
+        //width 3
         //active-color "#ffc87f"
-        inactive-color "#505050"
+        //inactive-color "#505050"
 
         // active-gradient from="#ffbb66" to="#ffc880" angle=45 relative-to="workspace-view"
         // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
@@ -357,7 +357,7 @@ spawn-sh-at-startup  "ykrun foot -s"
 spawn-sh-at-startup  "swaybg -m fill -i ~/Pictures/Wallpaper/blur/sunset.jpg"     // Set my background
 spawn-sh-at-startup  "wl-paste --watch cliphist store"
 spawn-at-startup "nwg-panel"
-spawn-at-startup "kwalletd6"
+//spawn-at-startup "kwalletd6"
 spawn-at-startup "wsst"                      // script for wl-sunset, as it contains my position so ignored.
 spawn-at-startup "chwbg"                     // script to change background
 spawn-at-startup "lxqt-policykit-agent"
@@ -394,6 +394,7 @@ binds {
     Mod+Shift+D { spawn "fuzzel"; }
     Mod+Ctrl+D { spawn "nwg-drawer"; }
     Mod+C { spawn "nwg-clipman"; }
+    Mod+Shift+C { spawn-sh "systemctl --user thaw YukiLauncher.slice"; }
     //Mod+Ctrl+C { spawn "sh" "-c" "env DISPLAY=:0 xsel -ob | wl-copy"; }
     //Mod+Ctrl+V { spawn "sh" "-c" "wl-paste -n | env DISPLAY=:0 xsel -ib"; }
     Ctrl+Alt+H hotkey-overlay-title="Prev song" { spawn "playerctl" "previous"; }

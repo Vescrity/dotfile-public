@@ -16,10 +16,9 @@ it will create **symbolic link** to the target place.
 
 ## IMG
 
-<img width="1920" height="1080" alt="图片" src="https://github.com/user-attachments/assets/eaac861f-529c-4672-b41f-ecc199332c7b" />
-<img width="1920" height="1080" alt="图片" src="https://github.com/user-attachments/assets/0414afc4-6b28-49ce-8981-bfefe644f294" />
-<img width="1920" height="1080" alt="图片" src="https://github.com/user-attachments/assets/5a3b3d38-7672-4546-a476-97213e0343d4" />
-<img width="1920" height="1080" alt="图片" src="https://github.com/user-attachments/assets/101d08ad-17eb-4f07-9a70-c785c7cd46fe" />
+<img width="1920" height="1080" alt="图片" src="https://github.com/user-attachments/assets/cdc05243-a31e-48d5-aa38-5ea3f60a99fc" />
+<img width="1920" height="1079" alt="图片" src="https://github.com/user-attachments/assets/f6bbd392-7f7b-4821-a590-4562b1a43742" />
+<img width="1920" height="1080" alt="图片" src="https://github.com/user-attachments/assets/c9c9ae10-086c-405b-8c84-b3752dbf95c9" />
 
 
 ## CURRENTLY-USING

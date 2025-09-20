@@ -1,4 +1,4 @@
-@define-color bg rgba(0, 0, 0, 0.0);
+@define-color bg rgba(0, 0, 0, 1.0);
 /*@define-color hover-bg rgba(90, 0, 99, 0.5);
 @define-color hover-bord #a703c5;
 @define-color bord #773385;
@@ -31,8 +31,7 @@
 
 /* Bottom panel in sample config uses this name */
 #panel-bottom {
-    /*background: transparent;*/
-    background: black;
+    background: transparent;
     box-shadow: inset 0 2px #ff66cc77 ; 
 }
 #panel-left {
@@ -49,7 +48,7 @@ to highlight currently focused task / workspace. */
     background: @bg;
     border-radius: 90px;
     /*border: 1px solid @bord;*/
-    margin: 0 1px;
+    margin:  2px;
 }
 #left-box :selected,
 #left-box :hover,

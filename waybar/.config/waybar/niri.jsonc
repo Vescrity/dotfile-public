@@ -23,14 +23,14 @@
 
         ],
         "modules-center": [ 
-            "niri/window"
+            //"niri/window"
+            "clock"
             //"wlr/taskbar"
         ],
         "modules-right": [
             "tray",
             "network#u",
             "network#d",
-            "clock",
             "battery",
             "custom/notification"
         ],
@@ -119,8 +119,8 @@
         },
         "clock": {
             "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-            "format": "<b>{:%Y-%m-%d}</b>",
-            "format-alt": "<b>{:%Y-%m-%d %H:%M}</b>"
+            "format-alt": "<b>{:%Y-%m-%d}</b>",
+            "format": "<b>{:%Y-%m-%d %H:%M}</b>"
         },
         "cpu": {
             "interval": 2,
