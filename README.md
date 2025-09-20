@@ -25,13 +25,14 @@ it will create **symbolic link** to the target place.
 
 The list of the folders I'm currently using.
 
-- alacritty
 - bin
 - fcitx5
+- foot
 - fontconfig
 - gtklock
 - htop
 - lxqt
+- matugen
 - mpv
 - niri
 - nvim
@@ -46,7 +47,6 @@ The list of the folders I'm currently using.
 ## Dependency (niri session)
 
 maybe not the full list.
-- alacritty
 - niri
 - waybar
 - nwg-panel
