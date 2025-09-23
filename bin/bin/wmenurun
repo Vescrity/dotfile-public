@@ -1,6 +1,6 @@
 #!/bin/bash
 #wmenu-run -i -N 000000ff -S 6f2f8fff -f 'Comic Mono 10'
-EXEC=$(dmenu_path | wmenu -i -N 000000 -S 504375 -f 'Comic Mono 10')
+EXEC=$(dmenu_path | wmenu -i -N 000000 -S 582A87 -f 'Comic Mono 10')
 result=$?
 if [ $result -eq 0 ]; then
     ykrun $EXEC

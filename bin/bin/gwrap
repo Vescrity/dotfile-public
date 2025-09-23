@@ -86,6 +86,6 @@ if [ ! -z "$XAUTHORITY" ]; then
 fi
 
 #systemd-run --user -t --quiet --property MemoryMax=2G --property CPUQuota=200% --wait -- \
-    bwrap "${args[@]}" $@
+    bwrap "${args[@]}" "$@"
 
     #--ro-bind "$XDG_RUNTIME_DIR" "$XDG_RUNTIME_DIR" \

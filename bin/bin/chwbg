@@ -1,10 +1,11 @@
 #!/bin/bash
 
-swpid=$(pidof swww-daemon)
-if [ -z "$swpid" ]; then
-    swww-daemon &
-    exit
-fi
+#swpid=$(pidof swww-daemon)
+swpid=$(pidof swaybg)
+#if [ -z "$swpid" ]; then
+#    swww-daemon &
+#    exit
+#fi
 
 WALLPAPER_DIR=~/Pictures/Wallpaper
 WALLPAPER_INDEX=~/Pictures/Wallpaper/.wallpaper_index
@@ -13,12 +14,16 @@ if [ -f "$WALLPAPER_INDEX" ]; then
 else
     index=0
 fi
-FILES=($WALLPAPER_DIR/*.{png,jpg,webp})
+FILES=($WALLPAPER_DIR/*.{png,jpg,jxl})
 TOTAL=${#FILES[@]}
-if [ -z "$1" ]; then
-    ((index++))
-else
-    ((index--))
+if [ -z "$swpid" ]; then
+    true
+else 
+    if [ -z "$1" ]; then
+        ((index++))
+    else
+        ((index--))
+    fi
 fi
 # 确保索引不会超出范围
 if [[ "$index" -ge "$TOTAL" ]]; then
@@ -26,8 +31,13 @@ if [[ "$index" -ge "$TOTAL" ]]; then
 elif [[ "$index" -lt 0 ]]; then
     index=$((TOTAL-1))
 fi
+echo "$index" > "$WALLPAPER_INDEX"
 #hyprctl hyprpaper preload "${FILES[$index]}"
 #hyprctl hyprpaper wallpaper "eDP-1,${FILES[$index]}"
 #swww img "${FILES[$index]}" --transition-type outer --transition-bezier '0.10,0.6,0.15,1.1' --transition-fps 60 --transition-pos 0.1,0.9
-swww img "${FILES[$index]}" 
-echo "$index" > "$WALLPAPER_INDEX"
+#swww img "${FILES[$index]}" 
+swaybg -m fill -i "${FILES[$index]}" &
+if [ -z "$swpid" ]; then
+    exit
+fi
+kill $swpid

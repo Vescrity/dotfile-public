@@ -13,7 +13,7 @@
             "memory",
             "load",
             "temperature",
-            "cpu",
+            //"cpu",
             "backlight",
             "pulseaudio"
             //"wireplumber"
@@ -35,7 +35,7 @@
             "custom/notification"
         ],
         "load": {
-            "interval": 2,
+            "interval": 1,
             "format": "  {load1} {load5} {load15}"
         },
         "wlr/taskbar": {
@@ -70,9 +70,9 @@
                 "discord": "",
                 "chat": "<b></b>",
                 //"active": "",
-                "active": "\uf444",
+                "active": "\uf444 ",
                 //"default": "·"
-                "default": "\uf4c3"
+                "default": "\uf4c3 "
             }
         },
         "niri/window": {
@@ -134,7 +134,7 @@
             "format": " {used} GiB {percentage}%"
         },
         "temperature": {
-            "thermal-zone": 3,
+            "thermal-zone": 4,
             // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
             "critical-threshold": 80,
             // "format-critical": "{temperatureC}°C {icon}",

@@ -22,5 +22,5 @@ systemd-run --user -t --quiet --property MemoryMax=100200300 --property CPUQuota
     --setenv PATH /usr/bin \
     --setenv TERM $TERM \
     --setenv PS1 '\n\[\e[0m\]\[\e[1000G\]\[\e[24D\]\[\e[97;41m\]E\[\e[0m\] \[\e[1m\]$?\[\e[1000G\]\[\e[31D\]\[\e[97;104m\]J\[\e[0m\] \[\e[1m\]\j\[\e[1000G\]\[\e[18D\]\[\e[92m\]\t\[\e[0m\] \[\e[93m\]\D{%Y-%m-%d}\[\e[0G\]\[\e[96;1m\]\u\[\e[0;91m\]@\[\e[95m\]\H\[\e[0m\] \[\e[92;1m\]\w\n\[\e[0m\]\[\e[1m\]\$\[\e[0m\] ' \
-    $@
+    "$@"
 
