@@ -197,7 +197,8 @@ window-rule {
 }
 // Float something
 window-rule {
-    match title="^(图片查看器|.*记录)$"
+    match title="^(图片查看器|.*记录)$" app-id="QQ"
+    //match title="图片查看器" app-id="QQ"
     match app-id="^(lxqt-.*|pavu.*|.*portal-lxqt|.*gwenview|mpv)$"
     open-floating true
 }
