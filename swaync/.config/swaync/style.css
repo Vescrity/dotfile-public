@@ -1,20 +1,21 @@
 @import 'colors.css';
-@define-color cc-bg rgba(0, 0, 0, 0.9);
+@define-color cc-bg rgba(0, 0, 0, 0.0);
+@define-color noti-bg-darker @window_bg_color;
+@define-color noti-bg @view_bg_color;
 @define-color noti-bg-title @accent_bg_color;
 @define-color noti-bg-hover rgb(27, 7, 43);
 @define-color noti-bg-focus rgba(27, 27, 27, 0.6);
 @define-color noti-close-bg rgba(255, 55, 55, 0.1);
 @define-color noti-close-bg-hover rgba(255, 55, 55, 0.15);
-@define-color text-color rgba(249, 207, 254, 1);
+@define-color text-color @window_fg_color;
 @define-color text-color-disabled rgb(100, 60, 110);
-@define-color bg-selected rgb(128, 18, 255);
 @define-color bord @accent_color;
 @define-color tit @accent_fg_color;
 
 
 * {
     font-family: Sans;
-    background: rgba(0,0,0,0.0);
+    /*background: rgba(0,0,0,0.0);*/
 }
 
 .image {
@@ -105,7 +106,7 @@
     border: 0px solid @bord;
 }
 .text-button:hover {
-    background: @hover-bg;
+    background: @noti-bg-hover;
     border: 1px solid @bord;
 }
 
@@ -183,14 +184,16 @@
 .blank-window {
     background: alpha(black, 0.0);
 }
-
+.widget {
+    border-radius: 20px;
+    background: @noti-bg;
+}
 .widget-title {
     color: @tit;
     background: @noti-bg-title;
     padding: 5px 10px;
     margin: 10px 10px 5px 10px;
     font-size: 1.5rem;
-    border-radius: 5px;
 }
 
 .widget-title > button {
@@ -211,7 +214,6 @@
     background: @noti-bg-darker;
     padding: 5px 10px;
     margin: 5px 10px;
-    border-radius: 5px;
     font-size: large;
     color: @tit;
 }
@@ -250,7 +252,6 @@
     background: @noti-bg-darker;
     padding: 5px 10px;
     margin: 5px 10px 5px 10px;
-    border-radius: 5px;
 }
 
 .widget-mpris > box > button {
@@ -275,7 +276,6 @@
     font-size: x-large;
     padding: 5px;
     margin: 10px 10px 5px 10px;
-    border-radius: 0px;
     background: @noti-bg-darker;
 }
 
@@ -310,7 +310,6 @@
     background: @noti-bg-darker;
     padding: 5px;
     margin: 5px 10px;
-    border-radius: 0px;
     font-size: 2rem;
     color: @tit;
 }
@@ -319,7 +318,6 @@
     background: @noti-bg-darker;
     padding: 5px;
     margin: 5px 10px;
-    border-radius: 0px;
     font-size: 2rem;
     color: @tit;
 }
