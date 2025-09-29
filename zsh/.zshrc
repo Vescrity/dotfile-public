@@ -76,7 +76,7 @@ alias ....="cd ../../.."
 
 PROMPT="
 %B%F{cyan}%n%f@%F{magenta}%m%f %F{green}%~%b%f
-%# "
+> "
 RPROMPT="%B%K{blue}J%k %j  %K{red}E%k %?  %F{green}%*%f %F{yellow}%D{%Y-%m-%d}%f%b"
 alias ip='ip --color=auto'
 alias ls='ls --color=auto --hyperlink'
@@ -98,6 +98,7 @@ alias rm="echo NOOOOOOOOOOOOOOOOOOOOOO; false"
 alias /bin/rm="echo Use trash; false" 
 alias uget="you-get" 
 alias fd="fd --no-ignore-vcs"
+alias sstat="systemctl --user status"
 alias susp="systemctl --user freeze"
 alias cont="systemctl --user thaw"
 

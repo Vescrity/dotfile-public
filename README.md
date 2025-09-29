@@ -15,10 +15,9 @@ stow niri
 it will create **symbolic link** to the target place.
 
 ## IMG
-
-<img width="1920" height="1080" alt="图片" src="https://github.com/user-attachments/assets/cdc05243-a31e-48d5-aa38-5ea3f60a99fc" />
+<img width="1920" height="1080" alt="图片" src="https://github.com/user-attachments/assets/fd16a51d-135c-45fd-86b1-42459ce9fdfa" />
 <img width="1920" height="1079" alt="图片" src="https://github.com/user-attachments/assets/f6bbd392-7f7b-4821-a590-4562b1a43742" />
-<img width="1920" height="1080" alt="图片" src="https://github.com/user-attachments/assets/c9c9ae10-086c-405b-8c84-b3752dbf95c9" />
+<img width="1920" height="1080" alt="图片" src="https://github.com/user-attachments/assets/1bba5a99-896a-46dd-955f-eeacaa0644df" />
 
 
 ## CURRENTLY-USING
