@@ -102,8 +102,6 @@ alias sstat="systemctl --user status"
 alias susp="systemctl --user freeze"
 alias cont="systemctl --user thaw"
 
-http_proxy="http://127.0.0.1:7890/"
-https_proxy="http://127.0.0.1:7890/"
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=60
 GPG_TTY=$(tty)
 export VK_LOADER_DRIVERS_SELECT=intel_hasvk_icd.x86_64.json,intel_icd.x86_64.json

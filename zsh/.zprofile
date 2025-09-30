@@ -1,24 +1,20 @@
+# What the fxxk
 #export __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json
+# set it in niri instead
 #export VK_LOADER_DRIVERS_SELECT=intel_hasvk_icd.x86_64.json,intel_icd.x86_64.json
+# unset all? maybe no need
 #systemctl --user unset-environment $(systemctl --user show-environment| cut -d '=' -f 1)
-export GSK_RENDERER=ngl
-#export GTK_IM_MODULE=fcitx
-#export XMODIFIERS=@im=fcitx
-#export QT_IM_MODULE=fcitx
-#export SDL_IM_MODULE=fcitx
-#export GLFW_IM_MODULE=fcitx
+
+
+# Use lxqt (no reason)
 export XDG_MENU_PREFIX=lxqt-
 export PATH="/home/vescrity/.local/bin:$PATH"
+# My scripts path
 export PATH="/home/vescrity/bin:$PATH"
 export PATH="/home/vescrity/bin/npsudo:$PATH"
-export http_proxy="http://127.0.0.1:7890/"
-export https_proxy="http://127.0.0.1:7890/"
-#unset QT_QPA_PLATFORMTHEME
-export QT_QPA_PLATFORMTHEME=qt6ct
-export EDITOR=vim
-#/home/vescrity/bin/start_profile
-#sudo win_automount > /dev/null 2>&1
 
+
+# Create my tmp dirs
 USER_TEMP_DIR="/tmp/$USER"
 
 mkdir -p $USER_TEMP_DIR/cliphist
@@ -30,6 +26,8 @@ mkdir -p $USER_TEMP_DIR/mozilla
 mkdir -p $USER_TEMP_DIR/Jiemeng
 mkdir -p /run/user/1000/wfrc
 
+
+# Maybe use systemd instead, in future.
 zrun_pid=$(pidof clash)
 if [ -z "$zrun_pid" ]; then
 	clash_start > /dev/null 2>&1 
