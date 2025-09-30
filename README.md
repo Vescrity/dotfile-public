@@ -24,23 +24,26 @@ it will create **symbolic link** to the target place.
 
 The list of the folders I'm currently using.
 
-- bin
-- fcitx5
-- foot
-- fontconfig
-- gtklock
-- htop
-- lxqt
-- matugen
-- mpv
-- niri
-- nvim
-- nwg
-- swaync
-- themes
-- waybar
-- xdg-desktop-portal
-- zsh
+| DIR | USE For |
+|-|-|
+| bin       | Scripts                          |
+| env       | Environments for desktop session |
+| fcitx5    | Fcitx |
+| foot      | Terminal |
+| fontconfig| Fonts |
+| gtklock   | Screen Lock |
+| htop      | |
+| lxqt      | |
+| matugen   | Color scheme generator |
+| mpv       | |
+| niri      | |
+| nvim      | |
+| nwg       | nwg-{dock,bar,panel,drawer}|
+| swaync    | Notification Center |
+| themes    | GTK THEME |
+| waybar    | Bar |
+| xdg-desktop-portal | Portals |
+| zsh       | shell config |
 
 
 ## Dependency (niri session)
