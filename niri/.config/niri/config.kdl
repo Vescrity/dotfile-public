@@ -411,8 +411,8 @@ binds {
     Mod+Alt+K   hotkey-overlay-title="Brightness + (avizo)" { spawn "lightctl" "-d" "+" "1" ; }
     Mod+Alt+J   hotkey-overlay-title="Brightness - (avizo)" { spawn "lightctl" "-d" "-" "1" ; }
     Mod+Alt+L   hotkey-overlay-title="Brightness 0" { spawn "brightnessctl" "s" "0" ; }
-    Mod+N       hotkey-overlay-title="Next Background (swww)"{ spawn "chwbg" ; }
-    Mod+Shift+N hotkey-overlay-title="Prev Background (swww)"{ spawn "chwbg" "-"; }
+    Mod+X       hotkey-overlay-title="Next Background (swww)"{ spawn "chwbg" ; }
+    Mod+Shift+X hotkey-overlay-title="Prev Background (swww)"{ spawn "chwbg" "-"; }
     //Mod+M { spawn "pcmanfm-qt" "--desktop" ; }
     //Mod+Shift+M { spawn "pkill" "pcmanfm-qt" ; }
 
