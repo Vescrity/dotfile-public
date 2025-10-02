@@ -40,6 +40,7 @@ The list of the folders I'm currently using.
 | nvim      | |
 | nwg       | nwg-{dock,bar,panel,drawer}|
 | swaync    | Notification Center |
+| systemd   | systemd config |
 | themes    | GTK THEME |
 | waybar    | Bar |
 | xdg-desktop-portal | Portals |

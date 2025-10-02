@@ -354,7 +354,7 @@ output "DP-1" {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 spawn-sh-at-startup  "systemctl --user restart xdg-desktop-portal"                // I think it is needed
-spawn-sh-at-startup  "ykrun foot -s"
+//spawn-sh-at-startup  "ykrun foot -s"
 //spawn-sh-at-startup  "swaybg -m fill -i ~/Pictures/Wallpaper/blur/sunset.jpg"     // Set my background
 spawn-sh-at-startup  "wl-paste --watch cliphist store"
 spawn-at-startup "nwg-panel"

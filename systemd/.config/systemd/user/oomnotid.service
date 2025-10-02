@@ -1,0 +1,11 @@
+[Unit]
+Description=Kernel OOM monitor
+PartOf=graphical-session.target
+
+[Service]
+ExecStart=/home/vescrity/bin/oomnotid
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target
+
