@@ -2,7 +2,7 @@
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
 include "/home/vescrity/.gtkrc-2.0.mine"
-gtk-theme-name="adw-gtk3-dark"
+gtk-theme-name="Sweet-Dark-v40"
 gtk-icon-theme-name="kora"
 gtk-font-name="System-ui 12"
 gtk-cursor-theme-name="Bibata-Modern-Classic"
@@ -16,4 +16,4 @@ gtk-enable-input-feedback-sounds=0
 gtk-xft-antialias=1
 gtk-xft-hinting=1
 gtk-xft-hintstyle="hintslight"
-gtk-xft-rgba="rgb"
+gtk-xft-rgba="grayscale"
