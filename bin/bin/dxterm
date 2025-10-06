@@ -3,4 +3,8 @@
 #exec "$terminal" "$@"
 #alacritty msg create-window || alacritty
 #ykrun footclient -E || ykrun "foot -s & sleep 0.3 && footclient -E "
-ykrun foot
+if [ -v WAYLAND_DISPLAY ]; then
+    ykrun foot "$@"
+else
+    ykrun konsole "$@"
+fi
