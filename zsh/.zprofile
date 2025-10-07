@@ -8,10 +8,10 @@
 
 # Use lxqt (no reason)
 export XDG_MENU_PREFIX=lxqt-
-export PATH="/home/vescrity/.local/bin:$PATH"
+export PATH="/home/$USER/.local/bin:$PATH"
 # My scripts path
-export PATH="/home/vescrity/bin:$PATH"
-export PATH="/home/vescrity/bin/npsudo:$PATH"
+export PATH="/home/$USER/bin:$PATH"
+export PATH="/home/$USER/bin/npsudo:$PATH"
 
 
 # Create my tmp dirs
@@ -24,7 +24,7 @@ mkdir -p $USER_TEMP_DIR/nt_data/nt_data
 mkdir -p $USER_TEMP_DIR/wechat/xwechat
 mkdir -p $USER_TEMP_DIR/mozilla
 mkdir -p $USER_TEMP_DIR/Jiemeng
-mkdir -p /run/user/1000/wfrc
+mkdir -p /run/user/$UID/wfrc
 
 
 # Maybe use systemd instead, in future.

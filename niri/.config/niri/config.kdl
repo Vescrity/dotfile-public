@@ -378,7 +378,7 @@ screenshot-path "~/tmp/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"       
 
 
 binds {
-    Mod+Escape { toggle-keyboard-shortcuts-inhibit; }                                   // What does it do ?
+    Mod+Escape { toggle-keyboard-shortcuts-inhibit; }         // What does it do ?
     // Most actions that you can bind here can also be invoked programmatically with
     // `niri msg action do-something`.
 
