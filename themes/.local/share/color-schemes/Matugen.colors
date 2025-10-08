@@ -1,0 +1,179 @@
+[Appearance]
+color_scheme=Matugen
+
+[ColorEffects:Disabled]
+Color=#191118
+ColorAmount=0
+ColorEffect=0
+ContrastAmount=0.65
+ContrastEffect=1
+IntensityAmount=0.1
+IntensityEffect=2
+
+[ColorEffects:Inactive]
+ChangeSelectionColor=true
+Color=#52424f
+ColorAmount=0.025
+ColorEffect=2
+ContrastAmount=0.1
+ContrastEffect=2
+Enable=false
+IntensityAmount=0
+IntensityEffect=0
+
+[Colors:Button]
+BackgroundAlternate=#221920
+BackgroundNormal=#332930
+DecorationFocus=#ffaaf5
+DecorationHover=#ffaaf5
+ForegroundActive=#ffaaf5
+ForegroundInactive=#d6c0d0
+ForegroundLink=#f5b1eb
+ForegroundNegative=#ffb4ab
+ForegroundNeutral=#ffb2ba
+ForegroundNormal=#efdee8
+ForegroundPositive=#ffd9dc
+ForegroundVisited=#ffffff
+
+[Colors:Complementary]
+BackgroundAlternate=#221920
+BackgroundNormal=#191118
+DecorationFocus=#ffaaf5
+DecorationHover=#ffaaf5
+ForegroundActive=#ffaaf5
+ForegroundInactive=#d6c0d0
+ForegroundLink=#f5b1eb
+ForegroundNegative=#ffb4ab
+ForegroundNeutral=#ffb2ba
+ForegroundNormal=#000000
+ForegroundPositive=#ffd9dc
+ForegroundVisited=#ffffff
+
+[Colors:Header]
+BackgroundAlternate=#191118
+BackgroundNormal=#281e26
+DecorationFocus=#ffaaf5
+DecorationHover=#ffaaf5
+ForegroundActive=#ffaaf5
+ForegroundInactive=#d6c0d0
+ForegroundLink=#f5b1eb
+ForegroundNegative=#ffb4ab
+ForegroundNeutral=#ffb2ba
+ForegroundNormal=#efdee8
+ForegroundPositive=#ffd9dc
+ForegroundVisited=#ffffff
+
+[Colors:Header][Inactive]
+BackgroundAlternate=#281e26
+BackgroundNormal=#191118
+DecorationFocus=#ffaaf5
+DecorationHover=#ffaaf5
+ForegroundActive=#ffaaf5
+ForegroundInactive=#d6c0d0
+ForegroundLink=#f5b1eb
+ForegroundNegative=#ffb4ab
+ForegroundNeutral=#ffb2ba
+ForegroundNormal=#efdee8
+ForegroundPositive=#ffd9dc
+ForegroundVisited=#ffffff
+
+[Colors:Selection]
+BackgroundAlternate=#221920
+BackgroundNormal=#ffaaf5
+DecorationFocus=#ffaaf5
+DecorationHover=#ffaaf5
+ForegroundActive=#580059
+ForegroundInactive=#d6c0d0
+ForegroundLink=#ffd7f6
+ForegroundNegative=#a7060f
+ForegroundNeutral=#ffb2ba
+ForegroundNormal=#580059
+ForegroundPositive=#f55b75
+ForegroundVisited=#ffffff
+
+[Colors:Tooltip]
+BackgroundAlternate=#191118
+BackgroundNormal=#281e26
+DecorationFocus=#ffaaf5
+DecorationHover=#ffaaf5
+ForegroundActive=#ffaaf5
+ForegroundInactive=#d6c0d0
+ForegroundLink=#f5b1eb
+ForegroundNegative=#ffb4ab
+ForegroundNeutral=#ffb2ba
+ForegroundNormal=#efdee8
+ForegroundPositive=#ffd9dc
+ForegroundVisited=#ffffff
+
+[Colors:View]
+BackgroundAlternate=#281e26
+BackgroundNormal=#191118
+DecorationFocus=#000000
+DecorationHover=#580059
+ForegroundActive=#ffaaf5
+ForegroundInactive=#d6c0d0
+ForegroundLink=#f5b1eb
+ForegroundNegative=#ffb4ab
+ForegroundNeutral=#ffb2ba
+ForegroundNormal=#efdee8
+ForegroundPositive=#ffd9dc
+ForegroundVisited=#ffffff
+
+[Colors:Window]
+BackgroundAlternate=#da60d5
+BackgroundNormal=#281e26
+DecorationFocus=#ffaaf5
+DecorationHover=#ffaaf5
+ForegroundActive=#ffaaf5
+ForegroundInactive=#d6c0d0
+ForegroundLink=#f5b1eb
+ForegroundNegative=#ffb4ab
+ForegroundNeutral=#ffb2ba
+ForegroundNormal=#efdee8
+ForegroundPositive=#ffd9dc
+ForegroundVisited=#ffffff
+
+[General]
+ColorScheme=Matugen
+Name=Matugen
+
+[KDE]
+contrast=4
+
+[KFileDialog Settings]
+Allow Expansion=false
+Automatically select filename extension=true
+Breadcrumb Navigation=true
+Decoration position=2
+LocationCombo Completionmode=5
+PathCombo Completionmode=5
+Show Full Path=false
+Show Inline Previews=true
+Show Preview=false
+Show Speedbar=true
+Show hidden files=false
+Sort by=Name
+Sort directories first=true
+Sort hidden files last=false
+Sort reversed=false
+Speedbar Width=118
+View Style=DetailTree
+
+[KShortcutsDialog Settings]
+Dialog Size=600,480
+
+[PreviewSettings]
+EnableRemoteFolderThumbnail=false
+MaximumRemoteSize=0
+MaximumSize=1048576
+
+[UiSettings]
+ColorScheme=Matugen
+
+[WM]
+activeBackground=#da60d5
+activeBlend=#000000
+activeForeground=#000000
+inactiveBackground=#191118
+inactiveBlend=#d6c0d0
+inactiveForeground=#d6c0d0
