@@ -356,6 +356,7 @@ output "DP-1" {
 spawn-sh-at-startup  "systemctl --user restart xdg-desktop-portal"                // I think it is needed
 //spawn-sh-at-startup  "ykrun foot -s"
 //spawn-sh-at-startup  "swaybg -m fill -i ~/Pictures/Wallpaper/blur/sunset.jpg"     // Set my background
+//spawn-at-startup  "swaybg" "-m" "fill" "-i" "/home/vescrity/Pictures/Wallpaper/blur/sunset.jpg"     // Set my background
 spawn-sh-at-startup  "wl-paste --watch cliphist store"
 spawn-at-startup "nwg-panel"
 //spawn-at-startup "kwalletd6"

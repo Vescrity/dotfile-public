@@ -3,13 +3,13 @@
 <fontconfig>
     <match target="font">
         <edit name="antialias" mode="assign">
-            <bool>false</bool>
+            <bool>true</bool>
         </edit>
         <edit name="hinting" mode="assign">
-            <bool>false</bool>
+            <bool>true</bool>
         </edit>
         <edit name="hintstyle" mode="assign">
-            <const>hintnone</const>
+            <const>hintslight</const>
         </edit>
         <edit name="rgba" mode="assign">
             <const>none</const>

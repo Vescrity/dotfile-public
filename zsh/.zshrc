@@ -21,9 +21,11 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
 
-for file in ~/.config/zsh/*.zsh; do
-    source "$file"
-done
+PROMPT="
+%B%F{cyan}%n%f@%F{magenta}%m%f %F{green}%~%b%f
+> "
+RPROMPT="%B%K{blue}J%k %j  %K{red}E%k %?  %F{green}%*%f %F{yellow}%D{%Y-%m-%d}%f%b"
+
 
 setopt HIST_IGNORE_ALL_DUPS
 
@@ -72,12 +74,12 @@ alias 19='cd -19'
 alias ...="cd ../.."
 alias ....="cd ../../.."
 
+for file in ~/.config/zsh/*.zsh; do
+    source "$file"
+done
+
 # }}}
 
-PROMPT="
-%B%F{cyan}%n%f@%F{magenta}%m%f %F{green}%~%b%f
-> "
-RPROMPT="%B%K{blue}J%k %j  %K{red}E%k %?  %F{green}%*%f %F{yellow}%D{%Y-%m-%d}%f%b"
 alias ip='ip --color=auto'
 alias ls='ls --color=auto --hyperlink'
 alias diff='diff --color=auto'
@@ -98,6 +100,7 @@ alias rm="echo NOOOOOOOOOOOOOOOOOOOOOO; false"
 alias /bin/rm="echo Use trash; false" 
 alias uget="you-get" 
 alias fd="fd --no-ignore-vcs"
+alias bat="bat --wrap=never"
 alias ta="tmux a -t"
 alias sstat="systemctl --user status"
 alias susp="systemctl --user freeze"
