@@ -107,9 +107,9 @@ alias susp="systemctl --user freeze"
 alias cont="systemctl --user thaw"
 
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=60
-GPG_TTY=$(tty)
-http_proxy="http://127.0.0.1:7890/"
-https_proxy="http://127.0.0.1:7890/"
+export GPG_TTY=$(tty)
+export http_proxy="http://127.0.0.1:7890/"
+export https_proxy="http://127.0.0.1:7890/"
 
 
 
