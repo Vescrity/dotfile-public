@@ -101,7 +101,8 @@ alias /bin/rm="echo Use trash; false"
 alias uget="you-get" 
 alias fd="fd --no-ignore-vcs"
 alias bat="bat --wrap=never"
-alias ta="tmux a -t"
+alias ta="tmux new -At"
+alias ykls="systemctl --user status YukiLauncher.slice"
 alias sstat="systemctl --user status"
 alias susp="systemctl --user freeze"
 alias cont="systemctl --user thaw"
@@ -110,6 +111,8 @@ ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=60
 export GPG_TTY=$(tty)
 export http_proxy="http://127.0.0.1:7890/"
 export https_proxy="http://127.0.0.1:7890/"
+export VK_LOADER_DRIVERS_SELECT=intel_hasvk_icd.x86_64.json,intel_icd.x86_64.json
+export VK_LOADER_DRIVERS_DISABLE=nouveau_icd.x86_64.json,nouveau_icd.i686.json
 
 
 

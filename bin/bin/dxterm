@@ -6,5 +6,5 @@
 if [ -v WAYLAND_DISPLAY ]; then
     ykrun foot "$@"
 else
-    ykrun konsole "$@"
+    ykrun alacritty "$@"
 fi

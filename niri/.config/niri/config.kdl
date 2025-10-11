@@ -85,7 +85,7 @@ layout {
         inactive-gradient from="#50505080" to="#80808080" angle=0 
         urgent-gradient from="#800" to="#a33" angle=45
     }
-    background-color "transparent"
+    background-color "#281E26"
     shadow {
          on 
          softness 3
@@ -304,7 +304,7 @@ input {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
 output "eDP-1" {
-    //background-color "#000"
+    background-color "#281E26"
     // Uncomment this line to disable this output.
     // off
 
@@ -318,7 +318,7 @@ output "eDP-1" {
     mode "1920x1080@165.014"
 
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
-    scale 1.0
+    scale 1
 
     // Transform allows to rotate the output counter-clockwise, valid values are:
     // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
@@ -361,7 +361,7 @@ spawn-sh-at-startup  "wl-paste --watch cliphist store"
 spawn-at-startup "nwg-panel"
 //spawn-at-startup "kwalletd6"
 spawn-at-startup "wsst"                      // script for wl-sunset, as it contains my position so ignored.
-spawn-at-startup "chwbg"                     // script to change background
+//spawn-at-startup "chwbg"                     // script to change background
 spawn-at-startup "lxqt-policykit-agent"
 spawn-at-startup "avizo-service"             // nice widget for volumn/brightness change
 //spawn-at-startup "oomnotid"                  // script to send notification when OOM
@@ -645,11 +645,11 @@ binds {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
 animations {
     // Uncomment to turn off all animations.
-    // off
+    //off
     window-open {
-        //duration-ms 150
+        duration-ms 150
         //curve "linear"
-        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+        //spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
         custom-shader r"
         float map(float value, float min1, float max1, float min2, float max2) {
             return min2 + (value - min1) * (max2 - min2) / (max1 - min1);
@@ -671,7 +671,7 @@ animations {
     window-close {
         //duration-ms 150
         //curve "linear"
-        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+        //spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
         custom-shader r"
         float map(float value, float min1, float max1, float min2, float max2) {
             return min2 + (value - min1) * (max2 - min2) / (max1 - min1);

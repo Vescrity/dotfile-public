@@ -2,8 +2,6 @@
 #export __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json
 # set it in niri instead
 #export VK_LOADER_DRIVERS_SELECT=intel_hasvk_icd.x86_64.json,intel_icd.x86_64.json
-# unset all? maybe no need
-#systemctl --user unset-environment $(systemctl --user show-environment| cut -d '=' -f 1)
 
 
 # Use lxqt (no reason)
