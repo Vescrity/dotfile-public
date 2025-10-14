@@ -16,4 +16,4 @@
 # If no wayland, the error msg
 #WFRC_NOWAYLAND="No WAYLAND_DISPLAY found. Did you run me on a wayland compositor?"
 
-. /bin/wfrc -C libopus "$@"
+. /bin/wfrc -C libopus -c h264_vaapi -d /dev/dri/renderD128 -F 'scale_vaapi=format=nv12:out_range=full' "$@"
