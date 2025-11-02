@@ -2,7 +2,7 @@
 #terminal=foot
 #exec "$terminal" "$@"
 if [ -v WAYLAND_DISPLAY ]; then
-    ykrun foot "$@"
+    ykrun footclient "$@"
 else
-    ykrun xfce-terminal "$@"
+    ykrun xfce4-terminal "$@"
 fi

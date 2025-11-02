@@ -65,6 +65,10 @@ maybe not the full list.
 - swaync (notification)
 - lxqt-policykit
 
+## zsh config
+
+some config for system-wide are placed [here](https://github.com/Vescrity/my-zsh-system-config)
+
 ## keybindings (niri session)
 
 - Mod + Enter : terminal

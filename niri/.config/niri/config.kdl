@@ -4,6 +4,27 @@
 // Check the wiki for a full description of the configuration:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Overview
 
+// Add lines like this to spawn processes at startup.
+spawn-sh-at-startup  "ykrun foot -s"                // I think it is needed
+spawn-sh-at-startup  "systemctl --user restart xdg-desktop-portal"                // I think it is needed
+//spawn-sh-at-startup  "swaybg -m fill -i ~/Pictures/Wallpaper/blur/sunset.jpg"     // Set my background
+//spawn-at-startup  "swaybg" "-m" "fill" "-i" "/home/vescrity/Pictures/Wallpaper/blur/sunset.jpg"     // Set my background
+spawn-sh-at-startup  "wl-paste --watch cliphist store"
+//spawn-at-startup "nwg-panel"
+spawn-at-startup "xfce4-panel"
+//spawn-at-startup "sh" "-c" "XDG_CURRENT_DESKTOP=wlroots lxqt-panel"                   // Start LXQt Panel
+//spawn-at-startup "sh" "-c" "XDG_CURRENT_DESKTOP=wlroots pcmanfm-qt --desktop"
+//spawn-at-startup "kwalletd6"
+spawn-at-startup "wsst"                      // script for wl-sunset, as it contains my position so ignored.
+//spawn-at-startup "chwbg"                     // script to change background
+spawn-at-startup "lxqt-policykit-agent"
+spawn-at-startup "avizo-service"             // nice widget for volumn/brightness change
+//spawn-at-startup "swaync"  //systemd
+//spawn-at-startup  "waybar" //with systemd instead
+
+debug {
+    strict-new-window-focus-policy
+}
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
 // Additionally, clients will be informed that they are tiled, removing some rounded corners.
@@ -60,6 +81,7 @@ layer-rule {
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
+    empty-workspace-above-first
     // Blur: can be used with a forked niri, current buggy.
     //blur{
     //    on
@@ -71,21 +93,21 @@ layout {
         //off
         //hide-when-single-tab
         place-within-column
-        gap 2
-        width 20
+        gap 0
+        width 8
         length total-proportion=0.8
-        position "left"
-        gaps-between-tabs 20
+        position "top"
+        gaps-between-tabs 10
         corner-radius 8
-        //active-color "red"
-        //inactive-color "gray"
+        active-color "#ff4ba6"
+        inactive-color "#cccccc"
         //urgent-color "blue"
-        active-gradient from="#ee7c78" to="#ea76cb" angle=5 in="oklch longer hue"
+        //active-gradient from="#ee7c78" to="#ea76cb" angle=5 in="oklch longer hue"
         //active-gradient from="#a0f80f" to="#ff0daf" angle=0
-        inactive-gradient from="#50505080" to="#80808080" angle=0 
+        //inactive-gradient from="#50505080" to="#80808080" angle=0 
         urgent-gradient from="#800" to="#a33" angle=45
     }
-    background-color "#281E26"
+    background-color "#281E2600"
     shadow {
          on 
          softness 3
@@ -94,7 +116,7 @@ layout {
          draw-behind-window false
          color "#000000a0"
      }
-    gaps 8 
+    gaps 3 
     default-column-width { proportion 0.4; }
     // Struts shrink the area occupied by windows, similarly to layer-shell panels.
     // You can think of them as a kind of outer gaps. They are set in logical pixels.
@@ -102,9 +124,9 @@ layout {
     // Top and bottom struts will simply add outer gaps in addition to the area occupied by
     // layer-shell panels and regular gaps.
     struts {
-         left       -1 
-         right      -1 
-         top        -6
+         left       8 
+         right      8 
+         top        -3
          bottom     -1
     }
 
@@ -144,12 +166,8 @@ layout {
 
     // You can change how the focus ring looks.
     border {
-        // Uncomment this line to disable the focus ring.
         // off
-
-        // How many logical pixels the ring extends out from the windows.
-        width 2
-
+        width 1
         // Colors can be set in a variety of ways:
         // - CSS named colors: "red"
         // - RGB hex: "#rgb", "#rgba", "#rrggbb", "#rrggbbaa"
@@ -199,7 +217,7 @@ window-rule {
 window-rule {
     match title="^(图片查看器|.*记录)$" app-id="QQ"
     //match title="图片查看器" app-id="QQ"
-    match app-id="^(lxqt-.*|pavu.*|.*portal-lxqt|.*gwenview|mpv)$"
+    match app-id="^(lxqt-.*|pavu.*|.*portal-lxqt|.*gwenview|wrapper-2.0|mpv)$"
     open-floating true
 }
 // Block out from screen capture.
@@ -304,7 +322,7 @@ input {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
 output "eDP-1" {
-    background-color "#281E26"
+    background-color "#0000"
     // Uncomment this line to disable this output.
     // off
 
@@ -349,27 +367,6 @@ output "DP-1" {
     position x=-1980 y=0
 }
 
-// Add lines like this to spawn processes at startup.
-// Note that running niri as a session supports xdg-desktop-autostart,
-// which may be more convenient to use.
-// See the binds section below for more spawn examples.
-spawn-sh-at-startup  "systemctl --user restart xdg-desktop-portal"                // I think it is needed
-//spawn-sh-at-startup  "ykrun foot -s"
-//spawn-sh-at-startup  "swaybg -m fill -i ~/Pictures/Wallpaper/blur/sunset.jpg"     // Set my background
-//spawn-at-startup  "swaybg" "-m" "fill" "-i" "/home/vescrity/Pictures/Wallpaper/blur/sunset.jpg"     // Set my background
-spawn-sh-at-startup  "wl-paste --watch cliphist store"
-spawn-at-startup "nwg-panel"
-//spawn-at-startup "kwalletd6"
-spawn-at-startup "wsst"                      // script for wl-sunset, as it contains my position so ignored.
-//spawn-at-startup "chwbg"                     // script to change background
-spawn-at-startup "lxqt-policykit-agent"
-spawn-at-startup "avizo-service"             // nice widget for volumn/brightness change
-//spawn-at-startup "oomnotid"                  // script to send notification when OOM
-//spawn-at-startup "swaync"
-//spawn-at-startup  "waybar"
-//spawn-at-startup "sh" "-c" "XDG_CURRENT_DESKTOP=wlroots lxqt-panel"                   // Start LXQt Panel
-//spawn-at-startup "sh" "-c" "XDG_CURRENT_DESKTOP=wlroots pcmanfm-qt --desktop"
-
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
 // The path is formatted with strftime(3) to give you the screenshot date and time.
@@ -397,7 +394,7 @@ binds {
     Mod+Ctrl+D { spawn "nwg-drawer"; }
     Mod+C { spawn "nwg-clipman"; }
     Mod+Shift+C { spawn-sh "systemctl --user thaw YukiLauncher.slice"; }
-    //Mod+Ctrl+C { spawn "sh" "-c" "env DISPLAY=:0 xsel -ob | wl-copy"; }
+    Mod+Ctrl+C { spawn-sh "xclip -o -selection clipboard | wl-copy"; }
     //Mod+Ctrl+V { spawn "sh" "-c" "wl-paste -n | env DISPLAY=:0 xsel -ib"; }
     Ctrl+Alt+H hotkey-overlay-title="Prev song" { spawn "playerctl" "previous"; }
     Ctrl+Alt+L hotkey-overlay-title="Next song" { spawn "playerctl" "next"; }
@@ -555,25 +552,27 @@ binds {
     //
     // For example, with 2 workspaces + 1 empty, indices 3, 4, 5 and so on
     // will all refer to the 3rd workspace.
-    Mod+1 { focus-workspace 1; }
-    Mod+2 { focus-workspace 2; }
-    Mod+3 { focus-workspace 3; }
-    Mod+4 { focus-workspace 4; }
-    Mod+5 { focus-workspace 5; }
-    Mod+6 { focus-workspace 6; }
-    Mod+7 { focus-workspace 7; }
-    Mod+8 { focus-workspace 8; }
-    Mod+9 { focus-workspace 9; }
+    Mod+grave { focus-workspace 1; }
+    Mod+1 { focus-workspace 2; }
+    Mod+2 { focus-workspace 3; }
+    Mod+3 { focus-workspace 4; }
+    Mod+4 { focus-workspace 5; }
+    Mod+5 { focus-workspace 6; }
+    Mod+6 { focus-workspace 7; }
+    Mod+7 { focus-workspace 8; }
+    Mod+8 { focus-workspace 9; }
+    Mod+9 { focus-workspace 10; }
 
-    Mod+Shift+1 { move-column-to-workspace focus=false 1 ; }
-    Mod+Shift+2 { move-column-to-workspace focus=false 2 ; }
-    Mod+Shift+3 { move-column-to-workspace focus=false 3 ; }
-    Mod+Shift+4 { move-column-to-workspace focus=false 4 ; }
-    Mod+Shift+5 { move-column-to-workspace focus=false 5 ; }
-    Mod+Shift+6 { move-column-to-workspace focus=false 6 ; }
-    Mod+Shift+7 { move-column-to-workspace focus=false 7 ; }
-    Mod+Shift+8 { move-column-to-workspace focus=false 8 ; }
-    Mod+Shift+9 { move-column-to-workspace focus=false 9 ; }
+    Mod+Shift+grave { move-column-to-workspace focus=false 1 ; }
+    Mod+Shift+1 { move-column-to-workspace focus=false 2 ; }
+    Mod+Shift+2 { move-column-to-workspace focus=false 3 ; }
+    Mod+Shift+3 { move-column-to-workspace focus=false 4 ; }
+    Mod+Shift+4 { move-column-to-workspace focus=false 5 ; }
+    Mod+Shift+5 { move-column-to-workspace focus=false 6 ; }
+    Mod+Shift+6 { move-column-to-workspace focus=false 7 ; }
+    Mod+Shift+7 { move-column-to-workspace focus=false 8 ; }
+    Mod+Shift+8 { move-column-to-workspace focus=false 9 ; }
+    Mod+Shift+9 { move-column-to-workspace focus=false 10 ; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+1 { move-window-to-workspace 1; }
@@ -625,6 +624,7 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
+    Print { screenshot; }
     Mod+Ctrl+A { screenshot; }
     Mod+A hotkey-overlay-title="Screenshot with shadow" { spawn "shadowclip"; }
     //Mod+Shift+W { spawn "shadowwin_niri"; }
@@ -646,6 +646,8 @@ binds {
 animations {
     // Uncomment to turn off all animations.
     //off
+    // Slow down all animations by this factor. Values below 1 speed them up instead.
+    //slowdown 1.0
     window-open {
         duration-ms 150
         //curve "linear"
@@ -752,6 +754,36 @@ animations {
         "
     }
 
-    // Slow down all animations by this factor. Values below 1 speed them up instead.
-    //slowdown 1.0
+
+//    workspace-switch {
+//        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+//    }
+//     horizontal-view-movement {
+//        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+//    }
+//
+//    window-movement {
+//        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+//    }
+//
+//    window-resize {
+//        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+//    }
+//
+//    config-notification-open-close {
+//        spring damping-ratio=0.6 stiffness=1000 epsilon=0.001
+//    }
+//
+//    exit-confirmation-open-close {
+//        spring damping-ratio=0.6 stiffness=500 epsilon=0.01
+//    }
+//
+//    screenshot-ui-open {
+//        duration-ms 200
+//        curve "ease-out-quad"
+//    }
+//
+//    overview-open-close {
+//        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+//    }
 }

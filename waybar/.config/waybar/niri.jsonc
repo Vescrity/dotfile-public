@@ -3,7 +3,7 @@
     {
         "name": "top-bar",
         "layer": "top",
-        "height": 16, // Waybar height (to be removed for auto height)
+        "height": 18, // Waybar height (to be removed for auto height)
         "spacing": 0, // Gaps between modules (4px)
         "margin-left": 0,
         "margin-right": 0,
@@ -23,12 +23,13 @@
 
         ],
         "modules-center": [ 
-            //"niri/window"
-            "clock"
+            "niri/window"
+            //"clock"
             //"wlr/taskbar"
         ],
         "modules-right": [
-            "tray",
+            //"tray",
+            "custom/media",
             "network#u",
             "network#d",
             "battery",

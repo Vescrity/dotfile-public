@@ -4,6 +4,11 @@
 #flatpak run com.qq.QQ
 #bubblejail run QQ /home/vescrity/Programs/QQ/qq --enable-features=WaylandWindowDecorations --ozone-platform-hint=auto --enable-wayland-ime --wayland-text-input-version=3" $@"
 #bubblejail run QQ numlockx &
+BBDIR=/home/vescrity/.local/share/bubblejail/instances/QQ/home
+touch "$BBDIR"/.test || {
+    notify-send ERROR "Please run qqmt" 
+    exit 1
+}
 bubblejail run QQ env PATH=$PATH VK_LOADER_DRIVERS_SELECT=intel_hasvk_icd.x86_64.json,intel_icd.x86_64.json /home/vescrity/Programs/QQ/qq "$@"
 #bubblejail run QQ /home/vescrity/Programs/QQ/qq --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime" $@" &
 #unset WAYLAND_DISPLAY

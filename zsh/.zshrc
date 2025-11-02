@@ -1,38 +1,52 @@
 # vim:fileencoding=utf-8:foldmethod=marker
+#
+# # README
+#
+# This ZSHRC source the zsh-syntax-highlighting and zsh-autosuggestions
+# Check their installation path and change them at the end of this file.
+#
+# ## Config
+#
+# this file will source ~/.config/zsh/*.zsh by default
+#
+XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-/run/user/$UID/}"
+
+# IMPORTANT: CHANGE TO OTHER TEMP PATH if you don't use LINUX
+DIRSTACK="$XDG_RUNTIME_DIR/zsh/"
+DIRSTACKFILE="$DIRSTACK/dirs"
+mkdir -p "$DIRSTACK"
+
 # BASIC_CONFIG {{{
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
 setopt autocd
+# VI keybindings
 bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/${USER}/.zshrc'
 
-autoload -Uz compinit
-compinit
+autoload -Uz compinit && compinit
+#autoload -Uz promptinit && promptinit
 
 zstyle ':completion:*' menu select
 # End of lines added by compinstall
+
 zstyle ':completion:*' ignore-parents always
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
 
-PROMPT="
-%B%F{cyan}%n%f@%F{magenta}%m%f %F{green}%~%b%f
-> "
-RPROMPT="%B%K{blue}J%k %j  %K{red}E%k %?  %F{green}%*%f %F{yellow}%D{%Y-%m-%d}%f%b"
+precmd() {
+    print -Pn "\e]133;A\e\\"
+}
 
 
 setopt HIST_IGNORE_ALL_DUPS
 
-XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-/run/user/$UID/}"
-DIRSTACK="$XDG_RUNTIME_DIR/zsh/"
-DIRSTACKFILE="$DIRSTACK/dirs"
-mkdir -p "$DIRSTACK"
 
 if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
   dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
@@ -79,48 +93,8 @@ for file in ~/.config/zsh/*.zsh; do
     source "$file"
 done
 
-# }}}
-
-alias ip='ip --color=auto'
-alias ls='ls --color=auto --hyperlink'
-alias diff='diff --color=auto'
-alias grep='grep --color=auto'
-alias u="echo use user: pkgmake"
-alias f="fastfetch"
-alias c="clear"
-alias v="nvim"
-alias o="okular"
-alias zmux="zellij"
-alias l="eza -aaglh --hyperlink"
-alias ll="eza -glh --hyperlink"
-alias view="vim -R"
-alias yay="yay --editmenu"
-alias ac311venv="source ~/.venv311/bin/activate"
-alias pacf="pacfiles"
-alias rm="echo NOOOOOOOOOOOOOOOOOOOOOO; false" 
-alias /bin/rm="echo Use trash; false" 
-alias uget="you-get" 
-alias fd="fd --no-ignore-vcs"
-alias bat="bat --wrap=never"
-alias ta="tmux new -At"
-alias ykls="systemctl --user status YukiLauncher.slice"
-alias sstat="systemctl --user status"
-alias susp="systemctl --user freeze"
-alias cont="systemctl --user thaw"
-
-export GPG_TTY=$(tty)
-export http_proxy="http://127.0.0.1:7890/"
-export https_proxy="http://127.0.0.1:7890/"
-export VK_LOADER_DRIVERS_SELECT=intel_hasvk_icd.x86_64.json,intel_icd.x86_64.json
-export VK_LOADER_DRIVERS_DISABLE=nouveau_icd.x86_64.json,nouveau_icd.i686.json
-
-
-
-if [ ! -n "$TERM" ] || [ $TERM = linux ]; then
-	export TERM=linux-16color
-fi
-
-#umask 0022
 # NEED_END
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+# }}}
+
