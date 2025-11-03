@@ -10,10 +10,10 @@
         //"mode": "dock", 
         "modules-left": [
             "niri/workspaces",
-            "memory",
             "load",
-            "temperature",
+            //"temperature",
             "cpu",
+            "memory",
             "backlight",
             "pulseaudio"
             //"wireplumber"
@@ -131,8 +131,9 @@
         },
         "memory": {
             "interval": 5,
-            "min-length": 16,
-            "format": " {used} GiB {percentage}%"
+            //"min-length": 16,
+            //"format": " {used} GiB {percentage}%"
+            "format": " {percentage}%"
         },
         "temperature": {
             "thermal-zone": 1,
