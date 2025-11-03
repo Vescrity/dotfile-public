@@ -15,9 +15,9 @@ stow niri
 it will create **symbolic link** to the target place.
 
 ## IMG
-<img width="1920" height="1080" alt="图片" src="https://github.com/user-attachments/assets/fd16a51d-135c-45fd-86b1-42459ce9fdfa" />
-<img width="1920" height="1079" alt="图片" src="https://github.com/user-attachments/assets/f6bbd392-7f7b-4821-a590-4562b1a43742" />
-<img width="1920" height="1080" alt="图片" src="https://github.com/user-attachments/assets/1bba5a99-896a-46dd-955f-eeacaa0644df" />
+<img width="1920" height="1080" alt="图片" src="https://github.com/user-attachments/assets/ae0ba22c-e2b1-4593-83e0-485a1f2fa610" />
+<img width="1920" height="1080" alt="图片" src="https://github.com/user-attachments/assets/83e53455-61f4-4cee-93e9-3b34e692302e" />
+<img width="1920" height="1080" alt="图片" src="https://github.com/user-attachments/assets/770aa8fb-0bbe-4eb4-81d5-8d9f7f827853" />
 
 
 ## CURRENTLY-USING
@@ -34,6 +34,7 @@ The list of the folders I'm currently using.
 | gtklock   | Screen Lock |
 | htop      | |
 | lxqt      | |
+| xfce      | (The bottom panel, Not shown in this repo) |
 | matugen   | Color scheme generator |
 | mpv       | |
 | niri      | |
