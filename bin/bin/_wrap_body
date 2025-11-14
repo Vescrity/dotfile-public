@@ -1,0 +1,61 @@
+source _wrap
+TMP_HOME=${TMP_HOME:-1}
+args+=(
+    --dev /dev \
+    --proc /proc \
+    --symlink usr/lib /lib \
+    --symlink usr/lib64 /lib64 \
+    --symlink usr/bin /bin \
+    --symlink usr/sbin /sbin \
+    --unshare-user \
+    --unshare-all \
+    --share-net \
+    --die-with-parent \
+    --tmpfs /tmp
+    --bind /tmp/$USER/Downloads /tmp/$USER/Downloads
+)
+
+if [ "$TMP_HOME" -eq 1 ]; then
+    tmpfs "$HOME"
+fi
+
+tmpfs \
+    /sys \
+    /run \
+    /var \
+    /dev/shm \
+
+robind \
+    /usr \
+    /etc \
+    /sys/module \
+    /sys/dev/char \
+    /sys/devices \
+    /tmp/.X11-unix \
+    "$XDG_RUNTIME_DIR"/wayland* \
+    "$XDG_RUNTIME_DIR"/pipewire* \
+    "$XDG_RUNTIME_DIR"/pulse* \
+    "$XDG_RUNTIME_DIR"/at-spi \
+    "$HOME/.config/fontconfig" \
+    "$HOME/.config/gtk-3.0" \
+    "$HOME/.config/gtk-2.0" \
+    "$HOME/.config/qt6ct" \
+    "$HOME/.config/mimeapps.list" \
+    "$HOME/.config/kdeglobals" \
+    "$HOME/.local/share/color-schemes" \
+    "$HOME/.config/dconf" \
+    "$HOME/.config/xsettingsd" \
+    "$HOME/.local/share/fcitx5" \
+    "$HOME/.local/share/fonts" \
+    "$HOME/.gtkrc-2.0" \
+    "$HOME/.icons" \
+    "$HOME/.themes" \
+
+#    "$XDG_RUNTIME_DIR"/dbus* \
+#    "$XDG_RUNTIME_DIR"/bus \
+#    "$HOME/dotfile/themes/" \
+#    "$HOME/.Xauthority" \
+
+
+devbind /dev/dri
+

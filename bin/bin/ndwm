@@ -1,5 +1,5 @@
 #!/bin/bash
-DISPLAY="${1:-:1}"
+export DISPLAY="${1:-:1}"
 Xwayland $DISPLAY > /dev/null 2>&1 &
 XDG_SESSION_TYPE=x11
 unset WAYLAND_DISPLAY

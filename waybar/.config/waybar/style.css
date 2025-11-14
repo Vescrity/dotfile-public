@@ -1,16 +1,25 @@
 @import 'colors.css';
 @define-color bg #000;
 * {
+	min-height: 0;
+}
+#waybar.time {
+    font-family: "ComicMono";
+    font-weight: bold;
+    background: transparent;
+    font-size: 70px;
+    /*color: @font_color;*/
+    color: #fff;
+}
+
+#waybar.top-bar {
+    background: #000;
     font-family: "monospace";
     font-weight: bold;
 	min-height: 0;
     font-size: 12px;
     font-feature-settings: "tnum";
     min-width: 0px;
-}
-
-window#waybar.top-bar {
-    background: #000;
     /* background-color: rgba(30, 30, 46, 0.5); */
     /* border-bottom: 2px solid rgba(147, 153, 178, 0.5); */
     /* border: 1px solid rgba(166, 173, 200, 1.0); */
@@ -18,32 +27,10 @@ window#waybar.top-bar {
     /* transition-duration: .5s; */
 }
 
-window#waybar.time {
-    background: transparent;
-    /*color: @font_color;*/
-    color: #fff;
-}
-window#waybar.hidden {
+#waybar.hidden {
     opacity: 0.2;
 }
 
-/*
-window#waybar.empty {
-    background-color: transparent;
-}
-window#waybar.solo {
-    background-color: #FFFFFF;
-}
-*/
-
-window#waybar.termite {
-    background-color: #3F3F3F;
-}
-
-window#waybar.chromium {
-    background-color: #000000;
-    border: none;
-}
 
 button {
     /* Use box-shadow instead of border so the text isn't offset */
@@ -159,12 +146,6 @@ button:hover {
     margin-right: 0;
 }*/
 
-#clock {
-    /* background-color: #64727D; */
-    font-weight: bold;
-    /* background-color: rgba(0, 0, 0, 0.3); */
-    /* border-radius: 99px; */
-}
 
 #battery {
     /* background-color: #f9e2af; */
@@ -349,19 +330,13 @@ label {
 #scratchpad.empty {
 	background-color: transparent;
 }
-#waybar.time *{
-    background-color: transparent;
-    font-family: "Comic Mono";
-}
 #waybar.time #clock.hm,
 #clock.m,
 #clock.h {
-    font-family: "Comic Mono";
     padding: 0 20px 0 20px;
     color: rgba(255, 255, 255, 0.3);
     text-shadow: rgba(0,0,0,0.6) 5px 3px 10px;
     background-color: transparent;
-    font-size: 70px;
 }
 .time #clock.m {
     margin-top: 0px;

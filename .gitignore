@@ -7,6 +7,8 @@
 !/bin/bin/wmenurun
 !/bin/bin/ykrun
 !/bin/bin/ykls
+
+!/bin/bin/_wrap*
 !/bin/bin/gwrap
 !/bin/bin/cwrap
 !/bin/bin/xqq

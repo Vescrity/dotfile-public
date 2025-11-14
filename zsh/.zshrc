@@ -93,8 +93,5 @@ for file in ~/.config/zsh/*.zsh; do
     source "$file"
 done
 
-# NEED_END
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # }}}
 

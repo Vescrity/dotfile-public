@@ -1,0 +1,36 @@
+# vim:set ft=sh:
+
+RUN_DBUS=${RUN_DBUS:-1}
+NO_LOOP=${NO_LOOP:-1}
+
+if [ ! -z "$XAUTHORITY" ]; then
+    echo "AUTH"
+    robind "$XAUTHORITY"
+fi
+
+if [ "$RUN_DBUS" -eq 1 ]; then
+    # Why dbus proxy? Why not a new dbus for a better safety?
+    args+=( dbus-run-session -- )
+fi
+
+# As we cannot access them in the sandbox
+if [ "$NO_LOOP" -eq 1 ]; then
+    unset http_proxy
+    unset https_proxy
+#    unshare --user --map-current-user --net --mount -- bwrap  "${args[@]}" "$@" &
+fi
+unshare --user --map-current-user --net --mount -- bwrap  "${args[@]}" "$@" &
+#bwrap  "${args[@]}" "$@" &
+UPID=$!
+# Needed, to make sure bwrap started, or slirp4netns may failed
+sleep 0.5
+if [ "$NO_LOOP" -eq 1 ]; then
+    # DISABLE LOOPBACK
+    slirp4netns --configure --mtu=65520 $UPID tap0 --disable-host-loopback &
+else 
+    slirp4netns --configure --mtu=65520 $UPID tap0 &
+fi
+SLIR=$!
+wait $UPID
+kill $SLIR 
+

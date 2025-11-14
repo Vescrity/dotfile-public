@@ -6,7 +6,7 @@
   },
   {
     "label": "Soft Reboot",
-    "exec": "systemctl soft-reboot",
+    "exec": "_361_logout systemctl soft-reboot",
     "icon": "/usr/share/nwg-bar/images/system-reboot.svg"
   },
   {
@@ -16,12 +16,12 @@
   },
   {
     "label": "Reboot",
-    "exec": "systemctl reboot",
+    "exec": "_361_logout systemctl reboot",
     "icon": "/usr/share/nwg-bar/images/system-reboot.svg"
   },
   {
     "label": "Shutdown",
-    "exec": "systemctl -i poweroff",
+    "exec": "_361_logout systemctl -i poweroff",
     "icon": "/usr/share/nwg-bar/images/system-shutdown.svg"
   }
 ]

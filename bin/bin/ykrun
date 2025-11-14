@@ -1,2 +1,2 @@
 #!/bin/bash
-systemd-run --user --scope --slice=YukiLauncher.slice --unit="$1-$$".scope /bin/sh -c '"$@"' _ "$@"
+systemd-run --user --slice=YukiLauncher.slice --scope --unit="$1-$$".scope /bin/sh -c '"$@"' _ "$@"

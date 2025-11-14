@@ -24,4 +24,5 @@ alias ykls="systemctl --user status YukiLauncher.slice"
 alias sstat="systemctl --user status"
 alias susp="systemctl --user freeze"
 alias cont="systemctl --user thaw"
+alias cdmrbx="cd /run/user/$UID/mirrorbox"
 

@@ -37,6 +37,7 @@
         ],
         "load": {
             "interval": 1,
+            "min-length": 18,
             "format": "  {load1} {load5} {load15}"
         },
         "wlr/taskbar": {
@@ -131,9 +132,9 @@
         },
         "memory": {
             "interval": 5,
-            //"min-length": 16,
+            "min-length": 13,
             //"format": " {used} GiB {percentage}%"
-            "format": " {percentage}%"
+            "format": " {percentage}% S: {swapPercentage}%"
         },
         "temperature": {
             "thermal-zone": 1,
@@ -156,7 +157,7 @@
             },
             "format": "{icon} {capacity}%",
             "format-full":  "{icon} {capacity}%",
-            "format-charging": " {capacity}%",
+            "format-charging": " {capacity}%",
             "format-plugged": " {capacity}%",
             "format-alt": "{icon} {time}",
             // "format-good": "", // An empty format will hide the module
@@ -180,9 +181,9 @@
         "network#u": {
             "interval": 2,
             "min-length": 12,
-            "format": "↑ {bandwidthUpBytes}",
-            "format-wifi": "↑ {bandwidthUpBytes}",
-            "format-linked": "↑  {bandwidthUpBytes} ",
+            "format": " {bandwidthUpBytes}",
+            "format-wifi": " {bandwidthUpBytes}",
+            "format-linked": " {bandwidthUpBytes} ",
             "format-disconnected": "⚠ ",
             "tooltip-format": "{ifname} {ipaddr}/{cidr} via {gwaddr}",
             "format-alt": "{ipaddr}/{cidr}"
@@ -190,45 +191,45 @@
         "network#d": {
             "interval": 2,
             "min-length": 12,
-            "format": "↑ {bandwidthDownBytes}",
-            "format-wifi": "↓ {bandwidthDownBytes}",
-            "format-linked": "↓ {bandwidthDownBytes}",
+            "format": " {bandwidthDownBytes}",
+            "format-wifi": " {bandwidthDownBytes}",
+            "format-linked": " {bandwidthDownBytes}",
             "format-disconnected": "⚠ ",
             "tooltip-format": "{ifname} {ipaddr}/{cidr} via {gwaddr}",
             "format-alt": "{ipaddr}/{cidr}"
         },
         "wireplumber": {
             "format": "{volume}%",
-            "format": "{icon} {volume}% {format_source}",
+            "format": "{icon}{volume}% {format_source}",
             "format-muted": "x {volume}% {format_source}",
             "format-icons": {
-                "headphone": "",
-                "hands-free": "",
-                "headset": "",
-                "phone": "",
-                "portable": "",
-                "car": "",
-                "default": ["", "", ""]
+                "headphone": " ",
+                "hands-free": "F ",
+                "headset": "S ",
+                "phone": " ",
+                "portable": " ",
+                "car": " ",
+                "default": [" ", " ", " "]
             },
             "on-click": "patchance",
             "max-volume": 150,
             "scroll-step": 0.2
         },
         "pulseaudio": {
-            "format": "{icon} {volume}% {format_source}",
+            "format": "{icon}{volume}% {format_source}",
             "format-muted": "x {volume}% {format_source}",
             "format-bluetooth": "{icon} {volume}%",
             "format-bluetooth-muted": " {icon}",
             "format-source": "",
             "format-source-muted": "",
             "format-icons": {
-                "headphone": "",
-                "hands-free": "",
-                "headset": "",
-                "phone": "",
-                "portable": "",
-                "car": "",
-                "default": ["", "", ""]
+                "headphone": " ",
+                "hands-free": "F ",
+                "headset": "S ",
+                "phone": " ",
+                "portable": " ",
+                "car": " ",
+                "default": [" ", " ", " "]
             },
             "on-click": "pavucontrol-qt"
         },
@@ -292,13 +293,7 @@
             "clock#hm"
         ],
         "clock#hm": {
-            "format": "<span face=\"monospace\">{:%H:%M}</span>"
-        },
-        "clock#h": {
-            "format": "<span face=\"monospace\">{:%H}</span>"
-        },
-        "clock#m": {
-            "format": "<span face=\"monospace\">{:%M}</span>"
+            "format": "{:%H:%M}"
         }
     }
 

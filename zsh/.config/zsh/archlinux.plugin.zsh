@@ -31,7 +31,7 @@ function paclist() {
 }
 
 function pacbin() {
-  pacman -Ql $* | grep -E 'bin/.{1,}'
+  pacman -Ql $* | grep -E '/bin/.{1,}'
 }
 #function pacdisowned() {
 #  local tmp_dir db fs
