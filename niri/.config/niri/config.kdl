@@ -219,7 +219,7 @@ window-rule {
 // Float something
 window-rule {
     match title="^(图片查看器|.*记录)$" app-id="QQ"
-    match app-id="^(lxqt-.*|pavu.*|.*portal-lxqt|.*gwenview|wrapper-2.0|mpv)$"
+    match app-id="^(lxqt-.*|pavu.*|.*portal-lxqt|.*gwenview|swayimg|wrapper-2.0|mpv)$"
     open-floating true
 }
 // Block out from screen capture.

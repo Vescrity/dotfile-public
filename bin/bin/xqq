@@ -1,2 +1,2 @@
 #!/bin/bash
-qrun /home/vescrity/Programs/QQ/qq "$@"
+qrun env XDG_SESSION_TYPE=x11 /home/vescrity/Programs/QQ/qq "$@"

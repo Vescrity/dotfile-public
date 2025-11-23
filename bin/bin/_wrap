@@ -1,4 +1,4 @@
-
+# vim:set ft=sh:
 _bind() {
 	_bind_arg=$1
 	shift

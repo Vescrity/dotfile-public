@@ -18,6 +18,9 @@ if [ "$NO_LOOP" -eq 1 ]; then
     unset http_proxy
     unset https_proxy
 #    unshare --user --map-current-user --net --mount -- bwrap  "${args[@]}" "$@" &
+else
+    http_proxy=http://10.0.2.2:7890
+    https_proxy=http://10.0.2.2:7890
 fi
 unshare --user --map-current-user --net --mount -- bwrap  "${args[@]}" "$@" &
 #bwrap  "${args[@]}" "$@" &
