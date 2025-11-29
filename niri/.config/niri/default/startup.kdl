@@ -1,0 +1,22 @@
+// Modified from LXQt niri config v0.1.9
+// This config is in the KDL format: https://kdl.dev
+// "/-" comments out the following node.
+// Check the wiki for a full description of the configuration:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Overview
+
+// Add lines like this to spawn processes at startup.
+//spawn-sh-at-startup  "ykrun foot -s"    // ykrun is a script
+spawn-sh-at-startup  "systemctl --user restart xdg-desktop-portal"                // I think it is needed
+spawn-sh-at-startup  "wl-paste --watch cliphist store"
+//spawn-at-startup "nwg-panel"
+spawn-at-startup "xfce4-panel"
+spawn-at-startup "_361_start"
+spawn-at-startup "chwbg"
+//spawn-sh-at-startup "XDG_CURRENT_DESKTOP=wlroots lxqt-panel"                   // Start LXQt Panel
+//spawn-sh-at-startup "XDG_CURRENT_DESKTOP=wlroots pcmanfm-qt --desktop"
+//spawn-at-startup "kwalletd6"
+spawn-at-startup "wsst"                      // script for wl-sunset, as it contains my location so not shown.
+spawn-at-startup "lxqt-policykit-agent"
+spawn-at-startup "avizo-service"             // nice widget for volumn/brightness change
+//spawn-at-startup "swaync"  //systemd
+//spawn-at-startup  "waybar" //with systemd instead

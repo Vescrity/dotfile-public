@@ -2,15 +2,15 @@
 
 # 获取传递的数字参数
 number=$1
-
+CPORT=53179
 # 根据数字参数执行不同的命令
 case $number in
     0)
         # 执行命令0
-        curl -X PUT -d '{"name":"DIRECT"}' "127.0.0.1:9090/proxies/p_select"
+        curl -X PUT -d '{"name":"DIRECT"}' "127.0.0.1:$CPORT/proxies/p_select"
         ;;
     *)
         # 执行命令1
-        curl -X PUT -d \{\"name\"\:\"h$number\"\} "127.0.0.1:9090/proxies/p_select"
+        curl -X PUT -d \{\"name\"\:\"h$number\"\} "127.0.0.1:$CPORT/proxies/p_select"
         ;;
 esac

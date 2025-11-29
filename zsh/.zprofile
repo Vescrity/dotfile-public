@@ -6,13 +6,13 @@
 
 # Use lxqt (no reason)
 export XDG_MENU_PREFIX=lxqt-
-export PATH="/home/$USER/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 # My scripts path
-export PATH="/home/$USER/bin:$PATH"
-export PATH="/home/$USER/bin/npsudo:$PATH"
+export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/bin/npsudo:$PATH"
 
 # Create my tmp dirs
-USER_TEMP_DIR="/tmp/$USER"
+USER_TEMP_DIR="/tmp/vescrity"
 
 mkdir -p $USER_TEMP_DIR/cliphist
 mkdir -p $USER_TEMP_DIR/Trash

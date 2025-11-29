@@ -26,10 +26,10 @@ function pacclr() {
   sudo pacman -Sc
   sudo pacman -Rns $(pacman -Qtdq)
 }
-function paclist() {
-  pacman -Qqe | xargs -I{} -P0 --no-run-if-empty pacman -Qs --color=auto "^{}\$"
-}
-
+#function paclist() {
+#  pacman -Qqe | xargs -I{} -P0 --no-run-if-empty pacman -Qs --color=auto "^{}\$"
+#}
+#
 function pacbin() {
   pacman -Ql $* | grep -E '/bin/.{1,}'
 }

@@ -1,0 +1,31 @@
+
+window-rule {
+    // radius for windows
+    geometry-corner-radius 3
+    clip-to-geometry true
+    // Make all window not draw border with background
+    draw-border-with-background false
+}
+// Float something
+window-rule {
+    match title="^(图片查看器|.*记录)$" app-id="QQ"
+    match app-id="^(lxqt-.*|pavu.*|.*portal-lxqt|.*gwenview|swayimg|wrapper-2.0|mpv)$"
+    open-floating true
+}
+// Block out from screen capture.
+window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+    match app-id=r#"^QQ$"#
+
+    //block-out-from "screen-capture"
+
+    // Use this instead if you want them visible on third-party screenshot tools.
+    // block-out-from "screencast"
+}
+// low opacity for unfocused
+/-window-rule {
+    match is-focused=false
+    opacity 0.95
+}
+

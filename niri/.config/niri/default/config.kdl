@@ -1,0 +1,49 @@
+// Modified from LXQt niri config v0.1.9
+// This config is in the KDL format: https://kdl.dev
+// "/-" comments out the following node.
+// Check the wiki for a full description of the configuration:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Overview
+
+debug {
+    strict-new-window-focus-policy
+}
+// Uncomment this line to ask the clients to omit their client-side decorations if possible.
+// If the client will specifically ask for CSD, the request will be honored.
+// Additionally, clients will be informed that they are tiled, removing some rounded corners.
+prefer-no-csd
+gestures {
+    dnd-edge-view-scroll {
+        trigger-width 30
+        delay-ms 100
+        max-speed 1500
+    }
+
+    dnd-edge-workspace-switch {
+        trigger-height 50
+        delay-ms 100
+        max-speed 1500
+    }
+
+    hot-corners {
+        off
+    }
+}
+overview {
+    zoom 0.5
+    //backdrop-color "#000000"
+}
+// You can change the path where screenshots are saved.
+// A ~ at the front will be expanded to the home directory.
+// The path is formatted with strftime(3) to give you the screenshot date and time.
+screenshot-path "~/tmp/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"               // write it to tmpfs ( ~/tmp -> /tmp/$USER )
+// You can also set this to null to disable saving screenshots to disk.
+// screenshot-path null
+
+include "startup.kdl"
+include "env.kdl"
+include "rules.kdl"
+include "input.kdl"
+include "output.kdl"
+include "binds.kdl"
+include "animations.kdl"
+include "layout.kdl"

@@ -1,0 +1,129 @@
+// Settings that influence how windows are positioned and sized.
+// Find more information on the wiki:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
+
+layout {
+    empty-workspace-above-first
+    // Blur: can be used with a forked niri, current buggy.
+    //blur{
+    //    on
+    //    radius 3
+    //    passes 1
+    //    noise 0.1
+    //}
+    tab-indicator {
+        //off
+        //hide-when-single-tab
+        //place-within-column
+        gap 4
+        width 10
+        length total-proportion=0.8
+        position "top"
+        gaps-between-tabs 10
+        corner-radius 8
+        active-color "#ff4ba6"
+        inactive-color "#cccccc"
+        //urgent-color "blue"
+        //active-gradient from="#ee7c78" to="#ea76cb" angle=5 in="oklch longer hue"
+        //active-gradient from="#a0f80f" to="#ff0daf" angle=0
+        //inactive-gradient from="#50505080" to="#80808080" angle=0 
+        urgent-gradient from="#800" to="#a33" angle=45
+    }
+    background-color "#281E2600"
+    shadow {
+         on 
+         softness 3
+         spread 3
+         offset x=4 y=4
+         draw-behind-window false
+         color "#000000a0"
+     }
+    gaps 30 
+    default-column-width { proportion 0.4; }
+    // Struts shrink the area occupied by windows, similarly to layer-shell panels.
+    // You can think of them as a kind of outer gaps. They are set in logical pixels.
+    // Left and right struts will cause the next window to the side to always be visible.
+    // Top and bottom struts will simply add outer gaps in addition to the area occupied by
+    // layer-shell panels and regular gaps.
+    struts {
+         left       8 
+         right      8 
+         top        -3
+         bottom     -1
+    }
+
+    // When to center a column when changing focus, options are:
+    // - "never", default behavior, focusing an off-screen column will keep at the left
+    //   or right edge of the screen.
+    // - "always", the focused column will always be centered.
+    // - "on-overflow", focusing a column will center it if it doesn't fit
+    //   together with the previously focused column.
+    center-focused-column "never"
+
+    // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
+    preset-column-widths {
+        proportion 0.2
+        proportion 0.333333333
+        proportion 0.4
+        proportion 0.5
+        proportion 0.6
+        proportion 0.666666667
+        proportion 0.8
+
+        // Fixed sets the width in logical pixels exactly.
+        // fixed 1920
+    }
+    // preset-window-heights { }
+
+
+
+    // By default focus ring and border are rendered as a solid background rectangle
+    // behind windows. That is, they will show up through semitransparent windows.
+    // This is because windows using client-side decorations can have an arbitrary shape.
+    //
+    // If you don't like that, you should uncomment `prefer-no-csd` below.
+    // Niri will draw focus ring and border *around* windows that agree to omit their
+    // client-side decorations.
+    //
+    // Alternatively, you can override it with a window rule called
+    // `draw-border-with-background`.
+
+    // You can change how the focus ring looks.
+    border {
+        on
+        width 2
+        // Colors can be set in a variety of ways:
+        // - CSS named colors: "red"
+        // - RGB hex: "#rgb", "#rgba", "#rrggbb", "#rrggbbaa"
+        // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
+
+        // Color of the ring on the active monitor.
+        active-color "#ffaaf5"
+        //active-gradient from="#cf7fcf" to="#cf7fcf" angle=35 in="oklch longer hue"
+        //active-gradient from="#fc5acf" to="#74f8ff" angle=130 in="srgb-linear" //relative-to="workspace-view"
+        //inactive-gradient from="#fc5acf50" to="#74f8ff50" angle=130 in="srgb-linear" //relative-to="workspace-view"
+        // Color of the ring on inactive monitors.
+        inactive-color "#606090a0"
+
+        //active-gradient from="#80c8ff" to="#bbddff" angle=45
+        // To do that, set relative-to="workspace-view".
+        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+    }
+    focus-ring {
+        off
+        //width 3
+        //active-color "#ffc87f"
+        //inactive-color "#505050"
+
+        // active-gradient from="#ffbb66" to="#ffc880" angle=45 relative-to="workspace-view"
+        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+    }
+    insert-hint {
+        // off
+        //color "#ffc87f80"
+        //gradient from="#aa66ffff" to="#ff66aaff" angle=45 in="srgb-linear" relative-to="workspace-view"
+        gradient from="#ffbb6680" to="#ffc88080" angle=45 relative-to="workspace-view"
+    }
+}
+
+

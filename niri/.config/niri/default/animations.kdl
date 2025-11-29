@@ -1,0 +1,148 @@
+
+// Animation settings.
+// The wiki explains how to configure individual animations:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
+animations {
+    // Uncomment to turn off all animations.
+    //off
+    // Slow down all animations by this factor. Values below 1 speed them up instead.
+    //slowdown 1.0
+    window-open {
+        duration-ms 150
+        //curve "linear"
+        //spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+        custom-shader r"
+        float map(float value, float min1, float max1, float min2, float max2) {
+            return min2 + (value - min1) * (max2 - min2) / (max1 - min1);
+        }
+        vec4 fold(vec3 coords_geo, vec3 size_geo) {
+            float cur = niri_clamped_progress;
+            if (coords_geo.x > cur) { return vec4(0.0); }
+            vec3 coord = vec3(map(coords_geo.x,0.0, cur, 0.0, 1.0), coords_geo.y, coords_geo.z);
+            //vec3 coord = vec3(map(coords_geo.x,0.0, cur, 0.0, 1.0), map(coords_geo.y,0.0,cur,0.0,1.0), coords_geo.z);
+            return texture2D(niri_tex, (niri_geo_to_tex * coord).st);
+        }
+        vec4 open_color(vec3 coords_geo, vec3 size_geo) {
+            // You can pick one of the example functions or write your own.
+            //return fall_and_rotate(coords_geo, size_geo);
+            return fold(coords_geo, size_geo);
+        }
+        "
+    }
+    window-close {
+        //duration-ms 150
+        //curve "linear"
+        //spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+        custom-shader r"
+        float map(float value, float min1, float max1, float min2, float max2) {
+            return min2 + (value - min1) * (max2 - min2) / (max1 - min1);
+        }
+        vec4 fold(vec3 coords_geo, vec3 size_geo) {
+            float cur = 1.0-niri_clamped_progress;
+            if (coords_geo.x > cur) { return vec4(0.0); }
+            vec3 coord = vec3(map(coords_geo.x,0.0, cur, 0.0, 1.0), coords_geo.y, coords_geo.z);
+            //vec3 coord = vec3(map(coords_geo.x,0.0, cur, 0.0, 1.0), map(coords_geo.y,0.0,cur,0.0,1.0), coords_geo.z);
+            return texture2D(niri_tex, (niri_geo_to_tex * coord).st);
+        }
+        int mod(int x, int y) {
+            return x - (y * (x / y)); // 手动计算取模
+        }
+        vec4 invert(vec3 coords_geo, vec3 size_geo) {
+
+            // 获取当前颜色（根据实际情况获取纹理颜色）
+            vec4 color = texture2D(niri_tex, coords_geo.xy); // 包含 RGBA
+
+            // 计算反转的亮度
+            float progress = float(mod(int(niri_clamped_progress*10.0),2) );
+
+            // 反转颜色的亮度
+            vec3 inverted_color = mix(color.rgb, vec3(1.0) - color.rgb, 1.0);
+            float invr = inverted_color.g+inverted_color.b;
+            float invg = inverted_color.r+inverted_color.b;
+            float invb = inverted_color.r+inverted_color.g;
+
+            // 返回新的颜色，保持原有的 alpha 值
+            vec4 invt = vec4(invr,invg,invb, color.a)*color.a*0.5; // 保持原有的 alpha
+            progress = 1.0-niri_clamped_progress;
+            return mix(invt, color, progress);
+        }
+        vec4 fall_and_rotate(vec3 coords_geo, vec3 size_geo) {
+            // For this shader, set animation curve to linear for best results.
+            vec2 pivot_point_factor = vec2(0.5, 1.0);
+
+            // Simulate an accelerated fall: square the (linear) progress.
+            float progress = niri_clamped_progress * niri_clamped_progress;
+            float lprogress = niri_clamped_progress;
+            float scale = 1.0 + lprogress * 0.2;
+
+            // Get our rotation pivot point coordinates at the bottom center of the window.
+            vec2 coords = (coords_geo.xy - pivot_point_factor) * size_geo.xy;
+
+            // Move the window down to simulate a fall.
+            coords.y -= progress * 1200.0;
+            
+            // Randomize rotation direction and maximum angle.
+            float random = (niri_random_seed - 0.5) / 2.0;
+            random = sign(random) - random;
+            float max_angle = 1.3 * random;
+
+            // Rotate the window around our pivot point.
+            float angle = progress * max_angle;
+            mat2 rotate = mat2(cos(angle), -sin(angle), sin(angle), cos(angle));
+            coords = rotate * coords;
+
+            // Transform the coordinates back.
+            coords_geo = vec3(coords / size_geo.xy + pivot_point_factor, 1.0);
+            coords_geo = vec3((coords_geo.xy - vec2(0.5)) / scale + vec2(0.5), 1.0);
+
+            // Sample the window texture.
+            vec3 coords_tex = niri_geo_to_tex * coords_geo;
+            vec4 color = texture2D(niri_tex, coords_tex.st);
+
+            // Multiply by alpha to fade out.
+            return color * (1.0 - niri_clamped_progress*0.2);
+        }
+        vec4 close_color(vec3 coords_geo, vec3 size_geo) {
+            // You can pick one of the example functions or write your own.
+            //return fall_and_rotate(coords_geo, size_geo);
+            return fold(coords_geo, size_geo);
+            //return split_and_fade(coords_geo, size_geo);
+            //return invert(coords_geo, size_geo);
+        }
+
+        "
+    }
+
+
+//    workspace-switch {
+//        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+//    }
+//     horizontal-view-movement {
+//        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+//    }
+//
+//    window-movement {
+//        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+//    }
+//
+//    window-resize {
+//        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+//    }
+//
+//    config-notification-open-close {
+//        spring damping-ratio=0.6 stiffness=1000 epsilon=0.001
+//    }
+//
+//    exit-confirmation-open-close {
+//        spring damping-ratio=0.6 stiffness=500 epsilon=0.01
+//    }
+//
+//    screenshot-ui-open {
+//        duration-ms 200
+//        curve "ease-out-quad"
+//    }
+//
+//    overview-open-close {
+//        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+//    }
+}
