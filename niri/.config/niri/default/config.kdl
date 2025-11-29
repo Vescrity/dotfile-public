@@ -4,6 +4,13 @@
 // Check the wiki for a full description of the configuration:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Overview
 
+// You can change the path where screenshots are saved.
+// A ~ at the front will be expanded to the home directory.
+// The path is formatted with strftime(3) to give you the screenshot date and time.
+screenshot-path "~/tmp/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"               // write it to tmpfs ( ~/tmp -> /tmp/$USER )
+// You can also set this to null to disable saving screenshots to disk.
+// screenshot-path null
+
 debug {
     strict-new-window-focus-policy
 }
@@ -17,13 +24,11 @@ gestures {
         delay-ms 100
         max-speed 1500
     }
-
     dnd-edge-workspace-switch {
         trigger-height 50
         delay-ms 100
         max-speed 1500
     }
-
     hot-corners {
         off
     }
@@ -32,12 +37,6 @@ overview {
     zoom 0.5
     //backdrop-color "#000000"
 }
-// You can change the path where screenshots are saved.
-// A ~ at the front will be expanded to the home directory.
-// The path is formatted with strftime(3) to give you the screenshot date and time.
-screenshot-path "~/tmp/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"               // write it to tmpfs ( ~/tmp -> /tmp/$USER )
-// You can also set this to null to disable saving screenshots to disk.
-// screenshot-path null
 
 include "startup.kdl"
 include "env.kdl"

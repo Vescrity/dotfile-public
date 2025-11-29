@@ -5,7 +5,9 @@
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
 output "eDP-1" {
-    background-color "#0000"
+    layout {
+        background-color "#0000"
+    }
     // Uncomment this line to disable this output.
     //off
 

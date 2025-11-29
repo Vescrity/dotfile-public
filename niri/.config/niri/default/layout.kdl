@@ -91,7 +91,7 @@ layout {
     // You can change how the focus ring looks.
     border {
         on
-        width 2
+        width 1
         // Colors can be set in a variety of ways:
         // - CSS named colors: "red"
         // - RGB hex: "#rgb", "#rgba", "#rrggbb", "#rrggbbaa"

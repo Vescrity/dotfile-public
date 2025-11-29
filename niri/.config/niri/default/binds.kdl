@@ -7,23 +7,19 @@ recent-windows {
     // Commit windows to the recent windows list as soon as they're focused,
     // with no debounce delay.
     debounce-ms 750
-
     open-delay-ms 0
-
     highlight {
         active-color "#999999ff"
         urgent-color "#ff9999ff"
         padding 30
         corner-radius 10
     }
-
     previews {
         max-height 480
         max-scale 0.5
     }
 
     binds {
-
         Mod+Tab         { next-window; }
         Mod+Shift+Tab   { previous-window; }
         Mod+grave       { next-window     filter="app-id"; }
@@ -251,6 +247,7 @@ binds {
     Mod+Ctrl+R       { switch-preset-window-height; }
     Mod+Ctrl+Shift+R { reset-window-height; }
     Mod+Shift+F { maximize-column; }
+    Mod+Alt+F { maximize-window-to-edges; }
     Mod+Ctrl+F { toggle-windowed-fullscreen; }
     Mod+F { fullscreen-window; }
     Mod+W { center-column; }
