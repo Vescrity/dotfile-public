@@ -1,2 +1,3 @@
 #!/bin/sh
-nohup clash -d ~/clash > /dev/null &
+#nohup mihomo -d ~/clash > /dev/null &
+nohup mihomo > /dev/null &
