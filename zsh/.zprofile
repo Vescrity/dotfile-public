@@ -28,12 +28,14 @@ mkdir -p $USER_TEMP_DIR/Trash
 mkdir -p $USER_TEMP_DIR/Downloads
 mkdir -p $USER_TEMP_DIR/mozilla
 mkdir -p $USER_TEMP_DIR/Jiemeng
+mkdir -p $USER_TEMP_DIR/NPC/logs
+mkdir -p $USER_TEMP_DIR/NEMU
 
 
 # Maybe use systemd instead, in future.
-zrun_pid=$(pidof mihomo)
-if [ -z "$zrun_pid" ]; then
-	clash_start > /dev/null 2>&1 
-fi
+#zrun_pid=$(pidof mihomo)
+#if [ -z "$zrun_pid" ]; then
+#	clash_start > /dev/null 2>&1 
+#fi
 
 

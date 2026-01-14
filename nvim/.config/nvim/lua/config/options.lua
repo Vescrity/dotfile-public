@@ -68,6 +68,7 @@ opt.spell = false
 opt.tabstop = 4 -- Number of spaces tabs count for
 opt.shiftwidth = 4 -- Size of an indent
 opt.undofile = false
+opt.expandtab = false
 opt.wrap = true -- Enable line wrap
 opt.fileencodings = {
   "ucs-bom",      -- Unicode 字节顺序标记
@@ -83,7 +84,6 @@ opt.conceallevel = 0 -- Hide * markup for bold and italic, but not markers with 
 opt.completeopt = "menu,menuone,noselect"
 opt.confirm = true -- Confirm to save changes before exiting modified buffer
 opt.cursorline = true -- Enable highlighting of the current line
-opt.expandtab = true -- Use spaces instead of tabs
 opt.fillchars = {
   foldopen = "",
   foldclose = "",

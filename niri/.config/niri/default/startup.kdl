@@ -1,11 +1,6 @@
-// Modified from LXQt niri config v0.1.9
-// This config is in the KDL format: https://kdl.dev
-// "/-" comments out the following node.
-// Check the wiki for a full description of the configuration:
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Overview
-
 // Add lines like this to spawn processes at startup.
 //spawn-sh-at-startup  "ykrun foot -s"    // ykrun is a script
+spawn-at-startup "swaylock"
 spawn-sh-at-startup  "systemctl --user restart xdg-desktop-portal"                // I think it is needed
 spawn-sh-at-startup  "wl-paste --watch cliphist store"
 //spawn-at-startup "nwg-panel"

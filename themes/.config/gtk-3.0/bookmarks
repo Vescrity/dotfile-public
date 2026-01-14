@@ -11,3 +11,4 @@ file:///home/vescrity/Music/Music_Ralate Music_Ralate
 file:///home/vescrity/.sounds .sounds
 sftp://u0_a2@192.168.0.201:8022/data/data/com.termux/files/home/s0 0@Termux_home
 file:///run/user/1000/38e731d6_441a_42b4_82f0_39e91af0b9ca/storage/emulated/0 0@kcnct
+sftp://vescrity@172.26.0.101/ vla

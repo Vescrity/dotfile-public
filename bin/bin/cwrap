@@ -1,6 +1,6 @@
 #!/bin/bash
 
-systemd-run --user -t --quiet --property MemoryMax=100200300 --property CPUQuota=30% --wait -- \
+systemd-run --user -t --quiet --property MemorySwapMax=0 --property MemoryMax=100100100 --property CPUQuota=30% --wait -- \
     bwrap \
     --uid 0 \
     --gid 0 \

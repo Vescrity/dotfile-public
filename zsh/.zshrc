@@ -40,10 +40,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
 
-precmd() {
-    print -Pn "\e]133;A\e\\"
-}
-
 
 setopt HIST_IGNORE_ALL_DUPS
 

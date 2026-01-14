@@ -6,7 +6,7 @@ window {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0,0,0,1);
     font-family: 'Comic Mono';
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7)
 }

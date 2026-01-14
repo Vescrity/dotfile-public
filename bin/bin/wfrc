@@ -1,3 +1,4 @@
+#!/bin/bash
 # By default it can control where the file will be stored
 #WFRC_FOLDER="/tmp"
 # By default it can control the title of the notification and the file's name
@@ -12,6 +13,7 @@
 #WFRC_NOTIFY=0
 # Your audio device
 #WFRC_AUDIO_DEV="$(LANG=C pactl get-default-sink).monitor"
+#WFRC_AUDIO_DEV="$(LANG=C wpctl inspect @DEFAULT_AUDIO_SINK@ | grep -oP 'node\.name = "\K[^"]+').monitor"
 #WFRC_FILE_NAME="$WFRC_FOLDER/$SCRIPT_NAME-$(date -u +%Y-%m-%dT%H-%M-%S).mp4"
 # If no wayland, the error msg
 #WFRC_NOWAYLAND="No WAYLAND_DISPLAY found. Did you run me on a wayland compositor?"

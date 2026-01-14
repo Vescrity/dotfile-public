@@ -6,7 +6,8 @@ unset WAYLAND_DISPLAY
 wait_time=0.1
 
 while true; do
-    if xset q > /dev/null 2>&1; then
+#    if xset q > /dev/null 2>&1; then
+    if xdpyinfo > /dev/null 2>&1; then
         echo "X11 server is available."
         break
     else

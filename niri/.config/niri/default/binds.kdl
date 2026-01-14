@@ -43,7 +43,7 @@ binds {
     Mod+D hotkey-overlay-title="wmenu"{ spawn "wmenurun"; }
 
     Mod+Shift+D { spawn "fuzzel"; }
-    Mod+Ctrl+D { spawn "nwg-drawer"; }
+    //Mod+Ctrl+D { spawn "nwg-drawer"; }
     Mod+C { spawn "nwg-clipman"; }
     Mod+Shift+C { spawn-sh "systemctl --user thaw YukiLauncher.slice"; }
     Mod+Ctrl+C { spawn-sh "xclip -o -selection clipboard | wl-copy"; }
@@ -72,13 +72,14 @@ binds {
 
     // Toggle waybar
     Mod+G hotkey-overlay-title="Toggle waybar"{ spawn-sh "pkill -SIGUSR1 waybar" ; } 
-    Mod+Shift+G hotkey-overlay-title="Toggle nwg-panel"{ spawn-sh "pkill -64 nwg-panel" ; } 
+    //Mod+Shift+G hotkey-overlay-title="Toggle nwg-panel"{ spawn-sh "pkill -64 nwg-panel" ; } 
 
     Mod+P hotkey-overlay-title="Show focused"{ spawn-sh "notify-send -i hook-notifier Niri \"$(niri msg focused-window)\"" ; }
     // Edit the picture in the clipboard
     Mod+Ctrl+P hotkey-overlay-title="Edit copied picture (swappy)"{ spawn-sh "wl-paste | swappy -f -" ; }
     Mod+Alt+P hotkey-overlay-title="Pick color"{ spawn "hyprpicker" "-a" ; }
     Mod+Shift+semicolon hotkey-overlay-title="Lock"{ spawn "wayl" ; }
+    Mod+Alt+semicolon { spawn "swaylock" ; }
     // Script to recored screen, see github: vescrity/wfrc
     Mod+S hotkey-overlay-title="Start/Stop Screen Record (wfrc)"{ spawn "wfrc" ; }
     // Script to look up selected/copied word using sdcv
